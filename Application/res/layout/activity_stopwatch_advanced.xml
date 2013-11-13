@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <!-- android:weightSum="1" -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout_chrono_full"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/time_view_table_layout"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout_chrono_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/chronometer_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/simple_chronometer"
+                android:textSize="25dp"
+                android:typeface="monospace" />
+
+            <TableRow
+                android:id="@+id/chronometer_tableRow"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/hh_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/init_time_counter_value"
+                    android:textColor="#33FF33"
+                    android:textSize="40dp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/colon_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colon_chrono"
+                    android:textSize="40dp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/mm_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/init_time_counter_value"
+                    android:textColor="#33FF33"
+                    android:textSize="40dp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/colon_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colon_chrono"
+                    android:textSize="40dp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/ss_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/init_time_counter_value"
+                    android:textColor="#33FF33"
+                    android:textSize="40dp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/colon_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/colon_chrono"
+                    android:textSize="40dp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/msms_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/init_time_ms_counter_value"
+                    android:textColor="#FF3333"
+                    android:textSize="20dp"
+                    android:typeface="monospace" />
+            </TableRow>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_chrono_buttons_level_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp" >
+
+            <Button
+                android:id="@+id/button_catch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="@string/button_str_catch"
+                android:typeface="monospace" />
+
+            <Button
+                android:id="@+id/button_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:text="@string/button_str_start"
+                android:typeface="monospace" />
+
+            <Button
+                android:id="@+id/button_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="@string/button_str_reset"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/linearLayout_chrono_buttons_level_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_horizontal"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp" >
+
+            <Button
+                android:id="@+id/button_stop"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/button_str_stop"
+                android:typeface="monospace" />
+
+            <Button
+                android:id="@+id/button_clear"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/button_str_clear"
+                android:typeface="monospace" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/log_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/current_ms_text"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/current_ms_txt" />
+
+            <TextView
+                android:id="@+id/current_ms_long"
+                android:paddingLeft="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current_ms_long"
+                android:textColorHighlight="#00FF00" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/time_snapshots_scroll_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="5dp" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/result_text_view_1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#333333"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_7"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <!-- more TextViews -->
+
+                <TextView
+                    android:id="@+id/result_text_view_8"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_9"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_001_str"
+                    android:background="#333333"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <!--
+                <TextView
+                    android:id="@+id/result_text_view_10"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#222222"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_11"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_12"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#222222"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_13"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    
+                    <TextView
+                    android:id="@+id/result_text_view_14"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#222222"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/result_text_view_15"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_001_str"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                -->
+                <!-- more TextViews -->
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/time_view_table_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/digitalClock1"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <TableRow
+            android:id="@+id/time_from_activity_start_ms_txt_tableRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#223322"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/time_from_activity_start_ms_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_from_activity_start_ms_txt" />
+
+            <TextView
+                android:id="@+id/time_from_activity_start_ms_long"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingLeft="5dp"
+                android:text="@string/current_ms_long_short" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/time_from_activity_start_formatted_txt_tableRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#332233"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/time_from_activity_start_formatted_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_from_activity_start_formatted_txt" />
+
+            <TextView
+                android:id="@+id/time_from_activity_start_formatted_long"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingLeft="5dp"
+                android:text="@string/current_ms_long_short" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/time_from_boot_ms_txt_tableRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#223322"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/time_from_boot_ms_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_from_boot_ms_txt" />
+
+            <TextView
+                android:id="@+id/time_from_boot_ms_long"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingLeft="5dp"
+                android:text="@string/current_ms_long_short" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/time_from_boot_formatted_txt_tableRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#332233"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/time_from_boot_formatted_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_from_boot_formatted_txt" />
+
+            <TextView
+                android:id="@+id/time_from_boot_formatted_long"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingLeft="5dp"
+                android:text="@string/current_ms_long_short" />
+        </TableRow>
+    </TableLayout>
+
+    <DigitalClock
+        android:id="@+id/digitalClock1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/simple_digital_clock"
+        android:textColor="#33FF33" />
+
+    <TextView
+        android:id="@+id/test_003_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/digitalClock1"
+        android:gravity="center"
+        android:text="@string/stopwatch_short_str" />
+
+</RelativeLayout>

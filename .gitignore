@@ -27,3 +27,9 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+#eclipse .metadata/ folder
+.metadata/
+
+WikiContributionMaterials/
+

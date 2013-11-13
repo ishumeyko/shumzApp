@@ -1,0 +1,148 @@
+<resources>
+
+    <!-- Common resources -->
+
+    <string name="app_name">Application</string>
+    <string name="str_action_settings">Settings</string>
+    <!-- <string name="title_activity_main">Me Hard App</string> -->
+    <!--  -->
+
+
+    <!-- Splash Logo Activity -->
+
+    <string name="splash_property_str_1">Property of</string>
+    <string name="splash_property_str_2">ShumzSoft Inc.</string>
+    <!--  -->
+    <!-- Main Activity -->
+
+    <string name="str_hello_team">Good day, Team!..</string>
+    <string name="str_please_select">Please select the tool:</string>
+    <string name="str_button_alarm">Alarm</string>
+    <string name="str_button_stopwatch">StopWatch</string>
+    <string name="str_button_timer">Timer</string>
+
+    <!-- Menu of Main Activity -->
+
+    <string name="str_menu_main_help">Help</string>
+    <string name="str_menu_main_about">About</string>
+
+    <!-- Help Menu of Main Activity -->
+
+    <string name="str_menu_main_app_help">Help:</string>
+    <string name="str_menu_main_app_help_content_old">This is a simple \n \'Hello World\' \n application that I have created using my small knowledge about programming. \n Also, I used three books, a lot of Internet resources and five or six HOWTO tutorials. Maybe this application is not the most useful in the world, but it shows basics that can be used in android programs. \n Before I begun to write this program, I did not know anything about Java, XML or developing for android at all. So, in this application are present five java classes, and six layouts, three sounds, also there are three buttons: two in main menu and one in the text generator (actually info is not true, there were significant changes ;-) ). \n Well, you can press all button that you see.</string>
+    <string name="str_menu_main_app_help_content_000">Hello User!</string>
+    <string name="str_menu_main_app_help_content_001">This is a simple \n \'Hello World\' \n application, which was created just for fun.</string>
+    <string name="str_menu_main_app_help_content_002">There are following tools available in this app:</string>
+    <string name="str_menu_main_app_help_content_003"> -> Alarm;</string>
+    <string name="str_menu_main_app_help_content_004"> -> StopWatch;</string>
+    <string name="str_menu_main_app_help_content_005"> -> Timer;</string>
+    <string name="str_menu_main_app_help_content_006">enjoy!..</string>
+
+    <!-- About Menu of Main Activity -->
+    <string name="str_menu_main_about_app_name">About Application</string>
+    <string name="str_menu_main_about_app_version">Version: 3.0</string>
+    <string name="str_menu_main_about_app_copyright">Property of ShumzSoft Inc.</string>
+    <string name="str_menu_main_about_app_contacts">Contacts:</string>
+    <string name="str_menu_main_about_app_contacts_phone">Phone: +38(096) 869&#8211;20&#8211;99</string>
+    <string name="str_menu_main_about_app_contacts_skype">Skype: shum_z</string>
+    <string name="str_menu_main_about_app_contacts_email">E-mail: ishumeyko@cogniance.com</string>
+    <!--  -->
+    <!-- Timer Activity -->
+
+    <string name="str_timer_button_start_stop">Start</string>
+    <string name="str_timer_button_pause_resume">Pause</string>
+    <string name="str_timer_current_hours">00</string>
+    <string name="str_timer_delimiter">:</string>
+    <string name="str_timer_current_minutes">00</string>
+
+    <!-- Timer End of time Dialog Activity -->
+    <string name="str_timer_endof_time_time_is_up_button">Dismiss</string>
+    <string name="str_timer_endof_time_time_is_up_str">Time is up!</string>
+
+    <!--  -->
+
+
+    <!-- Info Activity -->
+
+    <string name="stopwatch_advanced_button_str">StopWatch</string>
+    <string name="about_me_hope_str">I hope it is enough good program to show my skills</string>
+    <string name="here_some_info_1_str">Here is some info:</string>
+    <string name="here_some_info_2_str">Here is some info too:</string>
+    <string name="tutorial_1_activity_about">Here some information about all of this. \n \n Version 1.0. This program was created with the help of Eclipse, AVD tool, Android SDK, gallons of coffee and tons of cookies. \n Believe me, it was really hard to create this application without any experience in Java coding or android development at all.</string>
+    <string name="tutorial_2_activity_about">Here some information about Version 2.8.3. \n \n Now you are looking at the second generation of \'Da Me Hard App\'.  The main change of it - is that I\'ve added here a simple Stopwatch activity It was coded by me, except Handler\'s code, that I\'ve used from one example found in Internet. I still have no Idea how this handler works - it to abstract for me now&#8230; :-(\n The idea of stopwatch creation, and addition it to a functionality of My Hard Application (Da Me Hard App) is owned by one good man ;-)\n\n And maybe this stopwatch will be useful for you in a real life&#8230;</string>
+
+    <!-- Here will be info about second version of application. and its main functionality - StopWatch -->
+
+
+    <!-- Menu of Main Activity -->
+
+
+    <!-- Menu of StopWatch Activity -->
+
+
+    <!-- Menu of SW Quick Start -->
+    <string name="what_it_can_do_sw_qs_str">What it is actually:</string>
+    <string name="help_string_sw_qs">This is a Stopwatch that can be used for measuring anything you need to measure (KO).\n 1. Time output: it has \'Hh:Mm:Ss:msms\' format to show time.\n 2. Current time: biggest digits. hours, minutes, seconds - green color; millisecond - red color.\n 3. Buttons:\n <b>Catch</b> - catch current time snapshot.\n <b>Start</b> - begin/resume time measurement cycle.\n <b>Reset</b> - set current time measurement cycle to zero.\n <b>Stop</b> - stop/pause current time cycle.\n <b>Clear</b> - clear all cycles and measures.\n \n \n <i>Please, note that there certain buttons are clickable while you\'re performing your time measurements. For example if</i><b>Start</b><i>button is pressed, you cannot press</i><b>Clear</b><i>button till</i><b>Stop</b><i>will be clicked.</i></string>
+    <string name="what_it_can_do_sw_qs_further_info_str">For further info look at the <b>Advanced SW Help</b> page</string>
+
+    <!-- Menu of SW Advanced Help -->
+    <string name="what_it_can_do_sw_ad_str"><b>More information&#8230;</b></string>
+    <string name="help_string_sw_ad_part_1"><b>Here is more advanced help info and some tips and tricks&#8230;</b>\n \n As you see, except buttons and current time cycle there are more objects:\n <b>Current time check</b> - it is the last time notch, caught by pressing <b>\'Catch\'</b> button.\n <b>\'&#8211;&#8211;:&#8211;&#8211;:&#8211;&#8211;:&#8211;&#8211;&#8211;\'</b> - there are nine fields, where your time snapshots can be stored.\n\n </string>
+    <string name="help_string_sw_ad_part_2"><b>\'Time from SW&#8230;\'</b> table:\n</string>
+    <string name="help_string_sw_ad_part_3"><b>Time from SW start in ms:</b> means time elapsed from launching actually \'stopwatch\' activity in milliseconds.\n <b>Time from SW start formatted: </b> means the same, but now it is in \'Hh:Mm:Ss:msms\' format.\n <b>Time elapsed from boot in ms: </b> means time elapsed from booting your device in milliseconds. \n <b>Time elapsed from boot  formatted: </b>  means, again, the same, but now it is in \'Hh:Mm:Ss:msms\' format.\n At the end, there is a digital clock, that shows current system time.\n\n </string>
+    <string name="help_string_sw_ad_part_4"><b>So, some tips and tricks:</b>\n </string>
+    <string name="help_string_sw_ad_part_5">After you starting measure cycle you can catch time snapshots. These snapshots are stored in a specific format that can be useful in certain situations.\n 1st digit - number of a field\n 2nd - current countdown\n 3rd - number of time snapshot.\n\n For example, you need to measure time, that will spent 5 different person to perform five different actions and 3 times for 6th person:\n click <b>Clear</b>, then for first 5 actions click <b>Start</b> -> <b>Catch</b> -> <b>Stop</b> -> <b>Reset</b> -> <b>Start</b> every time, and then <b>Stop</b> -> <b>Reset</b> -> <b>Start</b> and press <b>Catch</b> 3 times to measure 3 cycles for 6th person.\n \n</string>
+    <string name="help_string_sw_ad_part_6">There are nine fields where time measurements are saved, also <b>Current time check</b> field displays last time notch of current cycle and stores it till <b>Catch</b> button is pressed again.</string>
+    <string name="help_string_sw_ad_part_7">I know that it looks confusing at first time, but when you deal with it, you will be able perform quite complex time measurements :-).\n</string>
+    <string name="what_it_can_do_sw_ad_further_info_str"><i>I hope it will be funny and challenging for you&#8230;</i></string>
+
+    <!-- StopWatch String resources Start -->
+
+    <string name="stopwatch_short_str">&#8230;or not simple?..</string>
+
+    <!-- Code for log view Start -->
+
+    <string name="current_ms_txt">Current time check: </string>
+    <string name="current_ms_long">00:00:00:000</string>
+    <string name="current_ms_long_short">00:00:00</string>
+    <string name="colon_chrono">:</string>
+    <string name="init_time_counter_value">00</string>
+    <string name="init_time_ms_counter_value">000</string>
+
+    <!-- Code for log view TableRow Start -->
+    <string name="time_from_activity_start_ms_txt">Time from SW start in ms: </string>
+    <string name="time_from_activity_start_formatted_txt">Time from SW start formatted: </string>
+    <string name="time_from_reset_ms_txt">T from reset ms: </string>
+    <string name="time_from_reset_formatted_txt">T from reset formatted: </string>
+    <string name="time_from_boot_ms_txt">Time elapsed from boot in ms: </string>
+    <string name="time_from_boot_formatted_txt">Time elapsed from boot formatted: </string>
+
+    <!-- Code for log viewTableRow Finish -->
+
+
+    <!-- Code for log view temporary Finish -->
+
+
+    <!-- Code for Cogniance Start -->
+    <string name="simple_chronometer">Simple StopWatch</string>
+    <string name="simple_digital_clock">DigitalClock</string>
+    <string name="button_str_catch">Catch</string>
+    <string name="button_str_start">Start</string>
+    <string name="button_str_reset">Reset</string>
+    <string name="button_str_stop">Stop</string>
+    <string name="button_str_clear">Clear</string>
+
+    <!-- sample start -->
+    <string name="result_001_str">--:--:--:---</string>
+    <string name="result_002_str">--:--:--:---</string>
+    <string name="result_003_str">--:--:--:---</string>
+    <string name="result_004_str">--:--:--:---</string>
+    <string name="result_005_str">--:--:--:---</string>
+    <string name="result_006_str">--:--:--:---</string>
+    <string name="result_007_str">--:--:--:---</string>
+    <!-- sample start -->
+
+
+    <!-- Code for Cogniance Stop -->
+
+</resources>

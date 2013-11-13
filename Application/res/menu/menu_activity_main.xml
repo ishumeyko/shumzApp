@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_main_help"
+        android:alphabeticShortcut="h"
+        android:title="@string/str_menu_main_help"/>
+    <item
+        android:id="@+id/menu_main_about"
+        android:alphabeticShortcut="t"
+        android:title="@string/str_menu_main_about"/>
+
+</menu>

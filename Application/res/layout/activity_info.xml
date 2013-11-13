@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/gg_background_about"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/about_me_hope_str"
+        android:textColor="#000000"
+        android:textSize="10dp" />
+
+    <Button
+        android:id="@+id/stopwatch_advanced_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/stopwatch_advanced_button_str" />
+
+    <TextView
+        android:id="@+id/here_some_info_1_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="3dp"
+        android:text="@string/here_some_info_1_str"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/here_some_info_2_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingTop="3dp"
+        android:text="@string/here_some_info_2_str"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:id="@+id/here_some_info_1_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/here_some_info_2_text_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/here_some_info_1_text_view"
+        android:padding="7dp" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill"
+            android:text="@string/tutorial_1_activity_about"
+            android:textColor="#00FF00"
+            android:textSize="15dp"
+            android:typeface="monospace" />
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/here_some_info_2_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/stopwatch_advanced_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/here_some_info_2_text_view"
+        android:padding="7dp" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill_horizontal"
+            android:text="@string/tutorial_2_activity_about"
+            android:textColor="#00FF00"
+            android:textSize="15dp"
+            android:typeface="monospace" />
+    </ScrollView>
+    <!--
+    <ScrollView
+        android:id="@+id/here_some_info_1_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/here_some_info_2_text_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/here_some_info_1_text_view"
+        android:padding="7dp" >
+
+        <TextView
+            android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tutorial_1_activity_about"
+            android:textColor="#00FF00"
+            android:textSize="15dp"
+            android:typeface="monospace" />
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/here_some_info_2_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/stopwatch_advanced_button"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/here_some_info_2_text_view"
+        android:padding="7dp" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tutorial_2_activity_about"
+            android:textColor="#00FF00"
+            android:textSize="15dp"
+            android:typeface="monospace" />
+
+    </ScrollView>
+    -->
+
+</RelativeLayout>

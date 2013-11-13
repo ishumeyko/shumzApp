@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.shumz.application"
+    android:versionCode="8"
+    android:versionName="3.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- <uses-permission android:name="com.android.alarm.permission.SET_ALARM" /> -->
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <!-- Splash Activity declaration -->
+
+        <activity
+            android:name="com.shumz.application.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Main Activity declaration -->
+
+        <activity
+            android:name="com.shumz.application.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.shumz.application.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.shumz.application.MenuHelpMainActivity"
+            android:label="@string/str_menu_main_help"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="com.shumz.application.MENUHELPMAINHACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.shumz.application.MenuAboutMainActivity"
+            android:label="@string/str_menu_main_about_app_name"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="com.shumz.application.MENUABOUTMAINHACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- StopWatch Activity declaration -->
+
+        <activity
+            android:name="com.shumz.application.StopWatchAdvanced"
+            android:label="Advanced Crhonometer"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.shumz.application.STOPWATCHACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Timer Activity declaration -->
+
+        <activity android:name="com.shumz.application.TimerActivity" >
+            <intent-filter>
+                <action android:name="com.shumz.application.TIMERACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- Timer End of Time Dialog declaration -->
+        <activity
+            android:name="com.shumz.application.TimerEndOfTimeDialogActivity"
+            android:label="Timer"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.shumz.application.TIMERENDOFTIMEDIALOGACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--  -->
+
+        <activity
+            android:name="com.shumz.application.MenuStopWatchQS"
+            android:label="Quick SW start"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="com.shumz.application.MENUSTOPWATCHQS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.shumz.application.MenuStopWatchAd"
+            android:label="Advanced SW help"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="com.shumz.application.MENUSTOPWATCHAD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
