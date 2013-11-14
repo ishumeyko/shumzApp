@@ -83,7 +83,6 @@ public class SplashActivity extends Activity implements OnTouchListener {
 
 	@Override
 	public void onBackPressed() {
-		super.onBackPressed();
 	}
 
 }
