@@ -76,7 +76,9 @@
 
         <!-- Timer Activity declaration -->
 
-        <activity android:name="com.shumz.application.TimerActivity" >
+        <activity
+            android:name="com.shumz.application.TimerActivity"
+            android:label="Timer" >
             <intent-filter>
                 <action android:name="com.shumz.application.TIMERACTIVITY" />
 

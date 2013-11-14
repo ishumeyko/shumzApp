@@ -71,7 +71,5 @@ public class TimerEndOfTimeDialogActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-
 	}
-
 }

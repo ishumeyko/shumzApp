@@ -287,9 +287,9 @@ public class TimerActivity extends Activity {
 	};
 
 	private void getTimeFromTPicker() {
-		currentHours = tPicker.getCurrentHour();
-		currentMinutes = tPicker.getCurrentMinute();
-		currentSeconds = 0;
+		currentHours = 0; //tPicker.getCurrentHour();
+		currentMinutes = 0; //tPicker.getCurrentMinute();
+		currentSeconds = 7;
 	}
 
 	private void getFormatedToStringTime() {
