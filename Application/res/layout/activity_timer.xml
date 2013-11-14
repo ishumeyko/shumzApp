@@ -13,31 +13,13 @@
         android:visibility="gone" />
 
     <DigitalClock
-        android:id="@+id/digitalClock1"
+        android:id="@+id/timer_digital_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text=""
         android:visibility="visible" />
-
-    <Button
-        android:id="@+id/timer_button_start_stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/digitalClock1"
-        android:layout_alignParentLeft="true"
-        android:text="@string/str_timer_button_start_stop"
-        android:typeface="monospace" />
-
-    <Button
-        android:id="@+id/timer_button_pause_resume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/digitalClock1"
-        android:layout_alignParentRight="true"
-        android:text="@string/str_timer_button_pause_resume"
-        android:typeface="monospace" />
 
     <LinearLayout
         android:id="@+id/ll_countdown"
@@ -53,22 +35,25 @@
             android:layout_height="wrap_content"
             android:text="@string/str_timer_current_hours"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:typeface="monospace" android:textSize="50sp" />
+            android:textSize="50sp"
+            android:typeface="monospace" />
 
         <TextView
             android:id="@+id/tv_timer_delimiter_hm"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:textSize="50sp"
+            android:layout_height="wrap_content"
             android:text="@string/str_timer_delimiter"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp"
             android:typeface="monospace" />
 
         <TextView
             android:id="@+id/tv_timer_current_minutes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/str_timer_current_minutes" android:textSize="50sp"
+            android:text="@string/str_timer_current_minutes"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp"
             android:typeface="monospace" />
 
         <TextView
@@ -76,15 +61,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_timer_delimiter"
-            android:textAppearance="?android:attr/textAppearanceLarge" android:textSize="50sp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp"
             android:typeface="monospace" />
-        
-            <TextView
-            android:id="@+id/tv_timer_current_seconds" android:textSize="50sp"
+
+        <TextView
+            android:id="@+id/tv_timer_current_seconds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_timer_current_minutes"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp"
             android:typeface="monospace" />
     </LinearLayout>
 
@@ -95,9 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Exit" 
-        
-        android:onClick="timer_button_exit"/>
+        android:onClick="timer_button_exit"
+        android:text="Exit" />
 
     <Button
         android:id="@+id/timer_button_show_dialog"
@@ -107,5 +93,23 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/timer_button_exit"
         android:text="Show Dialog" />
+
+    <Button
+        android:id="@+id/timer_button_start_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/timer_digital_clock"
+        android:layout_alignParentLeft="true"
+        android:text="@string/str_timer_button_start_stop"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/timer_button_pause_resume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/timer_digital_clock"
+        android:layout_alignParentRight="true"
+        android:text="@string/str_timer_button_pause_resume"
+        android:typeface="monospace" />
 
 </RelativeLayout>
