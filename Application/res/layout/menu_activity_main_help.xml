@@ -6,86 +6,79 @@
     android:padding="15sp" >
 
     <TextView
-        android:id="@+id/tv_help_content_000"
+        android:id="@+id/tv_menu_activity_main_help_content_000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-
         android:text="@string/str_menu_main_app_help_content_000"
         android:textColor="#00FFAA"
         android:textSize="20sp" />
 
     <ScrollView
+        android:id="@+id/sc_menu_activity_main_help_contents"
         android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp" >
 
-        <LinearLayout
+        <LinearLayout  android:id="@+id/ll_menu_activity_main_help_contents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/tv_help_content_001"
+                android:id="@+id/tv_menu_activity_main_help_content_001"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/str_menu_main_app_help_content_001"
-
                 android:textSize="15sp"
                 android:typeface="monospace" />
 
             <TextView
-                android:id="@+id/tv_help_content_002"
+                android:id="@+id/tv_menu_activity_main_help_content_002"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/str_menu_main_app_help_content_002"
-        
                 android:textSize="15sp"
                 android:typeface="monospace" />
 
             <TextView
-                android:id="@+id/tv_help_content_003"
+                android:id="@+id/tv_menu_activity_main_help_content_003"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/str_menu_main_app_help_content_003"
+                android:textSize="15sp"
+                android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/tv_menu_activity_main_help_content_004"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/str_menu_main_app_help_content_004"
-
-                android:textSize="15sp"
-                android:typeface="monospace" />
-            
-              <TextView
-                android:id="@+id/tv_help_content_004"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="@string/str_menu_main_app_help_content_005"
-
                 android:textSize="15sp"
                 android:typeface="monospace" />
 
             <TextView
-                android:id="@+id/tv_help_content_005"
+                android:id="@+id/tv_menu_activity_main_help_content_005"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/str_menu_main_app_help_content_005"
-
                 android:textSize="15sp"
                 android:typeface="monospace" />
 
             <TextView
-                android:id="@+id/tv_help_content_006"
+                android:id="@+id/tv_menu_activity_main_help_content_006"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/str_menu_main_app_help_content_006"
-
                 android:textSize="15sp"
                 android:typeface="monospace" />
-
         </LinearLayout>
     </ScrollView>
 

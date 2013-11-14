@@ -25,9 +25,9 @@ public class MainActivity extends Activity {
 		final MediaPlayer buttonSound = MediaPlayer.create(MainActivity.this,
 				R.raw.button_sound);
 
-		Button AlarmButton = (Button) findViewById(R.id.button_alarm);
-		Button StopWatchButton = (Button) findViewById(R.id.button_stopwatch);
-		Button TimerButton = (Button) findViewById(R.id.button_timer);
+		Button AlarmButton = (Button) findViewById(R.id.button_alarm_activity_main);
+		Button StopWatchButton = (Button) findViewById(R.id.button_stopwatch_activity_main);
+		Button TimerButton = (Button) findViewById(R.id.button_timer_activity_main);
 
 		AlarmButton.setOnClickListener(new OnClickListener() {
 

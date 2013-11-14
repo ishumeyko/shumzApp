@@ -24,7 +24,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		
 		mainActivityToTest = getActivity();
 	
-		cognianceLogo = (ImageView) mainActivityToTest.findViewById(R.id.image_cogniance_logo);
+		cognianceLogo = (ImageView) mainActivityToTest.findViewById(R.id.image_activity_main_cogniance_logo);
 	}
 
 	protected void tearDown() throws Exception {

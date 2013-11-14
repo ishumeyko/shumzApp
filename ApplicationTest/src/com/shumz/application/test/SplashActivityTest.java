@@ -1,7 +1,6 @@
 package com.shumz.application.test;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.Instrumentation.ActivityMonitor;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;

@@ -61,22 +61,6 @@
 
     <!--  -->
 
-
-    <!-- Info Activity -->
-
-    <string name="stopwatch_advanced_button_str">StopWatch</string>
-    <string name="about_me_hope_str">I hope it is enough good program to show my skills</string>
-    <string name="here_some_info_1_str">Here is some info:</string>
-    <string name="here_some_info_2_str">Here is some info too:</string>
-    <string name="tutorial_1_activity_about">Here some information about all of this. \n \n Version 1.0. This program was created with the help of Eclipse, AVD tool, Android SDK, gallons of coffee and tons of cookies. \n Believe me, it was really hard to create this application without any experience in Java coding or android development at all.</string>
-    <string name="tutorial_2_activity_about">Here some information about Version 2.8.3. \n \n Now you are looking at the second generation of \'Da Me Hard App\'.  The main change of it - is that I\'ve added here a simple Stopwatch activity It was coded by me, except Handler\'s code, that I\'ve used from one example found in Internet. I still have no Idea how this handler works - it to abstract for me now&#8230; :-(\n The idea of stopwatch creation, and addition it to a functionality of My Hard Application (Da Me Hard App) is owned by one good man ;-)\n\n And maybe this stopwatch will be useful for you in a real life&#8230;</string>
-
-    <!-- Here will be info about second version of application. and its main functionality - StopWatch -->
-
-
-    <!-- Menu of Main Activity -->
-
-
     <!-- Menu of StopWatch Activity -->
 
 
