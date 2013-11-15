@@ -22,30 +22,36 @@ public class SplashActivity extends Activity implements OnTouchListener {
 
 	Thread logoTimer = new Thread() {
 		public void run() {
+
+			logoMusic.start();
+
 			try {
 
 				for (int i = 0; i < 78; i++) {
 					if (isTouched) {
+
+						logoMusic.stop();
 						break;
 					} else {
 						sleep(100);
 					}
 				}
 
-				Intent menuIntent = new Intent(
-						"com.shumz.application.MAINACTIVITY");
-				startActivity(menuIntent);
 			}
 
 			catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 			finally {
-				logoMusic.stop();
+
 				logoMusic.release();
+
 				finish();
+
+				Intent menuIntent = new Intent(
+						"com.shumz.application.MAINACTIVITY");
+				startActivity(menuIntent);
 			}
 		}
 	};
@@ -62,7 +68,6 @@ public class SplashActivity extends Activity implements OnTouchListener {
 			isRotated = ShumIsCool.getBoolean(IS_ROTATED);
 		} else {
 			logoMusic = MediaPlayer.create(SplashActivity.this, R.raw.n_man);
-			logoMusic.start();
 
 			isRotated = true;
 
@@ -78,7 +83,16 @@ public class SplashActivity extends Activity implements OnTouchListener {
 
 	public boolean onTouch(View v, MotionEvent event) {
 		isTouched = true;
+
 		return false;
+
+	}
+
+	@Override
+	protected void onDestroy() {
+
+		super.onDestroy();
+
 	}
 
 	@Override
