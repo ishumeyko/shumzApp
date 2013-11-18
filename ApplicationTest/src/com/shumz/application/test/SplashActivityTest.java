@@ -2,12 +2,13 @@ package com.shumz.application.test;
 
 import android.app.Activity;
 import android.app.Instrumentation.ActivityMonitor;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.test.ViewAsserts;
-
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -28,6 +29,8 @@ public class SplashActivityTest extends
 
 	SplashActivity splashActivityToTest;
 
+	MainActivity mainActivityToTest;
+
 	RelativeLayout rlSplashLayout;
 
 	TextView tvSplashActivityPropertyOf;
@@ -38,6 +41,8 @@ public class SplashActivityTest extends
 	MediaPlayer logoMusic;
 
 	private ActivityMonitor mainMenuActivityMonitor;
+
+	ActivityMonitor splashAcitvityMonitor;
 
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -64,15 +69,33 @@ public class SplashActivityTest extends
 				MainActivity.class.getName(), null, false);
 		getInstrumentation().addMonitor(mainMenuActivityMonitor);
 
+		splashAcitvityMonitor = new ActivityMonitor(
+				SplashActivity.class.getName(), null, false);
+		getInstrumentation().addMonitor(splashAcitvityMonitor);
+
 	}
 
 	@Override
 	protected void tearDown() throws Exception {
+
+		Log.w(LOGGER, "tearDown()...");
+
+		if (getActivity().getClass().getName()
+				.equals("com.shumz.application.MainActivity")) {
+
+			mainMenuActivityMonitor.getLastActivity().finish();
+
+		} else {
+
+			mainMenuActivityMonitor.waitForActivity().finish();
+
+		}
+
 		super.tearDown();
 	}
 
 	public void testAllWiewsArePresent() {
-		Log.i(LOGGER, "Running testALLWiewsArePresent()");
+		Log.i(LOGGER, "Running testAllWiewsArePresent()");
 
 		assertNotNull("Cannot find SplashAcitvity!", splashActivityToTest);
 		assertNotNull("Cannot find llSplashLayout!", rlSplashLayout);
@@ -96,8 +119,10 @@ public class SplashActivityTest extends
 				tvSplashActivityShumzSoft.getLayoutParams().height);
 
 		// Testing The alignment to the parent View
-		// ViewAsserts.assertVerticalCenterAligned(rlSplashLayout,
-		// tvSplashActivityShumzSoft);
+
+		assertEquals(tvSplashActivityPropertyOf.getBottom(),
+				tvSplashActivityShumzSoft.getTop());
+
 		ViewAsserts.assertHorizontalCenterAligned(rlSplashLayout,
 				tvSplashActivityShumzSoft);
 
@@ -121,16 +146,15 @@ public class SplashActivityTest extends
 
 		// Testing The alignment to the parent View
 		ViewAsserts.assertVerticalCenterAligned(rlSplashLayout,
-				tvSplashActivityShumzSoft);
+				tvSplashActivityPropertyOf);
 		ViewAsserts.assertHorizontalCenterAligned(rlSplashLayout,
-				tvSplashActivityShumzSoft);
+				tvSplashActivityPropertyOf);
 
-		
-		
 		assertEquals("Property of", tvSplashActivityPropertyOf.getText()
 				.toString());
 
 		assertEquals(26.0F, tvSplashActivityPropertyOf.getTextSize());
+
 	}
 
 	public void testParametersOfChuckskullImage() {
@@ -142,21 +166,25 @@ public class SplashActivityTest extends
 		assertEquals(LayoutParams.WRAP_CONTENT,
 				chuckskullImage.getLayoutParams().height);
 
-		LayoutParams lp = chuckskullImage.getLayoutParams();
-
 		ViewAsserts.assertGroupContains(rlSplashLayout, chuckskullImage);
 
-		assertEquals(26.0F, tvSplashActivityPropertyOf.getTextSize());
+		ViewAsserts.assertRightAligned(rlSplashLayout, chuckskullImage, 15);
+		ViewAsserts.assertBottomAligned(rlSplashLayout, chuckskullImage, 15);
+
 	}
 
-	public final void testCleanLaunch() throws InterruptedException {
+	public final void testCleanLaunch() {
+		Log.i(LOGGER, "Running testCleanLaunch()");
 
-		Activity mainMenuActivity = mainMenuActivityMonitor
-				.waitForActivityWithTimeout(8000);
+		try {
+			Thread.sleep(8500);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+
+		Activity mainMenuActivity = mainMenuActivityMonitor.getLastActivity();
 		assertNotNull("MainMenuActivity was not Started!!!", mainMenuActivity);
-		// mainMenuActivity.finish();
-
-		getInstrumentation().removeMonitor(mainMenuActivityMonitor);
 
 	}
 
@@ -164,19 +192,66 @@ public class SplashActivityTest extends
 		Log.i(LOGGER, "Running testOnTouchSkippingActivity()");
 
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
 		TouchUtils.clickView(this, chuckskullImage);
 
-		Activity mainMenuActivity = mainMenuActivityMonitor.waitForActivity();
+		Activity mainMenuActivity = mainMenuActivityMonitor.getLastActivity();
 		assertNotNull("MainMenuActivity was not Started!!!", mainMenuActivity);
-		// mainMenuActivity.finish();
+	}
 
-		getInstrumentation().removeMonitor(mainMenuActivityMonitor);
+	public void testOnBackPressed() {
+
+		Log.i(LOGGER, "Running testOnTouchSkippingActivity()");
+
+		for (int i = 0; i < 3; i++) {
+
+			try {
+
+				Thread.sleep(1000);
+
+				sendKeys(KeyEvent.KEYCODE_BACK);
+
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	public void testChangingDeviceOrientation() {
+
+		Log.i(LOGGER, "Running testChangingDeviceOrientation()");
+
+		try {
+			Thread.sleep(1500);
+			splashActivityToTest
+					.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			Thread.sleep(500);
+
+			splashActivityToTest
+					.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			Thread.sleep(1500);
+
+			splashActivityToTest
+					.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			Thread.sleep(500);
+			splashActivityToTest
+					.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			Thread.sleep(500);
+			splashActivityToTest
+					.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+			Thread.sleep(500);
+			splashActivityToTest
+					.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
 	}
 
