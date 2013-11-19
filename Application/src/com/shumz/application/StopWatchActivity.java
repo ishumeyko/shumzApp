@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StopWatchAdvanced extends Activity {
+public class StopWatchActivity extends Activity {
 
 	// Time elapsed from boot of Device
 	long start_time_handler = SystemClock.elapsedRealtime(); // Is used by
@@ -75,9 +75,9 @@ public class StopWatchAdvanced extends Activity {
 		cHandler.postDelayed(startCounter, 1000);
 
 		final MediaPlayer genButtonSoundRight = MediaPlayer.create(
-				StopWatchAdvanced.this, R.raw.button_right_sound);
+				StopWatchActivity.this, R.raw.button_right_sound);
 		final MediaPlayer genButtonSoundWrong = MediaPlayer.create(
-				StopWatchAdvanced.this, R.raw.button_wrong_sound);
+				StopWatchActivity.this, R.raw.button_wrong_sound);
 
 		Button button_clear = (Button) findViewById(R.id.button_clear);
 		button_clear.setOnClickListener(new OnClickListener() {
@@ -576,15 +576,15 @@ public class StopWatchAdvanced extends Activity {
 			return true;
 
 		case R.id.hardwareMenuToastSW:
-			Toast andEggs = Toast.makeText(StopWatchAdvanced.this,
+			Toast andEggs = Toast.makeText(StopWatchActivity.this,
 					"Property of Shumz Soft Inc.", Toast.LENGTH_SHORT);
 			andEggs.show();
 
-			andEggs = Toast.makeText(StopWatchAdvanced.this,
+			andEggs = Toast.makeText(StopWatchActivity.this,
 					"I really hope you've enjoied it...", Toast.LENGTH_LONG);
 			andEggs.show();
 
-			andEggs = Toast.makeText(StopWatchAdvanced.this,
+			andEggs = Toast.makeText(StopWatchActivity.this,
 					"Antonina and Elena  ;-)", Toast.LENGTH_SHORT);
 			andEggs.show();
 

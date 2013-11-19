@@ -64,7 +64,7 @@
         <!-- StopWatch Activity declaration -->
 
         <activity
-            android:name="com.shumz.application.StopWatchAdvanced"
+            android:name="com.shumz.application.StopWatchActivity"
             android:label="Advanced Crhonometer"
             android:screenOrientation="portrait" >
             <intent-filter>
