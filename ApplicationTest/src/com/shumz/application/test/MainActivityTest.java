@@ -7,6 +7,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.test.ViewAsserts;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,10 +17,9 @@ import android.widget.TextView;
 
 import com.shumz.application.AlarmActivity;
 import com.shumz.application.MainActivity;
+import com.shumz.application.R;
 import com.shumz.application.StopWatchActivity;
 import com.shumz.application.TimerActivity;
-
-import com.shumz.application.R;
 
 public class MainActivityTest extends
 		ActivityInstrumentationTestCase2<MainActivity> {
@@ -316,4 +316,73 @@ public class MainActivityTest extends
 
 	}
 
+	public void testOnBackPressedInMainActivity() {
+
+		Log.i(LOGGER, "Running testOnBackPressedInMainActivity()");
+
+		try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		sendKeys(KeyEvent.KEYCODE_BACK);
+		
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Activity mainActivity = mainActivityMonitor.getLastActivity();
+		assertNull("MainActivity is on screen!..", mainActivity);
+	}
+
+	public void testMenuOfMainActivity() {
+		Log.i(LOGGER, "Running testMenuOfMainActivity()");
+
+		sendKeys(KeyEvent.KEYCODE_MENU);
+
+		try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void testInvocationOfAboutMenuOfMainActivity() {
+		Log.i(LOGGER, "Running testInvocationOfAboutMenuOfMainActivity()");
+
+		assertTrue(getInstrumentation().invokeMenuActionSync(
+				mainActivityToTest, R.id.menu_main_about, 0));
+
+		try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		sendKeys(KeyEvent.KEYCODE_BACK);
+
+	}
+
+	public void testInvocationOfHelpMenuOfMainActivity() {
+		Log.i(LOGGER, "Running testInvocationOfHelpMenuOfMainActivity()");
+
+		assertTrue(getInstrumentation().invokeMenuActionSync(
+				mainActivityToTest, R.id.menu_main_help, 0));
+
+		try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		sendKeys(KeyEvent.KEYCODE_BACK);
+
+	}
 }
