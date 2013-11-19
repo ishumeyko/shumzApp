@@ -84,26 +84,19 @@ public class SplashActivity extends Activity implements OnTouchListener {
 	public boolean onTouch(View v, MotionEvent event) {
 		isTouched = true;
 
-		// logoMusic.release();
-
 		return false;
-
 	}
 
 	@Override
 	protected void onDestroy() {
-//
-
 		isTouched = false;
-		
-//	logoMusic.release();
-	super.onDestroy();
 
+		super.onDestroy();
 	}
 
 	@Override
 	public void onBackPressed() {
-//		super.onBackPressed();
+
 	}
 
 }

@@ -1,7 +1,5 @@
 package com.shumz.application;
 
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -16,65 +14,53 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+	Button AlarmButton;
+	Button StopWatchButton;
+	Button TimerButton;
+
+	MediaPlayer buttonSound;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		final MediaPlayer buttonSound = MediaPlayer.create(MainActivity.this,
-				R.raw.button_sound);
+		buttonSound = MediaPlayer.create(MainActivity.this, R.raw.button_sound);
 
-		Button AlarmButton = (Button) findViewById(R.id.button_alarm_activity_main);
-		Button StopWatchButton = (Button) findViewById(R.id.button_stopwatch_activity_main);
-		Button TimerButton = (Button) findViewById(R.id.button_timer_activity_main);
+		AlarmButton = (Button) findViewById(R.id.button_alarm_activity_main);
+		StopWatchButton = (Button) findViewById(R.id.button_stopwatch_activity_main);
+		TimerButton = (Button) findViewById(R.id.button_timer_activity_main);
 
 		AlarmButton.setOnClickListener(new OnClickListener() {
-
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 
 				buttonSound.start();
 
 				Toast.makeText(getApplicationContext(),
 						"Sorry,  not implemented yet :-(", Toast.LENGTH_SHORT)
 						.show();
-
-//				buttonSound.stop();
 			}
 		});
 
 		StopWatchButton.setOnClickListener(new OnClickListener() {
-
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 
 				buttonSound.start();
 
-				startActivity(new Intent("com.shumz.application.STOPWATCHACTIVITY"));
-
-//				buttonSound.stop();
+				startActivity(new Intent(
+						"com.shumz.application.STOPWATCHACTIVITY"));
 			}
 		});
 
 		TimerButton.setOnClickListener(new OnClickListener() {
-
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 
 				buttonSound.start();
 
 				startActivity(new Intent("com.shumz.application.TIMERACTIVITY"));
-//				buttonSound.stop();
 			}
 		});
-
-	}
-
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,14 +77,23 @@ public class MainActivity extends Activity {
 
 		switch (item.getItemId()) {
 		case R.id.menu_main_help:
-			startActivity(new Intent("com.shumz.application.MENUHELPMAINHACTIVITY"));
+			startActivity(new Intent(
+					"com.shumz.application.MENUHELPMAINHACTIVITY"));
 			return true;
 
 		case R.id.menu_main_about:
-			startActivity(new Intent("com.shumz.application.MENUABOUTMAINHACTIVITY"));
-			
+			startActivity(new Intent(
+					"com.shumz.application.MENUABOUTMAINHACTIVITY"));
+
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void onDestroy() {
+
+		buttonSound.release();
+		super.onDestroy();
 	}
 }
