@@ -1,13 +1,13 @@
 package com.shumz.application.test;
 
-import com.shumz.application.StopWatchAdvanced;
+import com.shumz.application.StopWatchActivity;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-public class StopWatchActivityTest extends ActivityInstrumentationTestCase2<StopWatchAdvanced> {
+public class StopWatchActivityTest extends ActivityInstrumentationTestCase2<StopWatchActivity> {
 
 	public StopWatchActivityTest() {
-		super(StopWatchAdvanced.class);
+		super(StopWatchActivity.class);
 	}
 
 	protected void setUp() throws Exception {

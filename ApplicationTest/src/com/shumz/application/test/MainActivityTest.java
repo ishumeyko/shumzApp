@@ -1,5 +1,6 @@
 package com.shumz.application.test;
 
+import android.app.Activity;
 import android.app.Instrumentation.ActivityMonitor;
 import android.content.pm.ActivityInfo;
 import android.test.ActivityInstrumentationTestCase2;
@@ -15,6 +16,9 @@ import android.widget.TextView;
 
 import com.shumz.application.AlarmActivity;
 import com.shumz.application.MainActivity;
+import com.shumz.application.StopWatchActivity;
+import com.shumz.application.TimerActivity;
+
 import com.shumz.application.R;
 
 public class MainActivityTest extends
@@ -73,29 +77,22 @@ public class MainActivityTest extends
 		TimerButtonTest = (Button) mainActivityToTest
 				.findViewById(R.id.button_timer_activity_main);
 
-		
-		
-		mainActivityMonitor = new ActivityMonitor(
-				MainActivity.class.getName(), null, false);
+		mainActivityMonitor = new ActivityMonitor(MainActivity.class.getName(),
+				null, false);
 		getInstrumentation().addMonitor(mainActivityMonitor);
-		
-		
-		
+
 		alarmActivityMonitor = new ActivityMonitor(
 				AlarmActivity.class.getName(), null, false);
 		getInstrumentation().addMonitor(alarmActivityMonitor);
-		
+
 		stopWatchActivityMonitor = new ActivityMonitor(
-				AlarmActivity.class.getName(), null, false);
+				StopWatchActivity.class.getName(), null, false);
 		getInstrumentation().addMonitor(stopWatchActivityMonitor);
-		
+
 		timerActivityMonitor = new ActivityMonitor(
-				AlarmActivity.class.getName(), null, false);
+				TimerActivity.class.getName(), null, false);
 		getInstrumentation().addMonitor(timerActivityMonitor);
-		
-		
-		
-		
+
 	}
 
 	protected void tearDown() throws Exception {
@@ -262,7 +259,10 @@ public class MainActivityTest extends
 
 		TouchUtils.clickView(this, AlarmButtonTest);
 
-		fail("Not implemented yet...");
+		Activity alarmActivity = alarmActivityMonitor.getLastActivity();
+		assertNotNull("AlarmActivity was not started!..", alarmActivity);
+
+		alarmActivity.finish();
 
 	}
 
@@ -282,7 +282,12 @@ public class MainActivityTest extends
 
 		Log.i(LOGGER, "Running testStopWatchButtonOnClick()");
 
-		fail("Not implemented yet...");
+		TouchUtils.clickView(this, StopWatchButtonTest);
+
+		Activity stopWatchActivity = stopWatchActivityMonitor.getLastActivity();
+		assertNotNull("StopWatchActivity was not Started!!!", stopWatchActivity);
+
+		stopWatchActivity.finish();
 
 	}
 
@@ -302,7 +307,12 @@ public class MainActivityTest extends
 
 		Log.i(LOGGER, "Running testTimerButtonOnClick()");
 
-		fail("Not implemented yet...");
+		TouchUtils.clickView(this, TimerButtonTest);
+
+		Activity timerActivity = timerActivityMonitor.getLastActivity();
+		assertNotNull("TimerActivity was not Started!!!", timerActivity);
+
+		timerActivity.finish();
 
 	}
 
