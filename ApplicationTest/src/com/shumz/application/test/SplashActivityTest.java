@@ -3,7 +3,6 @@ package com.shumz.application.test;
 import android.app.Activity;
 import android.app.Instrumentation.ActivityMonitor;
 import android.content.pm.ActivityInfo;
-import android.media.MediaPlayer;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.test.ViewAsserts;
@@ -27,22 +26,18 @@ public class SplashActivityTest extends
 
 	private static final String LOGGER = "SplashActivityTest:";
 
-	SplashActivity splashActivityToTest;
+	private static SplashActivity splashActivityToTest;
 
-	MainActivity mainActivityToTest;
+	private static RelativeLayout rlSplashLayout;
 
-	RelativeLayout rlSplashLayout;
+	private static TextView tvSplashActivityPropertyOf;
+	private static TextView tvSplashActivityShumzSoft;
 
-	TextView tvSplashActivityPropertyOf;
-	TextView tvSplashActivityShumzSoft;
+	private static ImageView chuckskullImage;
 
-	ImageView chuckskullImage;
+	private static ActivityMonitor mainActivityMonitor;
 
-	MediaPlayer logoMusic;
-
-	private ActivityMonitor mainMenuActivityMonitor;
-
-	ActivityMonitor splashAcitvityMonitor;
+	private static ActivityMonitor splashAcitvityMonitor;
 
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -62,12 +57,9 @@ public class SplashActivityTest extends
 		chuckskullImage = (ImageView) splashActivityToTest
 				.findViewById(R.id.image_chuckskull);
 
-		new MediaPlayer();
-		logoMusic = MediaPlayer.create(splashActivityToTest, R.raw.n_man);
-
-		mainMenuActivityMonitor = new ActivityMonitor(
+		mainActivityMonitor = new ActivityMonitor(
 				MainActivity.class.getName(), null, false);
-		getInstrumentation().addMonitor(mainMenuActivityMonitor);
+		getInstrumentation().addMonitor(mainActivityMonitor);
 
 		splashAcitvityMonitor = new ActivityMonitor(
 				SplashActivity.class.getName(), null, false);
@@ -83,18 +75,18 @@ public class SplashActivityTest extends
 		if (getActivity().getClass().getName()
 				.equals("com.shumz.application.MainActivity")) {
 
-			mainMenuActivityMonitor.getLastActivity().finish();
+			mainActivityMonitor.getLastActivity().finish();
 
 		} else {
 
-			mainMenuActivityMonitor.waitForActivity().finish();
+			mainActivityMonitor.waitForActivity().finish();
 
 		}
 
 		super.tearDown();
 	}
 
-	public void testAllWiewsArePresent() {
+	public void testAllWiewsArePresentOnSplashActivity() {
 		Log.i(LOGGER, "Running testAllWiewsArePresent()");
 
 		assertNotNull("Cannot find SplashAcitvity!", splashActivityToTest);
@@ -104,9 +96,6 @@ public class SplashActivityTest extends
 		assertNotNull("Cannot find tvSplashActivityShumzSoft!",
 				tvSplashActivityShumzSoft);
 		assertNotNull("Cannot find ÑhuckskullImage!", chuckskullImage);
-
-		assertNotNull("Cannot find ÑhuckskullImage!", logoMusic);
-
 	}
 
 	public void testParametersOftvSplashActivityShumzSoft() {
@@ -168,12 +157,12 @@ public class SplashActivityTest extends
 
 		ViewAsserts.assertGroupContains(rlSplashLayout, chuckskullImage);
 
-		ViewAsserts.assertRightAligned(rlSplashLayout, chuckskullImage, 15);
-		ViewAsserts.assertBottomAligned(rlSplashLayout, chuckskullImage, 15);
+		ViewAsserts.assertRightAligned(rlSplashLayout, chuckskullImage, 23);
+		ViewAsserts.assertBottomAligned(rlSplashLayout, chuckskullImage, 23);
 
 	}
 
-	public final void testCleanLaunch() {
+	public void testCleanLaunch() {
 		Log.i(LOGGER, "Running testCleanLaunch()");
 
 		try {
@@ -183,12 +172,12 @@ public class SplashActivityTest extends
 			e.printStackTrace();
 		}
 
-		Activity mainMenuActivity = mainMenuActivityMonitor.getLastActivity();
+		Activity mainMenuActivity = mainActivityMonitor.getLastActivity();
 		assertNotNull("MainMenuActivity was not Started!!!", mainMenuActivity);
 
 	}
 
-	public final void testOnTouchSkippingActivity() {
+	public void testOnTouchSkippingActivity() {
 		Log.i(LOGGER, "Running testOnTouchSkippingActivity()");
 
 		try {
@@ -200,8 +189,10 @@ public class SplashActivityTest extends
 
 		TouchUtils.clickView(this, chuckskullImage);
 
-		Activity mainMenuActivity = mainMenuActivityMonitor.getLastActivity();
+		Activity mainMenuActivity = mainActivityMonitor.getLastActivity();
 		assertNotNull("MainMenuActivity was not Started!!!", mainMenuActivity);
+		
+		mainMenuActivity.finish();
 	}
 
 	public void testOnBackPressed() {
@@ -223,9 +214,9 @@ public class SplashActivityTest extends
 
 	}
 
-	public void testChangingDeviceOrientation() {
+	public void testChangingDeviceOrientationOfSplashActivity() {
 
-		Log.i(LOGGER, "Running testChangingDeviceOrientation()");
+		Log.i(LOGGER, "Running testChangingDeviceOrientationOfSplashActivity()");
 
 		try {
 			Thread.sleep(1500);
@@ -252,7 +243,6 @@ public class SplashActivityTest extends
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
