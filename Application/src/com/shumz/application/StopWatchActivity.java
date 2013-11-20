@@ -1,5 +1,7 @@
 package com.shumz.application;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -11,17 +13,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class StopWatchActivity extends Activity {
 
 	// Time elapsed from boot of Device
-	long start_time_handler = SystemClock.elapsedRealtime(); // Is used by
-																// Handlers for
-																// Chronometer
-																// Countdown
+	// Is used by Handlers for Chronometer Countdown
+	long start_time_handler = SystemClock.elapsedRealtime();
 	long current_time_handler; // Is used by Handlers for Chronometer Countdown
 
 	String start_time_str; // currently is unused
@@ -48,10 +50,14 @@ public class StopWatchActivity extends Activity {
 	Handler mHandler = new Handler(); // I didn't understand this stuff
 	Handler cHandler = new Handler(); // I didn't understand this stuff too
 
-	byte counter_for_result_list = 0; // Used to output first digit of list
-	byte counter_for_result_list_sub_counter = 0; // Used to output second digit
-													// of list
-	byte counter_for_result_list_sub_counter_sub = 0;
+	int lap_counter = 0; // Used to output # of laps
+
+	// Declaring objects responsible for List of Laps
+	ListView listOfLaps;
+	ArrayList<String> listOfItems = new ArrayList<String>();
+	ArrayAdapter<String> listAdapter;
+
+	String listItemPrefix;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,13 +76,27 @@ public class StopWatchActivity extends Activity {
 		cHandler.removeCallbacks(startCounter);
 		cHandler.postDelayed(startCounter, 1000);
 
+		// Sounds for buttons
 		final MediaPlayer genButtonSoundRight = MediaPlayer.create(
 				StopWatchActivity.this, R.raw.button_right_sound);
 		final MediaPlayer genButtonSoundWrong = MediaPlayer.create(
 				StopWatchActivity.this, R.raw.button_wrong_sound);
 
-		Button button_clear = (Button) findViewById(R.id.button_clear);
-		button_clear.setOnClickListener(new OnClickListener() {
+		// Buttons initialization
+		Button StartButton = (Button) findViewById(R.id.button_start);
+		Button ClearButton = (Button) findViewById(R.id.button_clear);
+		Button CatchButton = (Button) findViewById(R.id.button_catch);
+		Button ResetButton = (Button) findViewById(R.id.button_reset);
+		Button StopButton = (Button) findViewById(R.id.button_stop);
+
+		// List of laps initialization
+
+		listOfLaps = (ListView) findViewById(R.id.lv_for_timechecks);
+		listAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, listOfItems);
+		listOfLaps.setAdapter(listAdapter);
+
+		ClearButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
@@ -88,34 +108,7 @@ public class StopWatchActivity extends Activity {
 					stop_condition = false;
 					cleared_condition = false;
 
-					// Rest of code
-					if (counter_for_result_list != 0) {
-						counter_for_result_list = 0;
-						counter_for_result_list_sub_counter = 0;
-						counter_for_result_list_sub_counter_sub = 0;
-
-						current_time_str = "--:--:--:---";
-						((TextView) findViewById(R.id.result_text_view_1))
-								.setText(current_time_str);
-						((TextView) findViewById(R.id.result_text_view_2))
-								.setText(current_time_str);
-						((TextView) findViewById(R.id.result_text_view_3))
-								.setText(current_time_str);
-						((TextView) findViewById(R.id.result_text_view_4))
-								.setText(current_time_str);
-						((TextView) findViewById(R.id.result_text_view_5))
-								.setText(current_time_str);
-						((TextView) findViewById(R.id.result_text_view_6))
-								.setText(current_time_str);
-						((TextView) findViewById(R.id.result_text_view_7))
-								.setText(current_time_str);
-
-						((TextView) findViewById(R.id.result_text_view_8))
-								.setText(current_time_str);
-						((TextView) findViewById(R.id.result_text_view_9))
-								.setText(current_time_str);
-
-					}
+					lap_counter = 0;
 
 					mHandler.removeCallbacks(startTimer);
 
@@ -126,8 +119,9 @@ public class StopWatchActivity extends Activity {
 					((TextView) findViewById(R.id.msms_text_view))
 							.setText("000");
 
-					counter_for_result_list_sub_counter_sub = 0;
-
+					listOfItems.removeAll(listOfItems);
+					listAdapter.notifyDataSetChanged();
+					
 					genButtonSoundRight.start();
 				} else {
 
@@ -136,8 +130,7 @@ public class StopWatchActivity extends Activity {
 			}
 		});
 
-		Button button_stop = (Button) findViewById(R.id.button_stop);
-		button_stop.setOnClickListener(new OnClickListener() {
+		StopButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
@@ -161,8 +154,7 @@ public class StopWatchActivity extends Activity {
 			}
 		});
 
-		Button button_start = (Button) findViewById(R.id.button_start);
-		button_start.setOnClickListener(new OnClickListener() {
+		StartButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
@@ -192,8 +184,7 @@ public class StopWatchActivity extends Activity {
 			}
 		});
 
-		Button button_reset = (Button) findViewById(R.id.button_reset);
-		button_reset.setOnClickListener(new OnClickListener() {
+		ResetButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
@@ -213,7 +204,7 @@ public class StopWatchActivity extends Activity {
 					((TextView) findViewById(R.id.msms_text_view))
 							.setText("000");
 
-					counter_for_result_list_sub_counter = 0;
+					lap_counter = 0;
 
 					genButtonSoundRight.start();
 				} else {
@@ -223,8 +214,7 @@ public class StopWatchActivity extends Activity {
 			}
 		});
 
-		Button button_catch = (Button) findViewById(R.id.button_catch);
-		button_catch.setOnClickListener(new OnClickListener() {
+		CatchButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
@@ -240,78 +230,36 @@ public class StopWatchActivity extends Activity {
 					((TextView) findViewById(R.id.current_ms_long))
 							.setText(current_time_str);
 
-					// Result output switcher
-					if (counter_for_result_list < 10) { // <8
+					// Calculating the prefix for list of items
+					if ((listOfItems.size() + 1) < 10) {
+						listItemPrefix = "00"
+								+ String.valueOf((listOfItems.size() + 1))
+								+ ").  ";
+					} else if ((listOfItems.size() + 1) < 100) {
+						listItemPrefix = "0"
+								+ String.valueOf((listOfItems.size() + 1))
+								+ ").  ";
+					} else {
+						listItemPrefix = String.valueOf((listOfItems.size() + 1))
+								+ ").  ";
+					}
 
-						if (counter_for_result_list_sub_counter == 0) {
-							counter_for_result_list_sub_counter_sub++;
-						}
+					// Adding lap
+					lap_counter++;
+					if ((lap_counter) < 10) {
+						listItemPrefix = listItemPrefix + "Lap #00"
+								+ String.valueOf(lap_counter) + "  :  ";
+					} else if ((listOfItems.size() + 1) < 100) {
+						listItemPrefix = listItemPrefix + "Lap #0"
+								+ String.valueOf(lap_counter) + "  :  ";
+					} else {
+						listItemPrefix = listItemPrefix + "Lap #"
+								+ String.valueOf(lap_counter) + "  :  ";
+					}
 
-						counter_for_result_list++;
-						counter_for_result_list_sub_counter++;
-
-						current_time_str = (" "
-								+ ((char) (counter_for_result_list + 48))
-								+ "). <-"
-								+ ((char) (counter_for_result_list_sub_counter_sub + 48))
-								+ "-"
-								+ ((char) (counter_for_result_list_sub_counter + 48))
-								+ "-> " + current_time_str);
-
-						switch (counter_for_result_list) {
-						case 1: {
-							((TextView) findViewById(R.id.result_text_view_1))
-									.setText(current_time_str);
-						}
-							break;
-						case 2: {
-							((TextView) findViewById(R.id.result_text_view_2))
-									.setText(current_time_str);
-						}
-							break;
-						case 3: {
-							((TextView) findViewById(R.id.result_text_view_3))
-									.setText(current_time_str);
-						}
-							break;
-						case 4: {
-							((TextView) findViewById(R.id.result_text_view_4))
-									.setText(current_time_str);
-						}
-							break;
-						case 5: {
-							((TextView) findViewById(R.id.result_text_view_5))
-									.setText(current_time_str);
-						}
-							break;
-						case 6: {
-							((TextView) findViewById(R.id.result_text_view_6))
-									.setText(current_time_str);
-						}
-							break;
-						case 7: {
-							((TextView) findViewById(R.id.result_text_view_7))
-									.setText(current_time_str);
-						}
-							break;
-
-						case 8: {
-							((TextView) findViewById(R.id.result_text_view_8))
-									.setText(current_time_str);
-						}
-							break;
-						case 9: {
-							((TextView) findViewById(R.id.result_text_view_9))
-									.setText(current_time_str);
-						}
-							break;
-
-						default:
-
-							break;
-						} // eof-switcher
-					} // eof-if
-
+					listOfItems.add(listItemPrefix + current_time_str);
+					listAdapter.notifyDataSetChanged();
+					listOfLaps.setSelection(listOfItems.size() - 1);
 					genButtonSoundRight.start();
 				} else {
 					genButtonSoundWrong.start();
@@ -319,7 +267,7 @@ public class StopWatchActivity extends Activity {
 			} // eof-onClick
 		});
 
-	} // eof-onCreate
+	} // eof-onCreate method
 
 	// Displays counting of seconds from boot, start and last thread
 	private Runnable startCounter = new Runnable() {

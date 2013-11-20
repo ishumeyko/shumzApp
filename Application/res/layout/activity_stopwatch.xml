@@ -176,6 +176,8 @@
                 android:textColorHighlight="#00FF00" />
         </LinearLayout>
 
+        <!-- 
+        
         <ScrollView
             android:id="@+id/time_snapshots_scroll_view"
             android:layout_width="fill_parent"
@@ -251,6 +253,15 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
             </LinearLayout>
         </ScrollView>
+        
+         -->
+
+        <ListView
+            android:id="@+id/lv_for_timechecks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
+
     </LinearLayout>
 
     <TableLayout
