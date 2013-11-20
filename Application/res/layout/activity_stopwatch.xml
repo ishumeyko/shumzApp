@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/simple_chronometer"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:typeface="monospace" />
 
             <TableRow
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/init_time_counter_value"
                     android:textColor="#33FF33"
-                    android:textSize="40dp"
+                    android:textSize="40sp"
                     android:typeface="monospace" />
 
                 <TextView
@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/colon_chrono"
-                    android:textSize="40dp"
+                    android:textSize="40sp"
                     android:typeface="monospace" />
 
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/init_time_counter_value"
                     android:textColor="#33FF33"
-                    android:textSize="40dp"
+                    android:textSize="40sp"
                     android:typeface="monospace" />
 
                 <TextView
@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/colon_chrono"
-                    android:textSize="40dp"
+                    android:textSize="40sp"
                     android:typeface="monospace" />
 
                 <TextView
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/init_time_counter_value"
                     android:textColor="#33FF33"
-                    android:textSize="40dp"
+                    android:textSize="40sp"
                     android:typeface="monospace" />
 
                 <TextView
@@ -82,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/colon_chrono"
-                    android:textSize="40dp"
+                    android:textSize="40sp"
                     android:typeface="monospace" />
 
                 <TextView
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/init_time_ms_counter_value"
                     android:textColor="#FF3333"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:typeface="monospace" />
             </TableRow>
         </LinearLayout>
@@ -169,9 +169,9 @@
 
             <TextView
                 android:id="@+id/current_ms_long"
-                android:paddingLeft="7dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="7sp"
                 android:text="@string/current_ms_long"
                 android:textColorHighlight="#00FF00" />
         </LinearLayout>
@@ -191,7 +191,6 @@
                     android:id="@+id/result_text_view_1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="#333333"
                     android:text="@string/result_001_str"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -206,7 +205,6 @@
                     android:id="@+id/result_text_view_3"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:background="#333333"
                     android:text="@string/result_001_str"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -221,7 +219,6 @@
                     android:id="@+id/result_text_view_5"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="#333333"
                     android:text="@string/result_001_str"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -236,17 +233,13 @@
                     android:id="@+id/result_text_view_7"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="#333333"
                     android:text="@string/result_001_str"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <!-- more TextViews -->
 
                 <TextView
                     android:id="@+id/result_text_view_8"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    
                     android:text="@string/result_001_str"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -255,56 +248,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/result_001_str"
-                    android:background="#333333"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <!--
-                <TextView
-                    android:id="@+id/result_text_view_10"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:background="#222222"
-                    android:text="@string/result_001_str"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/result_text_view_11"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/result_001_str"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/result_text_view_12"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#222222"
-                    android:text="@string/result_001_str"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/result_text_view_13"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/result_001_str"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-                    
-                    <TextView
-                    android:id="@+id/result_text_view_14"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#222222"
-                    android:text="@string/result_001_str"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/result_text_view_15"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/result_001_str"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-                -->
-                <!-- more TextViews -->
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
@@ -322,7 +266,6 @@
             android:id="@+id/time_from_activity_start_ms_txt_tableRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#223322"
             android:gravity="center" >
 
             <TextView
@@ -336,7 +279,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:paddingLeft="5dp"
+                android:paddingLeft="5sp"
                 android:text="@string/current_ms_long_short" />
         </TableRow>
 
@@ -344,7 +287,6 @@
             android:id="@+id/time_from_activity_start_formatted_txt_tableRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#332233"
             android:gravity="center" >
 
             <TextView
@@ -358,7 +300,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:paddingLeft="5dp"
+                android:paddingLeft="5sp"
                 android:text="@string/current_ms_long_short" />
         </TableRow>
 
@@ -366,7 +308,6 @@
             android:id="@+id/time_from_boot_ms_txt_tableRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#223322"
             android:gravity="center" >
 
             <TextView
@@ -380,7 +321,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:paddingLeft="5dp"
+                android:paddingLeft="5sp"
                 android:text="@string/current_ms_long_short" />
         </TableRow>
 
@@ -388,7 +329,6 @@
             android:id="@+id/time_from_boot_formatted_txt_tableRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#332233"
             android:gravity="center" >
 
             <TextView
@@ -402,7 +342,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:paddingLeft="5dp"
+                android:paddingLeft="5sp"
                 android:text="@string/current_ms_long_short" />
         </TableRow>
     </TableLayout>
@@ -414,17 +354,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="@string/simple_digital_clock"
-        android:textColor="#33FF33" />
-
-    <TextView
-        android:id="@+id/test_003_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/digitalClock1"
-        android:gravity="center"
-        android:text="@string/stopwatch_short_str" />
+        android:text="@string/simple_digital_clock" />
 
 </RelativeLayout>

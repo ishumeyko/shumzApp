@@ -36,10 +36,6 @@ public class StopWatchActivity extends Activity {
 	long time_from_boot = start_time_handler; // Is used to count time elapsed
 												// from device boot
 
-	// String elapsed_time_from_reset_str;
-	// String elapsed_time_from_activity_str;
-	// String elapsed_time_from_boot_str;
-
 	// Declaring Button Triggers
 	boolean cleared_condition = false;
 	boolean start_condition = false;
@@ -61,7 +57,7 @@ public class StopWatchActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_stopwatch_advanced);
+		setContentView(R.layout.activity_stopwatch);
 
 		// Setting Initial Button Triggers
 		catch_condition = false;
@@ -118,20 +114,7 @@ public class StopWatchActivity extends Activity {
 								.setText(current_time_str);
 						((TextView) findViewById(R.id.result_text_view_9))
 								.setText(current_time_str);
-						// ((TextView) findViewById(R.id.result_text_view_10))
-						// .setText(current_time_str);
-						// ((TextView) findViewById(R.id.result_text_view_11))
-						// .setText(current_time_str);
-						// ((TextView) findViewById(R.id.result_text_view_12))
-						// .setText(current_time_str);
-						// ((TextView) findViewById(R.id.result_text_view_13))
-						// .setText(current_time_str);
-						// ((TextView) findViewById(R.id.result_text_view_14))
-						// .setText(current_time_str);
-						// ((TextView) findViewById(R.id.result_text_view_15))
-						// .setText(current_time_str);
 
-						// Maybe I'll add it later
 					}
 
 					mHandler.removeCallbacks(startTimer);
@@ -253,7 +236,6 @@ public class StopWatchActivity extends Activity {
 					stop_condition = true;
 					cleared_condition = false;
 
-					// Rest of code
 					current_time_str = getFormatedTime(current_time_handler);
 					((TextView) findViewById(R.id.current_ms_long))
 							.setText(current_time_str);
@@ -323,36 +305,6 @@ public class StopWatchActivity extends Activity {
 									.setText(current_time_str);
 						}
 							break;
-						// case 10: {
-						// ((TextView) findViewById(R.id.result_text_view_10))
-						// .setText(current_time_str);
-						// }
-						// break;
-						// case 11: {
-						// ((TextView) findViewById(R.id.result_text_view_11))
-						// .setText(current_time_str);
-						// }
-						// break;
-						// case 12: {
-						// ((TextView) findViewById(R.id.result_text_view_12))
-						// .setText(current_time_str);
-						// }
-						// break;
-						// case 13: {
-						// ((TextView) findViewById(R.id.result_text_view_13))
-						// .setText(current_time_str);
-						// }
-						// break;
-						// case 14: {
-						// ((TextView) findViewById(R.id.result_text_view_14))
-						// .setText(current_time_str);
-						// }
-						// break;
-						// case 15: {
-						// ((TextView) findViewById(R.id.result_text_view_15))
-						// .setText(current_time_str);
-						// }
-						// break;
 
 						default:
 
@@ -396,7 +348,7 @@ public class StopWatchActivity extends Activity {
 		public void run() {
 			current_time_handler = System.currentTimeMillis()
 					- start_time_handler;
-			ShowTime(current_time_handler);
+			showTime(current_time_handler);
 			mHandler.postDelayed(this, 10);
 		}
 	};
@@ -500,8 +452,8 @@ public class StopWatchActivity extends Activity {
 		return s;
 	}
 
-	// Main Chronometer output convertion method
-	private void ShowTime(long t_to_show) {
+	// Main StopWatch output convertion method
+	private void showTime(long t_to_show) {
 		long HH = 0L;
 		long MM = 0L;
 		long SS = 0L;
@@ -592,6 +544,5 @@ public class StopWatchActivity extends Activity {
 		}
 		return false;
 	}
-	
-	
+
 }
