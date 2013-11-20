@@ -26,8 +26,6 @@ public class StopWatchActivity extends Activity {
 	long start_time_handler = SystemClock.elapsedRealtime();
 	long current_time_handler; // Is used by Handlers for Chronometer Countdown
 
-	String start_time_str; // currently is unused
-
 	long current_time; // Is used to count curent countdown
 	String current_time_str; // Is used to output Formated time converted to
 								// "Hh:Mm:Ss:msms" String format
@@ -51,6 +49,8 @@ public class StopWatchActivity extends Activity {
 	Handler cHandler = new Handler(); // I didn't understand this stuff too
 
 	int lap_counter = 0; // Used to output # of laps
+
+	TextView tvEmptyString;
 
 	// Declaring objects responsible for List of Laps
 	ListView listOfLaps;
@@ -83,14 +83,21 @@ public class StopWatchActivity extends Activity {
 				StopWatchActivity.this, R.raw.button_wrong_sound);
 
 		// Buttons initialization
-		Button StartButton = (Button) findViewById(R.id.button_start);
-		Button ClearButton = (Button) findViewById(R.id.button_clear);
-		Button CatchButton = (Button) findViewById(R.id.button_catch);
-		Button ResetButton = (Button) findViewById(R.id.button_reset);
-		Button StopButton = (Button) findViewById(R.id.button_stop);
+		final Button StartButton = (Button) findViewById(R.id.button_start);
+		final Button ClearButton = (Button) findViewById(R.id.button_clear);
+		final Button CatchButton = (Button) findViewById(R.id.button_catch);
+		final Button ResetButton = (Button) findViewById(R.id.button_reset);
+		final Button StopButton = (Button) findViewById(R.id.button_stop);
+
+		CatchButton.setEnabled(catch_condition);
+		StartButton.setEnabled(start_condition);
+		ClearButton.setEnabled(cleared_condition);
+		ResetButton.setEnabled(reset_condition);
+		StopButton.setEnabled(stop_condition);
+
+		tvEmptyString = (TextView) findViewById(R.id.tv_empty_str);
 
 		// List of laps initialization
-
 		listOfLaps = (ListView) findViewById(R.id.lv_for_timechecks);
 		listAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, listOfItems);
@@ -108,6 +115,12 @@ public class StopWatchActivity extends Activity {
 					stop_condition = false;
 					cleared_condition = false;
 
+					CatchButton.setEnabled(catch_condition);
+					StartButton.setEnabled(start_condition);
+					ClearButton.setEnabled(cleared_condition);
+					ResetButton.setEnabled(reset_condition);
+					StopButton.setEnabled(stop_condition);
+
 					lap_counter = 0;
 
 					mHandler.removeCallbacks(startTimer);
@@ -121,7 +134,10 @@ public class StopWatchActivity extends Activity {
 
 					listOfItems.removeAll(listOfItems);
 					listAdapter.notifyDataSetChanged();
-					
+
+					tvEmptyString.setVisibility(View.VISIBLE);
+					listOfLaps.setVisibility(View.GONE);
+
 					genButtonSoundRight.start();
 				} else {
 
@@ -141,6 +157,12 @@ public class StopWatchActivity extends Activity {
 					reset_condition = true;
 					stop_condition = false;
 					cleared_condition = true;
+
+					CatchButton.setEnabled(catch_condition);
+					StartButton.setEnabled(start_condition);
+					ClearButton.setEnabled(cleared_condition);
+					ResetButton.setEnabled(reset_condition);
+					StopButton.setEnabled(stop_condition);
 
 					// Rest of code
 					mHandler.removeCallbacks(startTimer);
@@ -165,6 +187,12 @@ public class StopWatchActivity extends Activity {
 					reset_condition = false;
 					stop_condition = true;
 					cleared_condition = false;
+
+					CatchButton.setEnabled(catch_condition);
+					StartButton.setEnabled(start_condition);
+					ClearButton.setEnabled(cleared_condition);
+					ResetButton.setEnabled(reset_condition);
+					StopButton.setEnabled(stop_condition);
 
 					// Rest of code
 					if (stop_condition_handler) {
@@ -196,6 +224,12 @@ public class StopWatchActivity extends Activity {
 					stop_condition = false; // true;
 					cleared_condition = false;
 
+					CatchButton.setEnabled(catch_condition);
+					StartButton.setEnabled(start_condition);
+					ClearButton.setEnabled(cleared_condition);
+					ResetButton.setEnabled(reset_condition);
+					StopButton.setEnabled(stop_condition);
+
 					// Rest of code
 					stop_condition_handler = false;
 					((TextView) findViewById(R.id.hh_text_view)).setText("00");
@@ -226,6 +260,17 @@ public class StopWatchActivity extends Activity {
 					stop_condition = true;
 					cleared_condition = false;
 
+					CatchButton.setEnabled(catch_condition);
+					StartButton.setEnabled(start_condition);
+					ClearButton.setEnabled(cleared_condition);
+					ResetButton.setEnabled(reset_condition);
+					StopButton.setEnabled(stop_condition);
+
+					
+					if (listOfLaps.getVisibility() == View.GONE) {
+					tvEmptyString.setVisibility(View.GONE);
+					listOfLaps.setVisibility(View.VISIBLE);}
+					
 					current_time_str = getFormatedTime(current_time_handler);
 					((TextView) findViewById(R.id.current_ms_long))
 							.setText(current_time_str);

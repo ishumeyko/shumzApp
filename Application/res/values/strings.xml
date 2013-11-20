@@ -82,7 +82,7 @@
 
     <!-- StopWatch String resources Start -->
 
-    <string name="stopwatch_short_str">&#8230;or not simple?..</string>
+    <string name="str_stopwatch_empty_str">Empty…</string>
 
     <!-- Code for log view Start -->
 
