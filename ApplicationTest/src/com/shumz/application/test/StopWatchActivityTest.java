@@ -2,7 +2,6 @@ package com.shumz.application.test;
 
 import android.graphics.Typeface;
 import android.test.ActivityInstrumentationTestCase2;
-import android.test.TouchUtils;
 import android.test.ViewAsserts;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,6 +16,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.jayway.android.robotium.solo.Solo;
 import com.shumz.application.R;
 import com.shumz.application.StopWatchActivity;
 
@@ -27,6 +27,8 @@ public class StopWatchActivityTest extends
 	public StopWatchActivityTest() {
 		super(StopWatchActivity.class);
 	}
+
+	private static Solo solo;
 
 	private static final String LOGGER = "StopWatchActivityTest:";
 
@@ -86,6 +88,9 @@ public class StopWatchActivityTest extends
 		Log.v(LOGGER, "Setting up...");
 
 		StopWatchActivityToTest = getActivity();
+
+		// Solo clicker; Standart TouchUtils does not work ((
+		solo = new Solo(getInstrumentation(), StopWatchActivityToTest);
 
 		// Top layout of view
 		rLayoutOfStopWatchActivity = (RelativeLayout) StopWatchActivityToTest
@@ -546,102 +551,71 @@ public class StopWatchActivityTest extends
 
 		assertEquals(Gravity.CENTER, dClock.getGravity());
 
-		
 		assertEquals(rLayoutOfStopWatchActivity.getBottom(), dClock.getBottom());
 	}
 
-	// TODO
-	
-	
 	public final void testInitialStateOfStopWatchActivity() {
-		
-		Log.i(LOGGER, "Running testInitialStateOfStopWatchActivity()");
-		
-		assertEquals(true, StartButton.isEnabled());
-		
-		assertEquals(false, StopButton.isEnabled());
-		assertEquals(false, CatchButton.isEnabled());
-		assertEquals(false, ResetButton.isEnabled());
-		assertEquals(false, ClearButton.isEnabled());
-		
-		assertEquals("00:00:00:000", tvCurrentTimeCheck.getText().toString());
-		
-		
-		assertEquals("00", tvHHs.getText().toString());
-		assertEquals("00", tvMMs.getText().toString());
-		assertEquals("00", tvSSs.getText().toString());
-		assertEquals("000", tvMSMSs.getText().toString());
-		
-		assertEquals(View.VISIBLE, tvEmptyStr.getVisibility());
-		assertEquals(View.GONE, listOfLaps.getVisibility());
-		
-		
-		
-	}
-	
-	
 
-	public final void testStartButtonBehaviorOfStopWatchActivity() {
-		
-		Log.i(LOGGER, "Running testStartButtonBehaviorOfStopWatchActivity()");
-		
+		Log.i(LOGGER, "Running testInitialStateOfStopWatchActivity()");
+
 		assertEquals(true, StartButton.isEnabled());
-		
+
 		assertEquals(false, StopButton.isEnabled());
 		assertEquals(false, CatchButton.isEnabled());
 		assertEquals(false, ResetButton.isEnabled());
 		assertEquals(false, ClearButton.isEnabled());
-		
+
 		assertEquals("00:00:00:000", tvCurrentTimeCheck.getText().toString());
-		
+
 		assertEquals("00", tvHHs.getText().toString());
 		assertEquals("00", tvMMs.getText().toString());
 		assertEquals("00", tvSSs.getText().toString());
 		assertEquals("000", tvMSMSs.getText().toString());
-		
+
 		assertEquals(View.VISIBLE, tvEmptyStr.getVisibility());
 		assertEquals(View.GONE, listOfLaps.getVisibility());
-		
-		
-//		View
-		
-		
-//		Log.i(LOGGER, "TouchUtils.clickView(this, StartButton); 1");
-//		
-//		try {
-//			Thread.sleep(1500);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		TouchUtils.clickView(StopWatchActivityTest.this, StartButton);
-//
-//		Log.i(LOGGER, "TouchUtils.clickView(this, StartButton); 2");
-//
-//		
-//		
-//		
-//		
-//		assertEquals(false, StartButton.isEnabled());
-//		
-//		assertEquals(true, StopButton.isEnabled());
-//		assertEquals(true, CatchButton.isEnabled());
-//		assertEquals(false, ResetButton.isEnabled());
-//		assertEquals(false, ClearButton.isEnabled());
-//		
-//
-//		
-//		
-//		TouchUtils.clickView(this, StopButton);
-		
-//		String s = (tvHHs.getText().toString() + tvMMs.getText().toString() + tvSSs.getText().toString() + tvMSMSs.getText().toString());
-		
-//		assertNotSame("00:00:00:000", s);
-		
-		
-		
+
 	}
-	
-	
+
+	public final void testStartButtonBehaviorOfStopWatchActivity()
+			throws InterruptedException {
+
+		Log.i(LOGGER, "Running testStartButtonBehaviorOfStopWatchActivity()");
+
+		assertEquals(true, StartButton.isEnabled());
+
+		assertEquals(false, StopButton.isEnabled());
+		assertEquals(false, CatchButton.isEnabled());
+		assertEquals(false, ResetButton.isEnabled());
+		assertEquals(false, ClearButton.isEnabled());
+
+		assertEquals("00:00:00:000", tvCurrentTimeCheck.getText().toString());
+
+		assertEquals("00", tvHHs.getText().toString());
+		assertEquals("00", tvMMs.getText().toString());
+		assertEquals("00", tvSSs.getText().toString());
+		assertEquals("000", tvMSMSs.getText().toString());
+
+		assertEquals(View.VISIBLE, tvEmptyStr.getVisibility());
+		assertEquals(View.GONE, listOfLaps.getVisibility());
+
+		solo.clickOnButton("Start");
+
+		Thread.sleep(500);
+
+		assertEquals(false, StartButton.isEnabled());
+
+		assertEquals(true, StopButton.isEnabled());
+		assertEquals(true, CatchButton.isEnabled());
+		assertEquals(false, ResetButton.isEnabled());
+		assertEquals(false, ClearButton.isEnabled());
+
+		String s = (tvHHs.getText().toString() + tvMMs.getText().toString()
+				+ tvSSs.getText().toString() + tvMSMSs.getText().toString());
+
+		assertNotSame("00:00:00:000", s);
+
+		solo.clickOnButton("Stop");
+	}
+
 }
