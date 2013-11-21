@@ -192,7 +192,14 @@ public class SplashActivityTest extends
 		Activity mainMenuActivity = mainActivityMonitor.getLastActivity();
 		assertNotNull("MainMenuActivity was not Started!!!", mainMenuActivity);
 		
-		mainMenuActivity.finish();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
+//		mainMenuActivity.finish();
 	}
 
 	public void testOnBackPressed() {
@@ -211,6 +218,8 @@ public class SplashActivityTest extends
 				e.printStackTrace();
 			}
 		}
+		
+		assertNotNull("SplachActivity is finished!..", splashActivityToTest);
 
 	}
 
