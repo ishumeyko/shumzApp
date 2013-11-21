@@ -108,7 +108,7 @@
 
 
     <!-- Code for Cogniance Start -->
-    <string name="simple_chronometer">Simple StopWatch</string>
+    <string name="str_stopwatch_name_str">StopWatch</string>
     <string name="simple_digital_clock">DigitalClock</string>
     <string name="button_str_catch">Catch</string>
     <string name="button_str_start">Start</string>

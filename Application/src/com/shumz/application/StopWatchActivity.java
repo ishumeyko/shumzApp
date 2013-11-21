@@ -45,10 +45,16 @@ public class StopWatchActivity extends Activity {
 
 	boolean stop_condition_handler; // It is a Stop Condition Handler switcher
 
-	Handler mHandler = new Handler(); // I didn't understand this stuff
-	Handler cHandler = new Handler(); // I didn't understand this stuff too
+	Handler mHandler = new Handler();
+	Handler cHandler = new Handler();
 
 	int lap_counter = 0; // Used to output # of laps
+
+	Button StartButton;
+	Button ClearButton;
+	Button CatchButton;
+	Button ResetButton;
+	Button StopButton;
 
 	TextView tvEmptyString;
 
@@ -83,11 +89,11 @@ public class StopWatchActivity extends Activity {
 				StopWatchActivity.this, R.raw.button_wrong_sound);
 
 		// Buttons initialization
-		final Button StartButton = (Button) findViewById(R.id.button_start);
-		final Button ClearButton = (Button) findViewById(R.id.button_clear);
-		final Button CatchButton = (Button) findViewById(R.id.button_catch);
-		final Button ResetButton = (Button) findViewById(R.id.button_reset);
-		final Button StopButton = (Button) findViewById(R.id.button_stop);
+		StartButton = (Button) findViewById(R.id.button_start);
+		ClearButton = (Button) findViewById(R.id.button_clear);
+		CatchButton = (Button) findViewById(R.id.button_catch);
+		ResetButton = (Button) findViewById(R.id.button_reset);
+		StopButton = (Button) findViewById(R.id.button_stop);
 
 		CatchButton.setEnabled(catch_condition);
 		StartButton.setEnabled(start_condition);
@@ -266,11 +272,11 @@ public class StopWatchActivity extends Activity {
 					ResetButton.setEnabled(reset_condition);
 					StopButton.setEnabled(stop_condition);
 
-					
 					if (listOfLaps.getVisibility() == View.GONE) {
-					tvEmptyString.setVisibility(View.GONE);
-					listOfLaps.setVisibility(View.VISIBLE);}
-					
+						tvEmptyString.setVisibility(View.GONE);
+						listOfLaps.setVisibility(View.VISIBLE);
+					}
+
 					current_time_str = getFormatedTime(current_time_handler);
 					((TextView) findViewById(R.id.current_ms_long))
 							.setText(current_time_str);
@@ -523,14 +529,6 @@ public class StopWatchActivity extends Activity {
 		case R.id.hardwareMenuToastSW:
 			Toast andEggs = Toast.makeText(StopWatchActivity.this,
 					"Property of Shumz Soft Inc.", Toast.LENGTH_SHORT);
-			andEggs.show();
-
-			andEggs = Toast.makeText(StopWatchActivity.this,
-					"I really hope you've enjoied it...", Toast.LENGTH_LONG);
-			andEggs.show();
-
-			andEggs = Toast.makeText(StopWatchActivity.this,
-					"Antonina and Elena  ;-)", Toast.LENGTH_SHORT);
 			andEggs.show();
 
 			return true;

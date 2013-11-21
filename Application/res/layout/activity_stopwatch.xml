@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_swatch_top_layout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" >
-
-    <!-- android:weightSum="1" -->
 
     <LinearLayout
         android:id="@+id/linearLayout_chrono_full"
@@ -23,7 +22,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/simple_chronometer"
+                android:text="@string/str_stopwatch_name_str"
                 android:textSize="25sp"
                 android:typeface="monospace" />
 
@@ -130,7 +129,7 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/linearLayout_chrono_buttons_level_2"
+            android:id="@+id/relativeLayout_chrono_buttons_level_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="fill_horizontal"
@@ -188,7 +187,7 @@
         android:id="@+id/time_view_table_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/digitalClock1"
+        android:layout_above="@+id/digital_clock"
         android:layout_alignParentLeft="true"
         android:paddingLeft="10dp"
         android:paddingRight="10dp" >
@@ -286,11 +285,11 @@
         android:layout_centerVertical="true"
         android:text="@string/str_stopwatch_empty_str"
         android:textSize="35sp"
-        android:visibility="visible"
-        android:typeface="monospace" />
+        android:typeface="monospace"
+        android:visibility="visible" />
 
     <DigitalClock
-        android:id="@+id/digitalClock1"
+        android:id="@+id/digital_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
