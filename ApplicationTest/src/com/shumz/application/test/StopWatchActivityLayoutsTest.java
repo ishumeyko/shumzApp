@@ -5,7 +5,6 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.ViewAsserts;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DigitalClock;
 import android.widget.LinearLayout;
@@ -16,19 +15,16 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.jayway.android.robotium.solo.Solo;
 import com.shumz.application.R;
 import com.shumz.application.StopWatchActivity;
 
 @SuppressWarnings("deprecation")
-public class StopWatchActivityTest extends
+public class StopWatchActivityLayoutsTest extends
 		ActivityInstrumentationTestCase2<StopWatchActivity> {
 
-	public StopWatchActivityTest() {
+	public StopWatchActivityLayoutsTest() {
 		super(StopWatchActivity.class);
 	}
-
-	private static Solo solo;
 
 	private static final String LOGGER = "StopWatchActivityTest:";
 
@@ -88,9 +84,6 @@ public class StopWatchActivityTest extends
 		Log.v(LOGGER, "Setting up...");
 
 		StopWatchActivityToTest = getActivity();
-
-		// Solo clicker; Standart TouchUtils does not work ((
-		solo = new Solo(getInstrumentation(), StopWatchActivityToTest);
 
 		// Top layout of view
 		rLayoutOfStopWatchActivity = (RelativeLayout) StopWatchActivityToTest
@@ -539,6 +532,26 @@ public class StopWatchActivityTest extends
 
 	}
 
+	public final void testTexViewEmptyStringOfChronometerLayoutParameters() {
+
+		Log.i(LOGGER,
+				"Running testTexViewEmptyStringOfChronometerLayoutParameters()");
+
+		assertEquals(LayoutParams.WRAP_CONTENT,
+				tvEmptyStr.getLayoutParams().height);
+		assertEquals(LayoutParams.WRAP_CONTENT,
+				tvEmptyStr.getLayoutParams().width);
+
+		ViewAsserts.assertHorizontalCenterAligned(rLayoutOfStopWatchActivity,
+				tvEmptyStr);
+		ViewAsserts.assertVerticalCenterAligned(rLayoutOfStopWatchActivity,
+				tvEmptyStr);
+		
+		assertEquals("Empty…", tvEmptyStr.getText().toString());
+		
+
+	}
+
 	public final void testDigitalClockOfChronometerLayoutParameters() {
 
 		Log.i(LOGGER, "Running testDigitalClockOfChronometerLayoutParameters()");
@@ -552,70 +565,6 @@ public class StopWatchActivityTest extends
 		assertEquals(Gravity.CENTER, dClock.getGravity());
 
 		assertEquals(rLayoutOfStopWatchActivity.getBottom(), dClock.getBottom());
-	}
-
-	public final void testInitialStateOfStopWatchActivity() {
-
-		Log.i(LOGGER, "Running testInitialStateOfStopWatchActivity()");
-
-		assertEquals(true, StartButton.isEnabled());
-
-		assertEquals(false, StopButton.isEnabled());
-		assertEquals(false, CatchButton.isEnabled());
-		assertEquals(false, ResetButton.isEnabled());
-		assertEquals(false, ClearButton.isEnabled());
-
-		assertEquals("00:00:00:000", tvCurrentTimeCheck.getText().toString());
-
-		assertEquals("00", tvHHs.getText().toString());
-		assertEquals("00", tvMMs.getText().toString());
-		assertEquals("00", tvSSs.getText().toString());
-		assertEquals("000", tvMSMSs.getText().toString());
-
-		assertEquals(View.VISIBLE, tvEmptyStr.getVisibility());
-		assertEquals(View.GONE, listOfLaps.getVisibility());
-
-	}
-
-	public final void testStartButtonBehaviorOfStopWatchActivity()
-			throws InterruptedException {
-
-		Log.i(LOGGER, "Running testStartButtonBehaviorOfStopWatchActivity()");
-
-		assertEquals(true, StartButton.isEnabled());
-
-		assertEquals(false, StopButton.isEnabled());
-		assertEquals(false, CatchButton.isEnabled());
-		assertEquals(false, ResetButton.isEnabled());
-		assertEquals(false, ClearButton.isEnabled());
-
-		assertEquals("00:00:00:000", tvCurrentTimeCheck.getText().toString());
-
-		assertEquals("00", tvHHs.getText().toString());
-		assertEquals("00", tvMMs.getText().toString());
-		assertEquals("00", tvSSs.getText().toString());
-		assertEquals("000", tvMSMSs.getText().toString());
-
-		assertEquals(View.VISIBLE, tvEmptyStr.getVisibility());
-		assertEquals(View.GONE, listOfLaps.getVisibility());
-
-		solo.clickOnButton("Start");
-
-		Thread.sleep(500);
-
-		assertEquals(false, StartButton.isEnabled());
-
-		assertEquals(true, StopButton.isEnabled());
-		assertEquals(true, CatchButton.isEnabled());
-		assertEquals(false, ResetButton.isEnabled());
-		assertEquals(false, ClearButton.isEnabled());
-
-		String s = (tvHHs.getText().toString() + tvMMs.getText().toString()
-				+ tvSSs.getText().toString() + tvMSMSs.getText().toString());
-
-		assertNotSame("00:00:00:000", s);
-
-		solo.clickOnButton("Stop");
 	}
 
 }
