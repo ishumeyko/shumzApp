@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_swatch_qs_top_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/tv_what_it_can_do_sw_qs_str"
+        android:id="@+id/tv_swatch_what_it_can_do_sw_qs_str"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
@@ -17,13 +18,14 @@
         android:typeface="monospace" />
 
     <ScrollView
+        android:id="@+id/sv_swatch_qs_info"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp" >
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tv_swatch_info"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="fill_horizontal"
