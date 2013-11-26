@@ -523,7 +523,7 @@ public class StopWatchActivity extends Activity {
 			startActivity(new Intent("com.shumz.application.MENUSTOPWATCHQS"));
 			return true;
 
-		case R.id.hardwareMenuToastSW:
+		case R.id.hardwareMenuToastAbout:
 			Toast andEggs = Toast.makeText(StopWatchActivity.this,
 					"Property of Shumz Soft Inc.", Toast.LENGTH_SHORT);
 			andEggs.show();

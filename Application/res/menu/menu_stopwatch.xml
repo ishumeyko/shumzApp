@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
+        android:id="@+id/hardwareMenuToastAbout"
+        android:alphabeticShortcut="a"
+        android:title="@string/menu_qs_stopwatch_activity_about"/>
+    <item
         android:id="@+id/hardwareMenuSWHelpQS"
         android:alphabeticShortcut="b"
         android:title="@string/menu_qs_stopwatch_activity_quik_start"/>
-    <item
-        android:id="@+id/hardwareMenuToastSW"
-        android:alphabeticShortcut="a"
-        android:title="@string/menu_qs_stopwatch_activity_about"/>
 
 </menu>
