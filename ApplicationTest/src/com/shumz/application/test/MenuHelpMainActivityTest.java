@@ -3,9 +3,7 @@ package com.shumz.application.test;
 import android.graphics.Typeface;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.ViewAsserts;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -18,7 +16,7 @@ import com.shumz.application.R;
 public class MenuHelpMainActivityTest extends
 		ActivityInstrumentationTestCase2<MenuHelpMainActivity> {
 
-	private static final String LOGGER = "HelpOfMainActivityTest:";
+	private static final String LOGGER = "menuHelpOfMainActivityTest:";
 
 	private static MenuHelpMainActivity menuHelpOfMainActivityToTest;
 
@@ -108,8 +106,8 @@ public class MenuHelpMainActivityTest extends
 
 	}
 
-	public void testlLayoutTopOfMainActivityLayoutParameters() {
-		Log.i(LOGGER, "Running testlLayoutTopOfMainActivityLayoutParameters()");
+	public void testLinearLayoutTopOfMainActivityLayoutParameters() {
+		Log.i(LOGGER, "Running testLinearLayoutTopOfMainActivityLayoutParameters()");
 
 		assertEquals(LayoutParams.FILL_PARENT,
 				lLayoutTop.getLayoutParams().height);
