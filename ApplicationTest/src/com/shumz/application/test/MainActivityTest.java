@@ -99,8 +99,8 @@ public class MainActivityTest extends
 		super.tearDown();
 	}
 
-	public void testAllWiewsArePresentOnMainActivity() {
-		Log.i(LOGGER, "Running testAllWiewsArePresentOnMainActivity()");
+	public void testAllViewsArePresentOnMainActivity() {
+		Log.i(LOGGER, "Running testAllViewsArePresentOnMainActivity()");
 
 		assertNotNull("Cannot find mainActivityToTest!", mainActivityToTest);
 
