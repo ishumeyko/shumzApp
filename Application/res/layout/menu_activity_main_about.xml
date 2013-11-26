@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llayout_top_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp" >
 
     <LinearLayout
+        android:id="@+id/llayout_app_logo_and_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
@@ -18,6 +20,7 @@
             android:src="@drawable/chuckskull" />
 
         <LinearLayout
+            android:id="@+id/llayout_app_name"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical" >
@@ -55,9 +58,11 @@
         android:textSize="15sp" />
 
     <LinearLayout
+        android:id="@+id/llayout_contacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" android:paddingLeft="15sp" >
+        android:orientation="vertical"
+        android:paddingLeft="15sp" >
 
         <TextView
             android:id="@+id/tv_phone"
