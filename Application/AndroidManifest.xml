@@ -60,9 +60,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <!-- StopWatch Activity declaration -->
-
         <activity
             android:name="com.shumz.application.StopWatchActivity"
             android:label="StopWatch"
@@ -73,7 +71,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.shumz.application.MenuStopWatchQS"
+            android:label="@string/menu_qs_stopwatch_activity_quik_start"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="com.shumz.application.MENUSTOPWATCHQS" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- StopWatch Activity declaration -->
         <!-- Timer Activity declaration -->
 
         <activity
@@ -98,26 +107,6 @@
         </activity>
         <!--  -->
 
-        <activity
-            android:name="com.shumz.application.MenuStopWatchQS"
-            android:label="Quick SW start"
-            android:theme="@android:style/Theme.Dialog" >
-            <intent-filter>
-                <action android:name="com.shumz.application.MENUSTOPWATCHQS" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.shumz.application.MenuStopWatchAd"
-            android:label="Advanced SW help"
-            android:theme="@android:style/Theme.Dialog" >
-            <intent-filter>
-                <action android:name="com.shumz.application.MENUSTOPWATCHAD" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

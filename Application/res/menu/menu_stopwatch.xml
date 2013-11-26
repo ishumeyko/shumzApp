@@ -4,14 +4,10 @@
     <item
         android:id="@+id/hardwareMenuSWHelpQS"
         android:alphabeticShortcut="b"
-        android:title="SW QuickStart"/>
+        android:title="@string/menu_qs_stopwatch_activity_quik_start"/>
     <item
-        android:id="@+id/hardwareMenuSWHelpAd"
-        android:alphabeticShortcut="c"
-        android:title="StopWatch Help"/>
-     <item
         android:id="@+id/hardwareMenuToastSW"
         android:alphabeticShortcut="a"
-        android:title="About SW"/>
+        android:title="@string/menu_qs_stopwatch_activity_about"/>
 
 </menu>

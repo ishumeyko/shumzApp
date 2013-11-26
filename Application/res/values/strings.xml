@@ -61,33 +61,22 @@
 
     <!--  -->
 
-    <!-- Menu of StopWatch Activity -->
 
+    <!-- StopWatch Activity -->
 
-    <!-- Menu of SW Quick Start -->
-    <string name="what_it_can_do_sw_qs_str">What it is actually:</string>
-    <string name="help_string_sw_qs">This is a Stopwatch that can be used for measuring anything you need to measure (KO).\n 1. Time output: it has \'Hh:Mm:Ss:msms\' format to show time.\n 2. Current time: biggest digits. hours, minutes, seconds - green color; millisecond - red color.\n 3. Buttons:\n <b>Catch</b> - catch current time snapshot.\n <b>Start</b> - begin/resume time measurement cycle.\n <b>Reset</b> - set current time measurement cycle to zero.\n <b>Stop</b> - stop/pause current time cycle.\n <b>Clear</b> - clear all cycles and measures.\n \n \n <i>Please, note that there certain buttons are clickable while you\'re performing your time measurements. For example if</i><b>Start</b><i>button is pressed, you cannot press</i><b>Clear</b><i>button till</i><b>Stop</b><i>will be clicked.</i></string>
-    <string name="what_it_can_do_sw_qs_further_info_str">For further info look at the <b>Advanced SW Help</b> page</string>
-
-    <!-- Menu of SW Advanced Help -->
-    <string name="what_it_can_do_sw_ad_str"><b>More information&#8230;</b></string>
-    <string name="help_string_sw_ad_part_1"><b>Here is more advanced help info and some tips and tricks&#8230;</b>\n \n As you see, except buttons and current time cycle there are more objects:\n <b>Current time check</b> - it is the last time notch, caught by pressing <b>\'Catch\'</b> button.\n <b>\'&#8211;&#8211;:&#8211;&#8211;:&#8211;&#8211;:&#8211;&#8211;&#8211;\'</b> - there are nine fields, where your time snapshots can be stored.\n\n </string>
-    <string name="help_string_sw_ad_part_2"><b>\'Time from SW&#8230;\'</b> table:\n</string>
-    <string name="help_string_sw_ad_part_3"><b>Time from SW start in ms:</b> means time elapsed from launching actually \'stopwatch\' activity in milliseconds.\n <b>Time from SW start formatted: </b> means the same, but now it is in \'Hh:Mm:Ss:msms\' format.\n <b>Time elapsed from boot in ms: </b> means time elapsed from booting your device in milliseconds. \n <b>Time elapsed from boot  formatted: </b>  means, again, the same, but now it is in \'Hh:Mm:Ss:msms\' format.\n At the end, there is a digital clock, that shows current system time.\n\n </string>
-    <string name="help_string_sw_ad_part_4"><b>So, some tips and tricks:</b>\n </string>
-    <string name="help_string_sw_ad_part_5">After you starting measure cycle you can catch time snapshots. These snapshots are stored in a specific format that can be useful in certain situations.\n 1st digit - number of a field\n 2nd - current countdown\n 3rd - number of time snapshot.\n\n For example, you need to measure time, that will spent 5 different person to perform five different actions and 3 times for 6th person:\n click <b>Clear</b>, then for first 5 actions click <b>Start</b> -> <b>Catch</b> -> <b>Stop</b> -> <b>Reset</b> -> <b>Start</b> every time, and then <b>Stop</b> -> <b>Reset</b> -> <b>Start</b> and press <b>Catch</b> 3 times to measure 3 cycles for 6th person.\n \n</string>
-    <string name="help_string_sw_ad_part_6">There are nine fields where time measurements are saved, also <b>Current time check</b> field displays last time notch of current cycle and stores it till <b>Catch</b> button is pressed again.</string>
-    <string name="help_string_sw_ad_part_7">I know that it looks confusing at first time, but when you deal with it, you will be able perform quite complex time measurements :-).\n</string>
-    <string name="what_it_can_do_sw_ad_further_info_str"><i>I hope it will be funny and challenging for you&#8230;</i></string>
-
-    <!-- StopWatch String resources Start -->
-
+    <string name="str_stopwatch_name_str">StopWatch</string>
+    <string name="simple_digital_clock">DigitalClock</string>
+    <string name="button_str_catch">Catch</string>
+    <string name="button_str_start">Start</string>
+    <string name="button_str_reset">Reset</string>
+    <string name="button_str_stop">Stop</string>
+    <string name="button_str_clear">Clear</string>
+    <!--  -->
     <string name="str_stopwatch_empty_str">Empty…</string>
-
-    <!-- Code for log view Start -->
-
+    <!--  -->
     <string name="current_ms_txt">Current time check: </string>
     <string name="current_ms_long">00:00:00:000</string>
+    <!--  -->
     <string name="current_ms_long_short">00:00:00</string>
     <string name="colon_chrono">:</string>
     <string name="init_time_counter_value">00</string>
@@ -100,33 +89,28 @@
     <string name="time_from_reset_formatted_txt">T from reset formatted: </string>
     <string name="time_from_boot_ms_txt">Time elapsed from boot in ms: </string>
     <string name="time_from_boot_formatted_txt">Time elapsed from boot formatted: </string>
-
     <!-- Code for log viewTableRow Finish -->
 
 
-    <!-- Code for log view temporary Finish -->
+    <!-- Menu of StopWatch Activity -->
 
 
-    <!-- Code for Cogniance Start -->
-    <string name="str_stopwatch_name_str">StopWatch</string>
-    <string name="simple_digital_clock">DigitalClock</string>
-    <string name="button_str_catch">Catch</string>
-    <string name="button_str_start">Start</string>
-    <string name="button_str_reset">Reset</string>
-    <string name="button_str_stop">Stop</string>
-    <string name="button_str_clear">Clear</string>
+    <!-- Menu of SW Quick Start -->
+    <string name="menu_qs_stopwatch_activity_quik_start">StopWatch quick start</string>
+    <string name="menu_qs_stopwatch_activity_about">About</string>
+   <!--  -->
+    <string name="what_it_can_do_sw_qs_str">What it is actually:</string>
+    <string name="help_string_sw_qs">This is a Stopwatch that can be used for precise time measurments.\n 1. Time output: it has \'HhH:MM:SS:msms\' format to show time.\n 2. Current time: biggest digits. hours, minutes, seconds - green color; millisecond - red color.\n 3. Buttons:\n <b>Catch</b> - catch current time snapshot.\n <b>Start</b>- begin/resume time measurement cycle.\n <b>Reset</b> - set current time measurement cycle to zero.\n <b>Stop</b> - stop/pause current time cycle.\n <b>Clear</b> - clear all cycles and measures.\n</string>
 
-    <!-- sample start -->
-    <string name="result_001_str">--:--:--:---</string>
-    <string name="result_002_str">--:--:--:---</string>
-    <string name="result_003_str">--:--:--:---</string>
-    <string name="result_004_str">--:--:--:---</string>
-    <string name="result_005_str">--:--:--:---</string>
-    <string name="result_006_str">--:--:--:---</string>
-    <string name="result_007_str">--:--:--:---</string>
-    <!-- sample start -->
-
-
-    <!-- Code for Cogniance Stop -->
+    <!-- Menu of SW Advanced Help -->
+    <string name="what_it_can_do_sw_ad_str"><b>More information&#8230;</b></string>
+    <string name="help_string_sw_ad_part_1"><b>Here is more advanced help info and some tips and tricks&#8230;</b>\n \n As you see, except buttons and current time cycle there are more objects:\n <b>Current time check</b> - it is the last time notch, caught by pressing <b>\'Catch\'</b> button.\n <b>\'&#8211;&#8211;:&#8211;&#8211;:&#8211;&#8211;:&#8211;&#8211;&#8211;\'</b> - there are nine fields, where your time snapshots can be stored.\n\n </string>
+    <string name="help_string_sw_ad_part_2"><b>\'Time from SW&#8230;\'</b> table:\n</string>
+    <string name="help_string_sw_ad_part_3"><b>Time from SW start in ms:</b> means time elapsed from launching actually \'stopwatch\' activity in milliseconds.\n <b>Time from SW start formatted: </b> means the same, but now it is in \'Hh:Mm:Ss:msms\' format.\n <b>Time elapsed from boot in ms: </b> means time elapsed from booting your device in milliseconds. \n <b>Time elapsed from boot  formatted: </b>  means, again, the same, but now it is in \'Hh:Mm:Ss:msms\' format.\n At the end, there is a digital clock, that shows current system time.\n\n </string>
+    <string name="help_string_sw_ad_part_4"><b>So, some tips and tricks:</b>\n </string>
+    <string name="help_string_sw_ad_part_5">After you starting measure cycle you can catch time snapshots. These snapshots are stored in a specific format that can be useful in certain situations.\n 1st digit - number of a field\n 2nd - current countdown\n 3rd - number of time snapshot.\n\n For example, you need to measure time, that will spent 5 different person to perform five different actions and 3 times for 6th person:\n click <b>Clear</b>, then for first 5 actions click <b>Start</b> -> <b>Catch</b> -> <b>Stop</b> -> <b>Reset</b> -> <b>Start</b> every time, and then <b>Stop</b> -> <b>Reset</b> -> <b>Start</b> and press <b>Catch</b> 3 times to measure 3 cycles for 6th person.\n \n</string>
+    <string name="help_string_sw_ad_part_6">There are nine fields where time measurements are saved, also <b>Current time check</b> field displays last time notch of current cycle and stores it till <b>Catch</b> button is pressed again.</string>
+    <string name="help_string_sw_ad_part_7">I know that it looks confusing at first time, but when you deal with it, you will be able perform quite complex time measurements :-).\n</string>
+    <string name="what_it_can_do_sw_ad_further_info_str"><i>I hope it will be funny and challenging for you&#8230;</i></string>
 
 </resources>

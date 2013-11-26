@@ -522,9 +522,6 @@ public class StopWatchActivity extends Activity {
 		case R.id.hardwareMenuSWHelpQS:
 			startActivity(new Intent("com.shumz.application.MENUSTOPWATCHQS"));
 			return true;
-		case R.id.hardwareMenuSWHelpAd:
-			startActivity(new Intent("com.shumz.application.MENUSTOPWATCHAD"));
-			return true;
 
 		case R.id.hardwareMenuToastSW:
 			Toast andEggs = Toast.makeText(StopWatchActivity.this,

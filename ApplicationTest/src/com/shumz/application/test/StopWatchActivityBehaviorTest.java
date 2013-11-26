@@ -106,6 +106,8 @@ public class StopWatchActivityBehaviorTest extends
 		super.tearDown();
 
 		Log.v(LOGGER, "Tearing down...");
+	
+	solo.finishOpenedActivities();
 	}
 
 	public final void testInitialStateOfStopWatchActivity() {

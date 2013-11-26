@@ -180,6 +180,8 @@ public class SplashActivityTest extends
 	public void testOnTouchSkippingActivity() {
 		Log.i(LOGGER, "Running testOnTouchSkippingActivity()");
 
+		fail("Does not work as expected!!!");
+		
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
