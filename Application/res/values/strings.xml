@@ -32,10 +32,10 @@
     <string name="str_menu_main_app_help_content_old">This is a simple \n \'Hello World\' \n application that I have created using my small knowledge about programming. \n Also, I used three books, a lot of Internet resources and five or six HOWTO tutorials. Maybe this application is not the most useful in the world, but it shows basics that can be used in android programs. \n Before I begun to write this program, I did not know anything about Java, XML or developing for android at all. So, in this application are present five java classes, and six layouts, three sounds, also there are three buttons: two in main menu and one in the text generator (actually info is not true, there were significant changes ;-) ). \n Well, you can press all button that you see.</string>
     <string name="str_menu_main_app_help_content_000">Hello User!</string>
     <string name="str_menu_main_app_help_content_001">This is a simple \n \'Hello World\' \n application, which was created just for fun.</string>
-    <string name="str_menu_main_app_help_content_002">There are following tools available in this app:</string>
-    <string name="str_menu_main_app_help_content_003"> -> Alarm;</string>
-    <string name="str_menu_main_app_help_content_004"> -> StopWatch;</string>
-    <string name="str_menu_main_app_help_content_005"> -> Timer;</string>
+    <string name="str_menu_main_app_help_content_002">There are following features available in this app:</string>
+    <string name="str_menu_main_app_help_content_003">-> Alarm;</string>
+    <string name="str_menu_main_app_help_content_004">-> StopWatch;</string>
+    <string name="str_menu_main_app_help_content_005">-> Timer;</string>
     <string name="str_menu_main_app_help_content_006">enjoy!..</string>
 
     <!-- About Menu of Main Activity -->
