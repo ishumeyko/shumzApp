@@ -3,6 +3,7 @@ package com.shumz.application.test;
 import android.test.ActivityInstrumentationTestCase2;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -106,8 +107,8 @@ public class StopWatchActivityBehaviorTest extends
 		super.tearDown();
 
 		Log.v(LOGGER, "Tearing down...");
-	
-	solo.finishOpenedActivities();
+
+//		solo.finishOpenedActivities();
 	}
 
 	public final void testInitialStateOfStopWatchActivity() {
@@ -487,6 +488,34 @@ public class StopWatchActivityBehaviorTest extends
 					.isSelected();
 
 		}
+
+	}
+
+	public void testMenuOfStopWatchActivity() throws InterruptedException {
+		Log.i(LOGGER, "Running testMenuOfStopWatchActivity()");
+
+		sendKeys(KeyEvent.KEYCODE_MENU);
+
+		Thread.sleep(1500);
+
+	}
+
+	public void testInvocationOfAboutMenuOfStopWatchActivity() {
+		Log.i(LOGGER, "Running testInvocationOfAboutMenuOfStopWatchActivity()");
+
+		fail("Not implemented yet...");
+	}
+
+	public void testInvocationOfQuickStartMenuOfStopWatchActivity()
+			throws InterruptedException {
+		Log.i(LOGGER, "Running testInvocationOfHelpMenuOfMainActivity()");
+
+		assertTrue(getInstrumentation().invokeMenuActionSync(
+				StopWatchActivityToTest, R.id.hardwareMenuSWHelpQS, 0));
+
+		Thread.sleep(1500);
+
+		sendKeys(KeyEvent.KEYCODE_BACK);
 
 	}
 
