@@ -142,11 +142,6 @@ public class MenuHelpMainActivityTest extends
 				sViewMenuHelpContents.getLayoutParams().height);
 		assertEquals(LayoutParams.WRAP_CONTENT,
 				sViewMenuHelpContents.getLayoutParams().width);
-
-		// ViewAsserts.assertRightAligned(lLayoutTop, sViewMenuHelpContents,
-		// 25);
-		// ViewAsserts.assertLeftAligned(lLayoutTop, sViewMenuHelpContents, 25);
-
 	}
 
 	public void testLinearLayoutHelpContentsOfMainActivityParameters() {
