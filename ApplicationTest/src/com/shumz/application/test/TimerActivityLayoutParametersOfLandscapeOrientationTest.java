@@ -193,6 +193,9 @@ public class TimerActivityLayoutParametersOfLandscapeOrientationTest extends
 
 		assertEquals(View.VISIBLE, tPicker.getVisibility());
 
+		assertTrue(tPicker.getCurrentHour() == 0);
+		assertTrue(tPicker.getCurrentMinute() == 15);
+
 	}
 
 	public final void testLinearLayoutCountdownOfTimerActivityParametersLandscape() {

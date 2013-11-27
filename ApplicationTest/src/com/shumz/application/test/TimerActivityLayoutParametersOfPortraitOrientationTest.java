@@ -103,7 +103,6 @@ public class TimerActivityLayoutParametersOfPortraitOrientationTest extends
 
 	public void testAllViewsArePresentOnTimerActivity() {
 
-		
 		Log.i(LOGGER, "Running testAllViewsArePresentOnTimerActivity()");
 
 		assertNotNull("Cannot find TimerActivityToTest!", TimerActivityToTest);
@@ -156,6 +155,9 @@ public class TimerActivityLayoutParametersOfPortraitOrientationTest extends
 		ViewAsserts.assertHorizontalCenterAligned(rLayoutTimerTopView, tPicker);
 
 		assertEquals(View.VISIBLE, tPicker.getVisibility());
+
+		assertTrue(tPicker.getCurrentHour() == 0);
+		assertTrue(tPicker.getCurrentMinute() == 15);
 
 	}
 

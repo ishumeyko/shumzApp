@@ -101,7 +101,7 @@ public class TimerActivity extends Activity {
 		tPicker = (TimePicker) findViewById(R.id.timer_picker);
 		tPicker.setIs24HourView(true);
 		tPicker.setCurrentHour(0);
-		tPicker.setCurrentMinute(1);
+		tPicker.setCurrentMinute(15);
 
 		startStopButton = (Button) findViewById(R.id.timer_button_start_stop);
 		pauseResumeButton = (Button) findViewById(R.id.timer_button_pause_resume);
