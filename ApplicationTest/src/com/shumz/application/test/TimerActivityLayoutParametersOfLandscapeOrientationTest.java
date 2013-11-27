@@ -1,5 +1,6 @@
 package com.shumz.application.test;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.ViewAsserts;
@@ -93,6 +94,10 @@ public class TimerActivityLayoutParametersOfLandscapeOrientationTest extends
 				.findViewById(R.id.timer_button_pause_resume);
 
 		// TODO
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+		// TODO
 	}
 
 	protected void tearDown() throws Exception {
@@ -100,6 +105,11 @@ public class TimerActivityLayoutParametersOfLandscapeOrientationTest extends
 
 		Log.v(LOGGER, "Tearing down...");
 
+	}
+
+	public void testAAAAAAALandscape() {
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 	}
 
 	public void testAllViewsArePresentOnTimerActivity() {
@@ -194,10 +204,10 @@ public class TimerActivityLayoutParametersOfLandscapeOrientationTest extends
 		assertEquals(LayoutParams.WRAP_CONTENT,
 				lLayoutCountdown.getLayoutParams().width);
 
-//		ViewAsserts.assertVerticalCenterAligned(rLayoutTimerLandCounter,
-//				lLayoutCountdown);
-//		ViewAsserts.assertHorizontalCenterAligned(rLayoutTimerLandCounter,
-//				lLayoutCountdown);
+		// ViewAsserts.assertVerticalCenterAligned(rLayoutTimerLandCounter,
+		// lLayoutCountdown);
+		// ViewAsserts.assertHorizontalCenterAligned(rLayoutTimerLandCounter,
+		// lLayoutCountdown);
 
 		ViewAsserts.assertGroupContains(lLayoutCountdown, tvHHs);
 		ViewAsserts.assertGroupContains(lLayoutCountdown, tvDelimeterHM);
@@ -289,7 +299,8 @@ public class TimerActivityLayoutParametersOfLandscapeOrientationTest extends
 		ViewAsserts.assertHorizontalCenterAligned(rLayoutTimerLandCounter,
 				dClock);
 
-//		assertEquals(rLayoutTimerLandCounter.getBottom(), dClock.getBottom());
+		// assertEquals(rLayoutTimerLandCounter.getBottom(),
+		// dClock.getBottom());
 
 	}
 
@@ -325,7 +336,8 @@ public class TimerActivityLayoutParametersOfLandscapeOrientationTest extends
 
 		ViewAsserts.assertHorizontalCenterAligned(rLayoutTimerLandButtons,
 				startStopButton);
-//		assertEquals(rLayoutTimerLandButtons.getTop(), startStopButton.getTop());
+		// assertEquals(rLayoutTimerLandButtons.getTop(),
+		// startStopButton.getTop());
 
 	}
 
@@ -345,8 +357,8 @@ public class TimerActivityLayoutParametersOfLandscapeOrientationTest extends
 
 		ViewAsserts.assertHorizontalCenterAligned(rLayoutTimerLandButtons,
 				pauseResumeButton);
-//		assertEquals(rLayoutTimerLandButtons.getBottom(),
-//				pauseResumeButton.getBottom());
+		// assertEquals(rLayoutTimerLandButtons.getBottom(),
+		// pauseResumeButton.getBottom());
 
 		assertFalse(pauseResumeButton.isEnabled());
 

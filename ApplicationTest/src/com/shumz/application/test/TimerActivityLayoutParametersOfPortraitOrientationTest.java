@@ -1,5 +1,6 @@
 package com.shumz.application.test;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.ViewAsserts;
@@ -82,6 +83,9 @@ public class TimerActivityLayoutParametersOfPortraitOrientationTest extends
 		pauseResumeButton = (Button) TimerActivityToTest
 				.findViewById(R.id.timer_button_pause_resume);
 
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 		// TODO
 	}
 
@@ -92,7 +96,14 @@ public class TimerActivityLayoutParametersOfPortraitOrientationTest extends
 
 	}
 
+	public void testAAAAAAAPortrait() {
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+	}
+
 	public void testAllViewsArePresentOnTimerActivity() {
+
+		
 		Log.i(LOGGER, "Running testAllViewsArePresentOnTimerActivity()");
 
 		assertNotNull("Cannot find TimerActivityToTest!", TimerActivityToTest);
@@ -252,9 +263,7 @@ public class TimerActivityLayoutParametersOfPortraitOrientationTest extends
 		ViewAsserts.assertHorizontalCenterAligned(rLayoutTimerTopView, dClock);
 
 		assertEquals(rLayoutTimerTopView.getBottom(), dClock.getBottom());
-	
 
-	
 	}
 
 	public final void testStartStopButtonOfTimerActivityParametersPortrait() {
@@ -291,7 +300,8 @@ public class TimerActivityLayoutParametersOfPortraitOrientationTest extends
 		assertEquals(Typeface.MONOSPACE, pauseResumeButton.getTypeface());
 
 		assertEquals(dClock.getTop(), pauseResumeButton.getBottom());
-		assertEquals(rLayoutTimerTopView.getRight(), pauseResumeButton.getRight());
+		assertEquals(rLayoutTimerTopView.getRight(),
+				pauseResumeButton.getRight());
 
 		assertFalse(pauseResumeButton.isEnabled());
 
