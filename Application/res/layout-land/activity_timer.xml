@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llayout_timer_land_top_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
@@ -8,6 +9,7 @@
     android:weightSum="3" >
 
     <RelativeLayout
+        android:id="@+id/rlayout_timer_land_time_counter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" >
@@ -85,10 +87,11 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rlayout_timer_land_buttons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:padding="15dp" >
+        android:padding="0dp" >
 
         <Button
             android:id="@+id/timer_button_start_stop"
