@@ -107,7 +107,7 @@ public class TimerActivity extends Activity {
 		pauseResumeButton = (Button) findViewById(R.id.timer_button_pause_resume);
 		pauseResumeButton.setEnabled(false);
 
-		LLCountdown = (LinearLayout) findViewById(R.id.ll_countdown);
+		LLCountdown = (LinearLayout) findViewById(R.id.ll_timer_countdown);
 
 		tvCurrentHours = (TextView) findViewById(R.id.tv_timer_current_hours);
 		tvCurrentMinutes = (TextView) findViewById(R.id.tv_timer_current_minutes);
