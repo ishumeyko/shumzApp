@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="25dp" >
 
     <TimePicker
         android:id="@+id/timer_picker"
@@ -75,24 +76,7 @@
             android:typeface="monospace" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/timer_button_exit"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:onClick="timer_button_exit"
-        android:text="Exit" />
-
-    <Button
-        android:id="@+id/timer_button_show_dialog"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/timer_button_exit"
-        android:text="Show Dialog" />
+   
 
     <Button
         android:id="@+id/timer_button_start_stop"

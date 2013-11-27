@@ -113,21 +113,6 @@ public class TimerActivity extends Activity {
 		tvCurrentMinutes = (TextView) findViewById(R.id.tv_timer_current_minutes);
 		tvCurrentSeconds = (TextView) findViewById(R.id.tv_timer_current_seconds);
 
-		Button buttonExit = (Button) findViewById(R.id.timer_button_exit);
-		buttonExit.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				System.exit(0);
-			}
-		});
-
-		Button showDialogButton = (Button) findViewById(R.id.timer_button_show_dialog);
-		showDialogButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				startActivity(new Intent(
-						"com.shumz.application.TIMERENDOFTIMEDIALOGACTIVITY"));
-			}
-		});
-
 		startStopButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -287,8 +272,8 @@ public class TimerActivity extends Activity {
 	};
 
 	private void getTimeFromTPicker() {
-		currentHours = 0; //tPicker.getCurrentHour();
-		currentMinutes = 0; //tPicker.getCurrentMinute();
+		currentHours = 0; // tPicker.getCurrentHour();
+		currentMinutes = 0; // tPicker.getCurrentMinute();
 		currentSeconds = 7;
 	}
 
