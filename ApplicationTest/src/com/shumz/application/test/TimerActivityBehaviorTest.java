@@ -420,14 +420,13 @@ public class TimerActivityBehaviorTest extends
 
 	}
 
-	
 	public void testStartStopButtonBehaviorIfChangeOrientationOfTimerActivity() {
 
-		Log.i(LOGGER, "Running testStartStopButtonBehaviorIfChangeOrientationOfTimerActivity()");
+		Log.i(LOGGER,
+				"Running testStartStopButtonBehaviorIfChangeOrientationOfTimerActivity()");
 
-		
-		fail("Not fully implemented yet...");
-		
+		// fail("Not fully implemented yet...");
+
 		assertEquals(View.VISIBLE, tPicker.getVisibility());
 
 		assertTrue(tPicker.getCurrentHour() == 0);
@@ -449,7 +448,6 @@ public class TimerActivityBehaviorTest extends
 		solo.clickOnButton(startStopButton.getText().toString());
 
 		assertEquals(View.GONE, tPicker.getVisibility());
-
 		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
 
 		assertEquals("Stop", startStopButton.getText().toString());
@@ -457,13 +455,57 @@ public class TimerActivityBehaviorTest extends
 
 		assertTrue(pauseResumeButton.isEnabled());
 
-		solo.clickOnButton(startStopButton.getText().toString());
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+
+		assertTrue(pauseResumeButton.isEnabled());
+
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+
+		assertTrue(pauseResumeButton.isEnabled());
+
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+
+		assertTrue(pauseResumeButton.isEnabled());
+
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+
+		assertTrue(pauseResumeButton.isEnabled());
+
+	}
+
+	public void testPauseResumeButtonBehaviorOfTimerActivity() {
+
+		Log.i(LOGGER, "Running testPauseResumeButtonBehaviorOfTimerActivity()");
 
 		assertEquals(View.VISIBLE, tPicker.getVisibility());
-
-		assertTrue(tPicker.getCurrentHour() == 0);
-		assertTrue(tPicker.getCurrentMinute() == 15);
-
 		assertEquals(View.GONE, lLayoutCountdown.getVisibility());
 
 		assertEquals("Start", startStopButton.getText().toString());
@@ -471,6 +513,200 @@ public class TimerActivityBehaviorTest extends
 
 		assertFalse(pauseResumeButton.isEnabled());
 
+		solo.clickOnButton(startStopButton.getText().toString());
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+
+		assertTrue(pauseResumeButton.isEnabled());
+
+		solo.clickOnButton(pauseResumeButton.getText().toString());
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Resume", pauseResumeButton.getText().toString());
+
+		assertTrue(pauseResumeButton.isEnabled());
+
+		solo.clickOnButton(pauseResumeButton.getText().toString());
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+		assertTrue(pauseResumeButton.isEnabled());
+
+		solo.clickOnButton(pauseResumeButton.getText().toString());
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Resume", pauseResumeButton.getText().toString());
+		assertTrue(pauseResumeButton.isEnabled());
+
 	}
+
+	public void testPauseResumeButtonBehaviorIfChangeOrientationOfTimerActivity() {
+
+		Log.i(LOGGER,
+				"Running testPauseResumeButtonBehaviorIfChangeOrientationOfTimerActivity()");
+
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+		assertEquals(View.VISIBLE, tPicker.getVisibility());
+		assertEquals(View.GONE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Start", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+
+		assertFalse(pauseResumeButton.isEnabled());
+		
+		solo.sleep(2000);
+		
+		TimerActivityToTest
+				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+		assertEquals(View.VISIBLE, tPicker.getVisibility());
+		assertEquals(View.GONE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Start", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+
+		assertFalse(pauseResumeButton.isEnabled());
+
+		//
+		//
+//		TimerActivityToTest
+//				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		
 	
+
+
+		solo.clickOnButton(startStopButton.getText().toString());
+
+		assertEquals(View.GONE, tPicker.getVisibility());
+		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+
+		assertEquals("Stop", startStopButton.getText().toString());
+		assertEquals("Pause", pauseResumeButton.getText().toString());
+
+		assertTrue(pauseResumeButton.isEnabled());
+
+		
+
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+		
+		
+		
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+//
+//		assertEquals("Stop", startStopButton.getText().toString());
+//		assertEquals("Pause", pauseResumeButton.getText().toString());
+//
+//		assertTrue(pauseResumeButton.isEnabled());
+//
+//		TimerActivityToTest
+//				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//
+//		solo.clickOnButton(startStopButton.getText().toString());
+//
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+//
+//		assertEquals("Stop", startStopButton.getText().toString());
+//		assertEquals("Pause", pauseResumeButton.getText().toString());
+//
+//		assertTrue(pauseResumeButton.isEnabled());
+//
+//		//
+//		//
+//		TimerActivityToTest
+//				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+//
+//		solo.clickOnButton(pauseResumeButton.getText().toString());
+//
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+//
+//		assertEquals("Stop", startStopButton.getText().toString());
+//		assertEquals("Resume", pauseResumeButton.getText().toString());
+//
+//		assertTrue(pauseResumeButton.isEnabled());
+//
+//		TimerActivityToTest
+//				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//
+//		solo.clickOnButton(pauseResumeButton.getText().toString());
+//
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+//
+//		assertEquals("Stop", startStopButton.getText().toString());
+//		assertEquals("Resume", pauseResumeButton.getText().toString());
+//
+//		assertTrue(pauseResumeButton.isEnabled());
+//
+//		//
+//		//
+//		TimerActivityToTest
+//				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+//
+//		solo.clickOnButton(pauseResumeButton.getText().toString());
+//
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+//
+//		assertEquals("Stop", startStopButton.getText().toString());
+//		assertEquals("Pause", pauseResumeButton.getText().toString());
+//		assertTrue(pauseResumeButton.isEnabled());
+//
+//		TimerActivityToTest
+//				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//
+//		solo.clickOnButton(pauseResumeButton.getText().toString());
+//
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+//
+//		assertEquals("Stop", startStopButton.getText().toString());
+//		assertEquals("Pause", pauseResumeButton.getText().toString());
+//		assertTrue(pauseResumeButton.isEnabled());
+//
+//		//
+//		//
+//		TimerActivityToTest
+//				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+//
+//		solo.clickOnButton(pauseResumeButton.getText().toString());
+//
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+//
+//		assertEquals("Stop", startStopButton.getText().toString());
+//		assertEquals("Resume", pauseResumeButton.getText().toString());
+//		assertTrue(pauseResumeButton.isEnabled());
+//		TimerActivityToTest
+//				.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//
+//		solo.clickOnButton(pauseResumeButton.getText().toString());
+//
+//		assertEquals(View.GONE, tPicker.getVisibility());
+//		assertEquals(View.VISIBLE, lLayoutCountdown.getVisibility());
+//
+//		assertEquals("Stop", startStopButton.getText().toString());
+//		assertEquals("Resume", pauseResumeButton.getText().toString());
+//		assertTrue(pauseResumeButton.isEnabled());
+
+	}
+
 }
