@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlayout_timer_end_of_time_dialog_top_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/llayout_timer_end_of_time_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -15,7 +15,7 @@
         android:padding="15sp" >
 
         <TextView
-            android:id="@+id/tv_time_is_up"
+            android:id="@+id/tv_timer_end_of_time_dialog_time_is_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5sp"
@@ -25,7 +25,7 @@
             android:typeface="monospace" />
 
         <Button
-            android:id="@+id/button_dismiss_dialog"
+            android:id="@+id/button_timer_end_of_time_dialog_dismiss_dialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5sp"
@@ -34,10 +34,10 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_splash_activity_property_of"
+        android:id="@+id/tv_timer_end_of_time_dialog_empty_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout1"
+        android:layout_above="@+id/llayout_timer_end_of_time_dialog"
         android:layout_centerHorizontal="true"
         android:text="" />
 

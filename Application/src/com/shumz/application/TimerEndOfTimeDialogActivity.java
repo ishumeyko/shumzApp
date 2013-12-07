@@ -47,7 +47,7 @@ public class TimerEndOfTimeDialogActivity extends Activity {
 
 		notifierThread.start();
 
-		dismissDialogButton = (Button) findViewById(R.id.button_dismiss_dialog);
+		dismissDialogButton = (Button) findViewById(R.id.button_timer_end_of_time_dialog_dismiss_dialog);
 		dismissDialogButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
