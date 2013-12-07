@@ -15,6 +15,17 @@ import android.widget.Toast;
 
 public class TimerActivity extends Activity {
 
+	
+	private boolean DEBUG;
+	
+	public boolean isDEBUG() {
+		return DEBUG;
+	}
+
+	public void setDEBUG(boolean dEBUG) {
+		DEBUG = dEBUG;
+	}
+
 	private Button startStopButton;
 	private Button pauseResumeButton;
 
@@ -271,11 +282,19 @@ public class TimerActivity extends Activity {
 		}
 	};
 
+
 	private void getTimeFromTPicker() {
-		currentHours = 0; // tPicker.getCurrentHour();
-		currentMinutes = 1; // tPicker.getCurrentMinute();
-		currentSeconds = 7;
-	}
+		
+		if (DEBUG) {
+			currentHours = 0; // tPicker.getCurrentHour();
+			currentMinutes =  0; //tPicker.getCurrentMinute();
+			currentSeconds = 7;
+				
+		} else {
+		currentHours =  tPicker.getCurrentHour();
+		currentMinutes =  tPicker.getCurrentMinute();
+		currentSeconds = 0;
+	}}
 
 	private void getFormatedToStringTime() {
 		if (currentHours < 10) {

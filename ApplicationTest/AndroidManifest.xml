@@ -8,7 +8,7 @@
         android:minSdkVersion="10"
         android:targetSdkVersion="18" />
 
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> 
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
