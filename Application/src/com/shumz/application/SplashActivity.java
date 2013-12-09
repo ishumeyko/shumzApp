@@ -30,7 +30,7 @@ public class SplashActivity extends Activity implements OnTouchListener {
 				for (int i = 0; i < 78; i++) {
 					if (isTouched) {
 
-						logoMusic.stop();
+			
 						break;
 					} else {
 						sleep(100);
@@ -45,7 +45,7 @@ public class SplashActivity extends Activity implements OnTouchListener {
 
 			finally {
 
-				logoMusic.release();
+//				logoMusic.release();
 
 				finish();
 
@@ -84,6 +84,11 @@ public class SplashActivity extends Activity implements OnTouchListener {
 	public boolean onTouch(View v, MotionEvent event) {
 		isTouched = true;
 
+		logoMusic.stop();
+		
+		logoMusic.release();
+		
+		
 		return false;
 	}
 
@@ -91,6 +96,7 @@ public class SplashActivity extends Activity implements OnTouchListener {
 	protected void onDestroy() {
 		isTouched = false;
 
+		
 		super.onDestroy();
 	}
 

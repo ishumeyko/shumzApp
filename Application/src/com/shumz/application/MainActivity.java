@@ -96,4 +96,10 @@ public class MainActivity extends Activity {
 		buttonSound.release();
 		super.onDestroy();
 	}
+	
+	public void onBackPressed(){
+		this.finish();
+	
+//		System.exit(0);
+	}
 }

@@ -500,10 +500,18 @@ public class StopWatchActivityBehaviorTest extends
 
 	}
 
-	public void testInvocationOfAboutMenuOfStopWatchActivity() {
+	public void testInvocationOfAboutMenuOfStopWatchActivity()  	throws InterruptedException {
 		Log.i(LOGGER, "Running testInvocationOfAboutMenuOfStopWatchActivity()");
 
-		fail("Not implemented yet...");
+//		fail("Not implemented yet...");
+	
+		assertTrue(getInstrumentation().invokeMenuActionSync(
+				StopWatchActivityToTest, R.id.hardwareMenuToastAbout, 0));
+
+		Thread.sleep(1500);
+
+		sendKeys(KeyEvent.KEYCODE_BACK);
+	
 	}
 
 	public void testInvocationOfQuickStartMenuOfStopWatchActivity()

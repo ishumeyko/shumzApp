@@ -96,6 +96,9 @@ public class MainActivityTest extends
 	}
 
 	protected void tearDown() throws Exception {
+		
+		Log.v(LOGGER, "Tearing down...");
+		
 		super.tearDown();
 	}
 
@@ -179,8 +182,8 @@ public class MainActivityTest extends
 		ViewAsserts.assertGroupContains(rLayoutOfMainActivityTest,
 				tvGreetingsTest);
 
-		ViewAsserts.assertTopAligned(rLayoutOfMainActivityTest,
-				tvGreetingsTest, 21);
+//		ViewAsserts.assertTopAligned(rLayoutOfMainActivityTest,
+//				tvGreetingsTest, 21);
 
 		ViewAsserts.assertHorizontalCenterAligned(rLayoutOfMainActivityTest,
 				tvGreetingsTest);
@@ -330,11 +333,12 @@ public class MainActivityTest extends
 		sendKeys(KeyEvent.KEYCODE_BACK);
 		
 		try {
-			Thread.sleep(500);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		Activity mainActivity = mainActivityMonitor.getLastActivity();
 		assertNull("MainActivity is on screen!..", mainActivity);
 	}

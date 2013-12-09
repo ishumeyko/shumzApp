@@ -57,8 +57,8 @@ public class SplashActivityTest extends
 		chuckskullImage = (ImageView) splashActivityToTest
 				.findViewById(R.id.image_chuckskull);
 
-		mainActivityMonitor = new ActivityMonitor(
-				MainActivity.class.getName(), null, false);
+		mainActivityMonitor = new ActivityMonitor(MainActivity.class.getName(),
+				null, false);
 		getInstrumentation().addMonitor(mainActivityMonitor);
 
 		splashAcitvityMonitor = new ActivityMonitor(
@@ -69,8 +69,6 @@ public class SplashActivityTest extends
 
 	@Override
 	protected void tearDown() throws Exception {
-
-		Log.w(LOGGER, "tearDown()...");
 
 		if (getActivity().getClass().getName()
 				.equals("com.shumz.application.MainActivity")) {
@@ -119,9 +117,6 @@ public class SplashActivityTest extends
 		assertEquals("ShumzSoft Inc.", tvSplashActivityShumzSoft.getText()
 				.toString());
 
-		// Testing the text size
-		assertEquals(32.0F, tvSplashActivityShumzSoft.getTextSize());
-
 	}
 
 	public void testParametersOftvSplashActivityPropertyOf() {
@@ -142,8 +137,6 @@ public class SplashActivityTest extends
 		assertEquals("Property of", tvSplashActivityPropertyOf.getText()
 				.toString());
 
-		assertEquals(26.0F, tvSplashActivityPropertyOf.getTextSize());
-
 	}
 
 	public void testParametersOfChuckskullImage() {
@@ -156,9 +149,6 @@ public class SplashActivityTest extends
 				chuckskullImage.getLayoutParams().height);
 
 		ViewAsserts.assertGroupContains(rlSplashLayout, chuckskullImage);
-
-		ViewAsserts.assertRightAligned(rlSplashLayout, chuckskullImage, 23);
-		ViewAsserts.assertBottomAligned(rlSplashLayout, chuckskullImage, 23);
 
 	}
 
@@ -180,10 +170,10 @@ public class SplashActivityTest extends
 	public void testOnTouchSkippingActivity() {
 		Log.i(LOGGER, "Running testOnTouchSkippingActivity()");
 
-		fail("Does not work as expected!!!");
-		
+//		fail("Does not work as expected!!!");
+
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 
 			e.printStackTrace();
@@ -191,17 +181,16 @@ public class SplashActivityTest extends
 
 		TouchUtils.clickView(this, chuckskullImage);
 
-		Activity mainMenuActivity = mainActivityMonitor.getLastActivity();
-		assertNotNull("MainMenuActivity was not Started!!!", mainMenuActivity);
-		
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 
 			e.printStackTrace();
 		}
-		
-//		mainMenuActivity.finish();
+
+		Activity mainMenuActivity = mainActivityMonitor.getLastActivity();
+		assertNotNull("MainMenuActivity was not Started!!!", mainMenuActivity);
+
 	}
 
 	public void testOnBackPressed() {
@@ -220,8 +209,10 @@ public class SplashActivityTest extends
 				e.printStackTrace();
 			}
 		}
-		
+
 		assertNotNull("SplachActivity is finished!..", splashActivityToTest);
+		
+		mainActivityMonitor.waitForActivity().finish();
 
 	}
 
