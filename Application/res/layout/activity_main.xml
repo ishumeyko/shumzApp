@@ -3,8 +3,7 @@
     android:id="@+id/rlayout_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gg_background"
-    android:orientation="vertical" >
+    android:background="@drawable/gg_background" >
 
     <TextView
         android:id="@+id/tv_activity_main_greeteings"
@@ -33,8 +32,8 @@
         android:layout_above="@+id/ll_activity_main_button_tools"
         android:layout_centerHorizontal="true"
         android:text="@string/str_please_select"
-        android:textColor="#000000" 
-         android:textSize="15sp"/>
+        android:textColor="#000000"
+        android:textSize="15sp" />
 
     <LinearLayout
         android:id="@+id/ll_activity_main_button_tools"
