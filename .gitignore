@@ -31,8 +31,20 @@ proguard/
 #eclipse .metadata/ folder
 .metadata/
 
+
+#Application project Documentation:
+Application/doc/
+Application/javadoc.xml
+
+#ApplicationTest project Documentation:
+ApplicationTest/doc/
+ApplicationTest/javadoc.xml
+
+#Some additional trial projects
 WikiContributionMaterials/
 
 SpinnerActivity/
 SpinnerTest/
 ListTryalPro/
+
+
