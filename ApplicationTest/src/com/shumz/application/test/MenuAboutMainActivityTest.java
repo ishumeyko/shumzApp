@@ -25,8 +25,9 @@ import com.shumz.application.R;
  * @version 4.0.0
  * 
  * @see MenuAboutMainActivity
+ * @see MenuHelpMainActivityTest
  * 
- * @since Dec 10th, 2013
+ * @since Dec 11th, 2013
  */
 public class MenuAboutMainActivityTest extends
 		ActivityInstrumentationTestCase2<MenuAboutMainActivity> {
@@ -39,7 +40,7 @@ public class MenuAboutMainActivityTest extends
 	private static MenuAboutMainActivity menuAboutOfMainActivityToTest;
 
 	/**
-	 * Top view of MenuAboutMainActivity class under test
+	 * Top view of {@link MenuAboutMainActivity} class under test
 	 */
 	private static LinearLayout lLayoutTopView;
 
