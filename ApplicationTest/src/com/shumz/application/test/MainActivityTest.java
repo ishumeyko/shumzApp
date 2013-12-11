@@ -50,7 +50,7 @@ public class MainActivityTest extends
 	private static final String LOGGER = "MainActivityTest:";
 
 	/**
-	 * Instance of a MainActivity class under test
+	 * Instance of a {@link MainActivity} class under test
 	 */
 	private static MainActivity mainActivityToTest;
 
@@ -290,7 +290,7 @@ public class MainActivityTest extends
 	 * Verifies the parameters of top layout of {@link MainActivity}.
 	 * 
 	 * <p>
-	 * This test verifies following:<br>
+	 * This test verifies following:
 	 * <ul>
 	 * <li>asserts layout parameters of this View.</li>
 	 * </ul>
@@ -435,7 +435,7 @@ public class MainActivityTest extends
 	 * Verifies the parameters of <code>lLayoutButtonToolsTest</code>, which
 	 * contains Alarm, StopWatch and Timer buttons.
 	 * 
-	 * This test verifies following:<br>
+	 * This test verifies following:
 	 * <ul>
 	 * <li>asserts layout parameters of this View.</li>
 	 * </ul>

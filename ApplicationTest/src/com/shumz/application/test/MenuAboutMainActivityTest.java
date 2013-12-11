@@ -11,37 +11,111 @@ import android.widget.TextView;
 import com.shumz.application.MenuAboutMainActivity;
 import com.shumz.application.R;
 
+/**
+ * <h6>MenuAboutMainActivityTest is a class intended to verify layout parameters
+ * of views and its values, which are present in {@link MenuAboutMainActivity}
+ * class</h6>
+ * 
+ * <p>
+ * &nbsp;&nbsp;&nbsp;&nbsp;This class contains several test methods, which
+ * assert layout parameters of views and their String values.
+ * </p>
+ * 
+ * @author Igor Shumeyko
+ * @version 4.0.0
+ * 
+ * @see MenuAboutMainActivity
+ * 
+ * @since Dec 10th, 2013
+ */
 public class MenuAboutMainActivityTest extends
 		ActivityInstrumentationTestCase2<MenuAboutMainActivity> {
 
 	private static final String LOGGER = "menuAboutOfMainActivityTest:";
 
-	MenuAboutMainActivity menuAboutOfMainActivityToTest;
+	/**
+	 * Instance of a {@link MenuAboutMainActivity} class under test
+	 */
+	private static MenuAboutMainActivity menuAboutOfMainActivityToTest;
 
+	/**
+	 * Top view of MenuAboutMainActivity class under test
+	 */
 	private static LinearLayout lLayoutTopView;
 
+	/**
+	 * LinearLayout view, which contains App name and App logo
+	 */
 	private static LinearLayout lLayoutAppLogoAndName;
+
+	/**
+	 * ImageView, which is an App logo
+	 */
 	private static ImageView ivAppLogo;
+
+	/**
+	 * LinearLayout view, which contains actual App name and App version
+	 */
+
 	private static LinearLayout lLayoutAppName;
 
+	/**
+	 * TextView which represents application's name
+	 */
 	private static TextView tvAppName;
+
+	/**
+	 * TextView which represents application's version
+	 */
 	private static TextView tvAppVersion;
 
+	/**
+	 * TextView which represents application's properties
+	 */
 	private static TextView tvCopyRight;
+
+	/**
+	 * TextView which contain "Contacts:" string
+	 */
 	private static TextView tvContactsStr;
 
+	/**
+	 * LinearLayout view, which contains actual contact info
+	 */
 	private static LinearLayout lLayoutContacts;
 
+	/**
+	 * TextView which contains telephone number
+	 */
 	private static TextView tvPhone;
-	private static TextView tvSkype;
-	private static TextView tvEmail;
 
-	// TODO
+	/**
+	 * TextView which contains Skype login
+	 */
+	private static TextView tvSkype;
+
+	/**
+	 * TextView which contains e-mail
+	 */
+	private static TextView tvEmail;
 
 	public MenuAboutMainActivityTest() {
 		super(MenuAboutMainActivity.class);
 	}
 
+	/**
+	 * <p>
+	 * Overridden <code>setup()</code> method. Invoked before each test run.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;All instances of objects are initialized with the
+	 * references of {@link MenuAboutMainActivity} class members inside this
+	 * method.
+	 * </p>
+	 * 
+	 * @see android.test.ActivityInstrumentationTestCase2#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 
@@ -81,12 +155,58 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * <p>
+	 * Overridden <code>tearDown()</code> method. Invoked after each test run.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Should be invoked to make a cleanup after each
+	 * test. So usually should contain only call of superclass
+	 * <code>tearDown();</code> method within following code:
+	 * <code>super.tearDown();</code>.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Sometimes it is necessary to perform a specific
+	 * cleanup, so any code intended for cleaning should be placed before
+	 * <code>super.tearDown();</code> method, like:
+	 * 
+	 * <pre>
+	 *  <code>
+	 *  protected void tearDown() throws Exception {
+	 *  
+	 *    //Your code
+	 *    
+	 *  super.tearDown();
+	 * }
+	 * </code>
+	 * </pre>
+	 * 
+	 * </p>
+	 * 
+	 * @see android.test.ActivityInstrumentationTestCase2#tearDown()
+	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
 
 		Log.v(LOGGER, "Tearing down...");
 	}
 
+	/**
+	 * Asserts that all views are initialized and present on
+	 * {@link MenuAboutMainActivity}.
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;testAllViewsArePresentOnActivity() is
+	 * non-necessary method and usually it is used to verify that all views are
+	 * initialized correctly and references to those objects are not equal to
+	 * <code>null</code>. <br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Actually this method is redundant, but in
+	 * real-life project it is a good practice to add it to tests, thus all
+	 * problems caused by abnormal initialization can be easily found.
+	 * </p>
+	 */
 	public void testAllViewsArePresentOnAboutMenuOfMainActivity() {
 		Log.i(LOGGER,
 				"Running testAllViewsArePresentOnAboutMenuOfMainActivity()");
@@ -117,9 +237,28 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
-	public void testLinearLayoutTopViewOfAboutMenuOfMainActivity() {
+	/**
+	 * Verifies the parameters of top layout of {@link MenuAboutMainActivity}.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts layout orientation of this view.</li>
+	 * </ul>
+	 * <br>
+	 * Asserts that this View contains following sub-views:
+	 * <ul>
+	 * <li>LinearLayout view within the App logo and name;</li>
+	 * <li>'Copyright' TextView;</li>
+	 * <li>'Contacts:' TextView;</li>
+	 * <li>LinearLayout view within the actual contact info.</li>
+	 * </ul>
+	 * </p>
+	 */
+	public void testLinearLayoutTopViewParametersOfAboutMenuOfMainActivity() {
 		Log.i(LOGGER,
-				"Running testLinearLayoutTopViewOfAboutMenuOfMainActivity()");
+				"Running testLinearLayoutTopViewParametersOfAboutMenuOfMainActivity()");
 
 		assertEquals(LayoutParams.MATCH_PARENT,
 				lLayoutTopView.getLayoutParams().height);
@@ -136,6 +275,24 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of linear layout which contains App logo and
+	 * name.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts layout orientation of this view.</li>
+	 * </ul>
+	 * <br>
+	 * Asserts that this View contains following sub-views:
+	 * <ul>
+	 * <li>ImageView which is an App logo;</li>
+	 * <li>App name TextView;</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testLinearLayoutAppLogoAndNameOfAboutMenuOfMainActivity() {
 		Log.i(LOGGER,
 				"Running testLinearLayoutAppLogoAndNameOfAboutMenuOfMainActivity()");
@@ -153,6 +310,16 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of App logo.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testImageViewAppLogoOfAboutMenuOfMainActivity() {
 		Log.i(LOGGER, "Running testImageViewAppLogoOfAboutMenuOfMainActivity()");
 
@@ -163,6 +330,24 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of linear layout which contains App name and App
+	 * version.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts layout orientation of this view.</li>
+	 * </ul>
+	 * <br>
+	 * Asserts that this View contains following sub-views:
+	 * <ul>
+	 * <li>App name TextView;</li>
+	 * <li>App version TextView;</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testLinearLayoutAppNameOfAboutMenuOfMainActivity() {
 		Log.i(LOGGER,
 				"Running testLinearLayoutAppNameOfAboutMenuOfMainActivity()");
@@ -179,6 +364,17 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of App name TextView.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts that text of this view is equal to expected.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testTextViewAppNameOfAboutMenuOfMainActivityParameters() {
 		Log.i(LOGGER,
 				"Running testTextViewAppNameOfAboutMenuOfMainActivityParameters()");
@@ -192,6 +388,17 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of App version TextView.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts that text of this view is equal to expected.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testTextViewAppVersionOfAboutMenuOfMainActivityParameters() {
 		Log.i(LOGGER,
 				"Running testTextViewAppVersionOfAboutMenuOfMainActivityParameters()");
@@ -201,10 +408,21 @@ public class MenuAboutMainActivityTest extends
 		assertEquals(LayoutParams.WRAP_CONTENT,
 				tvAppVersion.getLayoutParams().width);
 
-		assertEquals("Version: 3.0", tvAppVersion.getText().toString());
+		assertEquals("Version: 4.0.0", tvAppVersion.getText().toString());
 
 	}
 
+	/**
+	 * Verifies the parameters of 'Copyright' TextView.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts that text of this view is equal to expected.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testTextViewCopyRightOfAboutMenuOfMainActivityParameters() {
 		Log.i(LOGGER,
 				"Running testTextViewCopyRightOfAboutMenuOfMainActivityParameters()");
@@ -219,6 +437,17 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of 'Contacts' TextView.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts that text of this view is equal to expected.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testTextViewContactsStringOfAboutMenuOfMainActivityParameters() {
 		Log.i(LOGGER,
 				"Running testTextViewContactsStringOfAboutMenuOfMainActivityParameters()");
@@ -232,6 +461,24 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of linear layout which contains contact info.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts layout orientation of this view.</li>
+	 * </ul>
+	 * <br>
+	 * Asserts that this View contains following sub-views:
+	 * <ul>
+	 * <li>Phone Number TextView;</li>
+	 * <li>Skype account TextVew;</li>
+	 * <li>E-mail address TextView.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testLinearLayoutContactsOfAboutMenuOfMainActivityParameters() {
 		Log.i(LOGGER,
 				"Running testLinearLayoutContactsOfAboutMenuOfMainActivityParameters()");
@@ -249,6 +496,17 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of Phone number TextView.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts that text of this view is equal to expected.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testTextViewContactsPhoneOfAboutMenuOfMainActivityParameters() {
 		Log.i(LOGGER,
 				"Running testTextViewContactsPhoneOfAboutMenuOfMainActivityParameters()");
@@ -261,6 +519,17 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of Skype account TextView.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts that text of this view is equal to expected.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testTextViewContactsSkypeOfAboutMenuOfMainActivityParameters() {
 		Log.i(LOGGER,
 				"Running testTextViewContactsSkypeOfAboutMenuOfMainActivityParameters()");
@@ -273,6 +542,17 @@ public class MenuAboutMainActivityTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of E-mail address TextView.
+	 * 
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of this view;</li>
+	 * <li>asserts that text of this view is equal to expected.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public void testTextViewContactsEmailOfAboutMenuOfMainActivityParameters() {
 		Log.i(LOGGER,
 				"Running testTextViewContactsEmailOfAboutMenuOfMainActivityParameters()");

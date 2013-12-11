@@ -42,7 +42,7 @@
 
     <!-- About Menu of Main Activity -->
     <string name="str_menu_main_about_app_name">About Application</string>
-    <string name="str_menu_main_about_app_version">Version: 3.0</string>
+    <string name="str_menu_main_about_app_version">Version: 4.0.0</string>
     <string name="str_menu_main_about_app_copyright">Property of ShumzSoft Inc.</string>
     <string name="str_menu_main_about_app_contacts">Contacts:</string>
     <string name="str_menu_main_about_app_contacts_phone">Phone: +38(096) 869&#8211;20&#8211;99</string>
