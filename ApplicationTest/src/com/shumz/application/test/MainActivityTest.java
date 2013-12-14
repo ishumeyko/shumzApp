@@ -27,7 +27,9 @@ import com.shumz.application.TimerActivity;
  * {@link MainActivity} class</h6>
  * 
  * <p>
- * &nbsp;&nbsp;&nbsp;&nbsp;This class contains several test methods
+ * &nbsp;&nbsp;&nbsp;&nbsp;This class contains several test methods intended to
+ * verify layout parameter of views and behavior of buttons placed on
+ * {@link MainActivity}.
  * </p>
  * 
  * @author Igor Shumeyko
@@ -55,7 +57,7 @@ public class MainActivityTest extends
 	private static MainActivity mainActivityToTest;
 
 	/**
-	 * Top view of MainActivity class under test
+	 * Top view of {@link MainActivity} class under test
 	 */
 	private static RelativeLayout rLayoutOfMainActivityTest;
 
