@@ -26,12 +26,12 @@ public class StopWatchActivity extends Activity {
 	long start_time_handler = SystemClock.elapsedRealtime();
 	long current_time_handler; // Is used by Handlers for Chronometer Countdown
 
-	long current_time; // Is used to count curent countdown
+	long current_time; // Is used to count current countdown
 	String current_time_str; // Is used to output Formated time converted to
 								// "Hh:Mm:Ss:msms" String format
 
 	long time_from_reset; // Is used to count time elapsed from last reset
-	long time_from_activity_start; // Is used to count time elsapsed from start
+	long time_from_activity_start; // Is used to count time elapsed from start
 									// of activity
 	long time_from_boot = start_time_handler; // Is used to count time elapsed
 												// from device boot
