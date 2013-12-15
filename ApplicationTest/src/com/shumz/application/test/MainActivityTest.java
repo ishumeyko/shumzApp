@@ -686,7 +686,7 @@ public class MainActivityTest extends
 	 * <p>
 	 * Menu invoking scenario:
 	 * <ol>
-	 * <li>"Help" menu is invoked;</li>
+	 * <li>"About" menu is invoked;</li>
 	 * <li>Back button is pressed.</li>
 	 * </ol>
 	 * 
