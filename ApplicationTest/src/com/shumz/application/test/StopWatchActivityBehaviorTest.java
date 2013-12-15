@@ -25,6 +25,7 @@ import com.shumz.application.StopWatchActivity;
  * @version 4.0.0
  * 
  * @see StopWatchActivity
+ * @see StopWatchActivityLayoutsTest
  * 
  * @since Dec 14th, 2013
  */
