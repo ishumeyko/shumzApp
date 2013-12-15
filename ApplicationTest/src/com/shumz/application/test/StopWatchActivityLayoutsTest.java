@@ -5,6 +5,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.ViewAsserts;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.DigitalClock;
 import android.widget.LinearLayout;
@@ -18,6 +19,23 @@ import android.widget.TextView;
 import com.shumz.application.R;
 import com.shumz.application.StopWatchActivity;
 
+/**
+ * <h6>StopWatchActivityLayoutsTest is a class intended to verify layout
+ * parameters of views of {@link StopWatchActivity} activity.</h6>
+ * 
+ * <p>
+ * &nbsp;&nbsp;&nbsp;&nbsp;This class contains several test methods intended to
+ * verify layout parameters, their position and visual parameters.
+ * </p>
+ * 
+ * @author Igor Shumeyko
+ * @version 4.0.0
+ * 
+ * @see StopWatchActivity
+ * @see StopWatchActivityBehaviorTest
+ * 
+ * @since Dec 15th, 2013
+ */
 @SuppressWarnings("deprecation")
 public class StopWatchActivityLayoutsTest extends
 		ActivityInstrumentationTestCase2<StopWatchActivity> {
@@ -28,56 +46,162 @@ public class StopWatchActivityLayoutsTest extends
 
 	private static final String LOGGER = "StopWatchActivityTest:";
 
+	/**
+	 * Instance of a {@link StopWatchActivity} class under test.
+	 */
 	private static StopWatchActivity StopWatchActivityToTest;
 
-	// Top layout of view
+	/**
+	 * Top view of {@link StopWatchActivity} class under test
+	 */
 	private static RelativeLayout rLayoutOfStopWatchActivity;
 
-	// LinearLayout of StopWatch
+	/**
+	 * Linear Layout which contains views related to StopWatch feature
+	 */
 	private static LinearLayout lLayoutOfStopWatch;
 
-	// LinearLayout of ChronoView
+	/**
+	 * Linear Layout which contains views related to time-counter
+	 */
 	private static LinearLayout lLayoutChronoView;
 
+	/**
+	 * Top header TextView
+	 */
 	private static TextView tvStopWatchHeader;
 
-	// TableRow of counter
+	/**
+	 * TableRow which contains time-counter's digits
+	 */
 	private static TableRow tRowCronometer;
 
+	/**
+	 * TextView which represents hours of time-counter to test.
+	 */
 	private static TextView tvHHs;
+
+	/**
+	 * TextView which represents delimiter between hours and minutes of
+	 * time-counter to test.
+	 */
 	private static TextView tvTDelimiter1;
+
+	/**
+	 * TextView which represents minutes of time-counter to test.
+	 */
 	private static TextView tvMMs;
+
+	/**
+	 * TextView which represents delimiter between minutes and seconds of
+	 * time-counter to test.
+	 */
 	private static TextView tvTDelimiter2;
+
+	/**
+	 * TextView which represents seconds of time-counter to test.
+	 */
 	private static TextView tvSSs;
+
+	/**
+	 * TextView which represents delimiter between seconds and milliseconds of
+	 * time-counter to test.
+	 */
 	private static TextView tvTDelimiter3;
+
+	/**
+	 * TextView which represents milliseconds of time-counter to test.
+	 */
 	private static TextView tvMSMSs;
 
-	// LinearLayout of upper buttons row
+	/**
+	 * LinearLayout, which contains {@link #CatchButton}, {@link #StartButton},
+	 * {@link #ResetButton} buttons.
+	 */
 	private static LinearLayout lLayoutButtonsViewTop;
+
+	/**
+	 * Catch button of StopWatchActivity to test.
+	 */
 	private static Button CatchButton;
+
+	/**
+	 * Start button of StopWatchActivity to test.
+	 */
 	private static Button StartButton;
+
+	/**
+	 * Reset button of StopWatchActivity to test.
+	 */
 	private static Button ResetButton;
 
-	// LinearLayout of bottom buttons row
+	/**
+	 * LinearLayout, which contains {@link #StopButton}, {@link #ClearButton}
+	 * buttons.
+	 */
 	private static RelativeLayout rLayoutButtonsViewBottom;
+
+	/**
+	 * Stop button of StopWatchActivity to test.
+	 */
 	private static Button StopButton;
+
+	/**
+	 * Clear button of StopWatchActivity to test.
+	 */
 	private static Button ClearButton;
 
-	// LinearLayout of current timecheck
+	/**
+	 * LinearLayout, which contains {@link #tvCurrentTimeCheckStr} and
+	 * {@link #tvCurrentTimeCheck} TextViews.
+	 */
 	private static LinearLayout lLayoutLogView;
 
+	/**
+	 * TextView, which displays "Current time check:" string, is used for
+	 * debugging.
+	 */
 	private static TextView tvCurrentTimeCheckStr;
+
+	/**
+	 * TextView, which displays last catched time, is used for debugging.
+	 */
 	private static TextView tvCurrentTimeCheck;
 
-	// ListView of time results
+	/**
+	 * ListView which is used for displaying time results to test.
+	 */
 	private static ListView listOfLaps;
 
+	/**
+	 * TextView which is displaying "Empty..." text when list of time results is
+	 * empty.
+	 */
 	private static TextView tvEmptyStr;
 
+	/**
+	 * TableLayout, which is used for debugging, will be excluded in future
+	 * versions.
+	 */
 	TableLayout tLayoutTimeOfStopWatch;
 
+	/**
+	 * DigitalClock, is used for displaying current system time.
+	 */
 	private static DigitalClock dClock;
 
+	/**
+	 * <p>
+	 * Overridden <code>setup()</code> method. Invoked before each test run.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;All instances of objects are initialized with the
+	 * references of {@link StopWatchActivity} class members inside this method.
+	 * </p>
+	 * 
+	 * @see android.test.ActivityInstrumentationTestCase2#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 
@@ -160,12 +284,58 @@ public class StopWatchActivityLayoutsTest extends
 		// TODO
 	}
 
+	/**
+	 * <p>
+	 * Overridden <code>tearDown()</code> method. Invoked after each test run.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Should be invoked to make a cleanup after each
+	 * test. So usually should contain only call of superclass
+	 * <code>tearDown();</code> method within following code:
+	 * <code>super.tearDown();</code>.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Sometimes it is necessary to perform a specific
+	 * cleanup, so any code intended for cleaning should be placed before
+	 * <code>super.tearDown();</code> method, like:
+	 * 
+	 * <pre>
+	 *  <code>
+	 *  protected void tearDown() throws Exception {
+	 *  
+	 *    //Your code
+	 *    
+	 *  super.tearDown();
+	 * }
+	 * </code>
+	 * </pre>
+	 * 
+	 * </p>
+	 * 
+	 * @see android.test.ActivityInstrumentationTestCase2#tearDown()
+	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
 
 		Log.v(LOGGER, "Tearing down...");
 	}
 
+	/**
+	 * Asserts that all views are initialized and present on
+	 * {@link StopWatchActivity}.
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;testAllViewsArePresentOnActivity() is
+	 * non-necessary method and usually it is used to verify that all views are
+	 * initialized correctly and references to those objects are not equal to
+	 * <code>null</code>. <br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Actually this method is redundant, but in
+	 * real-life project it is a good practice to add it to tests, thus all
+	 * problems caused by abnormal initialization can be easily found.
+	 * </p>
+	 */
 	public void testAllWiewsArePresentOnMainActivity() {
 		Log.i(LOGGER, "Running testAllWiewsArePresentOnMainActivity()");
 
@@ -216,6 +386,15 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Verifies layout parameters of {@link #rLayoutOfStopWatchActivity} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testRelativeLayoutOfStopWatchActivityLayoutParameters() {
 		Log.i(LOGGER,
 				"Running testRelativeLayoutOfStopWatchActivityLayoutParameters()");
@@ -227,6 +406,23 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Asserts presence of child views in {@link #rLayoutOfStopWatchActivity}
+	 * view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts that {@link #rLayoutOfStopWatchActivity} is a parent view of
+	 * {@link #lLayoutOfStopWatch};</li>
+	 * <li>asserts that {@link #rLayoutOfStopWatchActivity} is a parent view of
+	 * {@link #tLayoutTimeOfStopWatch};</li>
+	 * <li>asserts that {@link #rLayoutOfStopWatchActivity} is a parent view of
+	 * {@link #tvEmptyStr};</li>
+	 * <li>asserts that {@link #rLayoutOfStopWatchActivity} is a parent view of
+	 * {@link #dClock}.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testRealtiveLayoutOfStopWatchActivityChildren() {
 
 		Log.i(LOGGER, "Running testRealtiveLayoutOfStopWatchActivityChildren()");
@@ -241,6 +437,18 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Verifies layout parameters of {@link #lLayoutOfStopWatch} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts view's layout parameters;</li>
+	 * <li>asserts view's orientation parameter;</li>
+	 * <li>asserts that {@link #lLayoutOfStopWatch} is above
+	 * {@link #tLayoutTimeOfStopWatch}.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testLinearLayoutOfStopWatchLayoutParameters() {
 
 		Log.i(LOGGER, "Running testLinearLayoutOfStopWatchLayoutParameters()");
@@ -257,6 +465,24 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Asserts presence of child views in {@link #lLayoutOfStopWatch} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts that {@link #lLayoutOfStopWatch} is a parent view of
+	 * {@link #lLayoutChronoView};</li>
+	 * <li>asserts that {@link #lLayoutOfStopWatch} is a parent view of
+	 * {@link #lLayoutButtonsViewTop};</li>
+	 * <li>asserts that {@link #lLayoutOfStopWatch} is a parent view of
+	 * {@link #rLayoutButtonsViewBottom};</li>
+	 * <li>asserts that {@link #lLayoutOfStopWatch} is a parent view of
+	 * {@link #lLayoutLogView}.</li>
+	 * <li>asserts that {@link #lLayoutOfStopWatch} is a parent view of
+	 * {@link #listOfLaps}.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testLinearLayoutOfStopWatchChildren() {
 
 		Log.i(LOGGER, "Running testLinearLayoutOfStopWatchChildren()");
@@ -271,6 +497,16 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Verifies layout parameters of {@link #lLayoutChronoView} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts view's layout parameters;</li>
+	 * <li>asserts view's orientation parameter.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testLinearLayoutOfChronoViewLayoutParameters() {
 
 		Log.i(LOGGER, "Running testLinearLayoutOfChronoViewLayoutParameters()");
@@ -280,8 +516,22 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(LayoutParams.FILL_PARENT,
 				lLayoutChronoView.getLayoutParams().width);
 
+		assertEquals(LinearLayout.VERTICAL, lLayoutChronoView.getOrientation());
+
 	}
 
+	/**
+	 * Asserts presence of child views in {@link #lLayoutChronoView} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts that {@link #lLayoutChronoView} is a parent view of
+	 * {@link #tvStopWatchHeader};</li>
+	 * <li>asserts that {@link #lLayoutChronoView} is a parent view of
+	 * {@link #tRowCronometer};</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testLinearLayoutOfChronoViewChildren() {
 
 		Log.i(LOGGER, "Running testLinearLayoutOfChronoViewChildren()");
@@ -291,14 +541,26 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvStopWatchHeader} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text gravity of this view;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewHeaderStr() {
 
 		Log.i(LOGGER, "Running testTextViewHeaderStr()");
 
 		assertEquals(LayoutParams.WRAP_CONTENT,
-				lLayoutChronoView.getLayoutParams().height);
+				tvStopWatchHeader.getLayoutParams().height);
 		assertEquals(LayoutParams.FILL_PARENT,
-				lLayoutChronoView.getLayoutParams().width);
+				tvStopWatchHeader.getLayoutParams().width);
 
 		assertEquals("StopWatch", tvStopWatchHeader.getText().toString());
 
@@ -308,6 +570,16 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Verifies layout parameters of {@link #tRowCronometer} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts view's layout parameters;</li>
+	 * <li>asserts view's orientation parameter.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTableRowOfChronometerLayoutParameters() {
 
 		Log.i(LOGGER, "Running testTableRowOfChronometerLayoutParameters()");
@@ -323,6 +595,28 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Asserts presence of child views in {@link #tRowCronometer} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts that {@link #tRowCronometer} is a parent view of
+	 * {@link #tvHHs};</li>
+	 * <li>asserts that {@link #tRowCronometer} is a parent view of
+	 * {@link #tvTDelimiter1};</li>
+	 * <li>asserts that {@link #tRowCronometer} is a parent view of
+	 * {@link #tvMMs};</li>
+	 * <li>asserts that {@link #tRowCronometer} is a parent view of
+	 * {@link #tvTDelimiter2};</li>
+	 * <li>asserts that {@link #tRowCronometer} is a parent view of
+	 * {@link #tvSSs};</li>
+	 * <li>asserts that {@link #tRowCronometer} is a parent view of
+	 * {@link #tvTDelimiter3};</li>
+	 * <li>asserts that {@link #tRowCronometer} is a parent view of
+	 * {@link #tvMSMSs};</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTableRowOfChronometerChildren() {
 
 		Log.i(LOGGER, "Running testTableRowOfChronometerChildren()");
@@ -337,6 +631,17 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvHHs} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewHoursOfChronometer() {
 
 		Log.i(LOGGER, "Running testTextViewHoursOfChronometer()");
@@ -349,6 +654,17 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(Typeface.MONOSPACE, tvHHs.getTypeface());
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvTDelimiter1} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewtvTDelimiterOneOfChronometer() {
 
 		Log.i(LOGGER, "Running testTextViewtvTDelimiterOneOfChronometer()");
@@ -363,6 +679,17 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(Typeface.MONOSPACE, tvTDelimiter1.getTypeface());
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvMMs} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewMinutesOfChronometer() {
 
 		Log.i(LOGGER, "Running testTextViewMinutesOfChronometer()");
@@ -375,6 +702,17 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(Typeface.MONOSPACE, tvMMs.getTypeface());
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvTDelimiter2} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewDelimiterTwoOfChronometer() {
 
 		Log.i(LOGGER, "Running testTextViewDelimiterTwoOfChronometer()");
@@ -389,6 +727,17 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(Typeface.MONOSPACE, tvTDelimiter2.getTypeface());
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvSSs} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewSecondsOfChronometer() {
 
 		Log.i(LOGGER, "Running testTextViewMinutesOfChronometer()");
@@ -401,6 +750,17 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(Typeface.MONOSPACE, tvSSs.getTypeface());
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvTDelimiter3} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewDelimiterThreeOfChronometer() {
 
 		Log.i(LOGGER, "Running testTextViewDelimiterThreeOfChronometer()");
@@ -415,6 +775,17 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(Typeface.MONOSPACE, tvTDelimiter3.getTypeface());
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvMSMSs} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewMilliSecondsOfChronometer() {
 
 		Log.i(LOGGER, "Running testTextViewMilliSecondsOfChronometer()");
@@ -428,6 +799,16 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(Typeface.MONOSPACE, tvMSMSs.getTypeface());
 	}
 
+	/**
+	 * Verifies layout parameters of {@link #lLayoutButtonsViewTop} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts view's layout parameters;</li>
+	 * <li>asserts view's orientation parameter.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testLinearLayoutButtonsViewTopOfChronometer() {
 
 		Log.i(LOGGER, "Running testLinearLayoutButtonsViewTopOfChronometer()");
@@ -436,9 +817,25 @@ public class StopWatchActivityLayoutsTest extends
 				lLayoutButtonsViewTop.getLayoutParams().height);
 		assertEquals(LayoutParams.FILL_PARENT,
 				lLayoutButtonsViewTop.getLayoutParams().width);
+		assertEquals(LinearLayout.HORIZONTAL,
+				lLayoutButtonsViewTop.getOrientation());
 
 	}
 
+	/**
+	 * Asserts presence of child views in {@link #lLayoutButtonsViewTop} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts that {@link #lLayoutButtonsViewTop} is a parent view of
+	 * {@link #CatchButton};</li>
+	 * <li>asserts that {@link #lLayoutButtonsViewTop} is a parent view of
+	 * {@link #StartButton};</li>
+	 * <li>asserts that {@link #lLayoutButtonsViewTop} is a parent view of
+	 * {@link #ResetButton};</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testLinearLayoutButtonsViewTopChildren() {
 
 		Log.i(LOGGER, "Running testLinearLayoutButtonsViewTopChildren()");
@@ -449,6 +846,15 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Verifies layout parameters of {@link #rLayoutButtonsViewBottom} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts view's layout parameters.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testRelativeLayoutButtonsViewBottomOfChronometer() {
 
 		Log.i(LOGGER,
@@ -461,15 +867,38 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Asserts presence of child views in {@link #rLayoutButtonsViewBottom}
+	 * view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts that {@link #rLayoutButtonsViewBottom} is a parent view of
+	 * {@link #StopButton};</li>
+	 * <li>asserts that {@link #rLayoutButtonsViewBottom} is a parent view of
+	 * {@link #StopButton};</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testRelativeLayoutButtonsViewBottomChildren() {
 
 		Log.i(LOGGER, "Running testRelativeLayoutButtonsViewBottomChildren()");
 
 		ViewAsserts.assertGroupContains(rLayoutButtonsViewBottom, StopButton);
-		ViewAsserts.assertGroupContains(rLayoutButtonsViewBottom, ClearButton);
+		ViewAsserts.assertGroupContains(rLayoutButtonsViewBottom, StopButton);
 
 	}
 
+	/**
+	 * Verifies layout parameters of {@link #lLayoutLogView} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts view's layout parameters;</li>
+	 * <li>asserts view's orientation parameter.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testLinearLayoutLogOfChronometer() {
 
 		Log.i(LOGGER,
@@ -480,8 +909,22 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(LayoutParams.WRAP_CONTENT,
 				lLayoutLogView.getLayoutParams().width);
 
+		assertEquals(LinearLayout.HORIZONTAL, lLayoutLogView.getOrientation());
+
 	}
 
+	/**
+	 * Asserts presence of child views in {@link #lLayoutLogView} view.
+	 * <p>
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts that {@link #lLayoutLogView} is a parent view of
+	 * {@link #tvCurrentTimeCheckStr};</li>
+	 * <li>asserts that {@link #lLayoutLogView} is a parent view of
+	 * {@link #tvCurrentTimeCheck};</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testLinearLayoutLogChildren() {
 
 		Log.i(LOGGER, "Running testRelativeLayoutButtonsViewBottomChildren()");
@@ -491,6 +934,17 @@ public class StopWatchActivityLayoutsTest extends
 
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvCurrentTimeCheckStr} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewtvCurrentTimeCheckStrOfChronometer() {
 
 		Log.i(LOGGER,
@@ -504,8 +958,21 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals("Current time check:", tvCurrentTimeCheckStr.getText()
 				.toString());
 
+		assertEquals(Typeface.MONOSPACE, tvCurrentTimeCheckStr.getTypeface());
+
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvCurrentTimeCheck} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts that text is equal to expected;</li>
+	 * <li>asserts text typeface of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTextViewtvCurrentTimeCheckTimeOfChronometer() {
 
 		Log.i(LOGGER,
@@ -518,9 +985,21 @@ public class StopWatchActivityLayoutsTest extends
 
 		assertEquals("00:00:00:000", tvCurrentTimeCheck.getText().toString());
 
+		assertEquals(Typeface.MONOSPACE, tvCurrentTimeCheck.getTypeface());
+
 	}
 
-	public final void testListViewListOfLapsOfChronometerLayoutParameters() {
+	/**
+	 * Verifies the parameters of {@link #listOfLaps} ListView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts visibility parameter of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
+	public final void testListViewListOfLapsOfChronometerParameters() {
 
 		Log.i(LOGGER,
 				"Running testListViewListOfLapsOfChronometerLayoutParameters()");
@@ -530,8 +1009,22 @@ public class StopWatchActivityLayoutsTest extends
 		assertEquals(LayoutParams.MATCH_PARENT,
 				listOfLaps.getLayoutParams().width);
 
+		assertEquals(View.GONE, listOfLaps.getVisibility());
 	}
 
+	/**
+	 * Verifies the parameters of {@link #tvEmptyStr} TextView.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts alignment parameter of this view.</li>
+	 * <li>asserts visibility parameter of this view.</li>
+	 * <li>asserts text typeface of this view</li>
+	 * <li>asserts that text is equal to expected.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testTexViewEmptyStringOfChronometerLayoutParameters() {
 
 		Log.i(LOGGER,
@@ -546,12 +1039,26 @@ public class StopWatchActivityLayoutsTest extends
 				tvEmptyStr);
 		ViewAsserts.assertVerticalCenterAligned(rLayoutOfStopWatchActivity,
 				tvEmptyStr);
-		
+
+		assertEquals(View.VISIBLE, tvEmptyStr.getVisibility());
+
+		assertEquals(Typeface.MONOSPACE, tvEmptyStr.getTypeface());
+
 		assertEquals("Empty…", tvEmptyStr.getText().toString());
-		
 
 	}
 
+	/**
+	 * Verifies the parameters of {@link #dClock} DigitalClock.
+	 * 
+	 * This test verifies following:
+	 * <ul>
+	 * <li>asserts layout parameters of view;</li>
+	 * <li>asserts alignment parameter of this view.</li>
+	 * <li>asserts gravity parameter of this view.</li>
+	 * </ul>
+	 * </p>
+	 */
 	public final void testDigitalClockOfChronometerLayoutParameters() {
 
 		Log.i(LOGGER, "Running testDigitalClockOfChronometerLayoutParameters()");
