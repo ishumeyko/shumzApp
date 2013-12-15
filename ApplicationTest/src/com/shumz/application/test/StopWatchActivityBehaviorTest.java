@@ -1,19 +1,33 @@
 package com.shumz.application.test;
 
 import android.test.ActivityInstrumentationTestCase2;
-
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.jayway.android.robotium.solo.Solo;
 import com.shumz.application.R;
 import com.shumz.application.StopWatchActivity;
 
+/**
+ * <h6>StopWatchActivityBehaviorTest is a class intended to perform several
+ * behavior tests of {@link StopWatchActivity} activity.</h6>
+ * 
+ * <p>
+ * &nbsp;&nbsp;&nbsp;&nbsp;This class contains several test methods intended to
+ * verify behavior of activity, some real-life behavior tests.
+ * </p>
+ * 
+ * @author Igor Shumeyko
+ * @version 4.0.0
+ * 
+ * @see StopWatchActivity
+ * 
+ * @since Dec 14th, 2013
+ */
 public class StopWatchActivityBehaviorTest extends
 		ActivityInstrumentationTestCase2<StopWatchActivity> {
 
@@ -21,36 +35,112 @@ public class StopWatchActivityBehaviorTest extends
 		super(StopWatchActivity.class);
 	}
 
+	/**
+	 * An instance of Solo class, which will be used in tests presented below to
+	 * perform button clicks since standard <code>TouchUtils</code> methods does
+	 * not work as expected in particular cases.
+	 */
 	private static Solo solo;
 
 	private static final String LOGGER = "StopWatchActivityTest:";
 
+	/**
+	 * Instance of a {@link StopWatchActivity} class under test.
+	 */
 	private static StopWatchActivity StopWatchActivityToTest;
 
+	/**
+	 * TextView which represents hours of time-counter to test.
+	 */
 	private static TextView tvHHs;
+
+	/**
+	 * TextView which represents delimiter between hours and minutes of
+	 * time-counter to test.
+	 */
 	private static TextView tvTDelimiter1;
+
+	/**
+	 * TextView which represents minutes of time-counter to test.
+	 */
 	private static TextView tvMMs;
+
+	/**
+	 * TextView which represents delimiter between minutes and seconds of
+	 * time-counter to test.
+	 */
 	private static TextView tvTDelimiter2;
+
+	/**
+	 * TextView which represents seconds of time-counter to test.
+	 */
 	private static TextView tvSSs;
+
+	/**
+	 * TextView which represents delimiter between seconds and milliseconds of
+	 * time-counter to test.
+	 */
 	private static TextView tvTDelimiter3;
+
+	/**
+	 * TextView which represents milliseconds of time-counter to test.
+	 */
 	private static TextView tvMSMSs;
 
+	/**
+	 * Catch button of StopWatchActivity to test.
+	 */
 	private static Button CatchButton;
+
+	/**
+	 * Start button of StopWatchActivity to test.
+	 */
 	private static Button StartButton;
+
+	/**
+	 * Reset button of StopWatchActivity to test.
+	 */
 	private static Button ResetButton;
 
+	/**
+	 * Stop button of StopWatchActivity to test.
+	 */
 	private static Button StopButton;
+
+	/**
+	 * Clear button of StopWatchActivity to test.
+	 */
 	private static Button ClearButton;
 
+	/**
+	 * TextView which is intended to assert last time-check. It is needed for
+	 * debugging. Will be excluded in future versions.
+	 */
 	private static TextView tvCurrentTimeCheck;
 
-	// ListView of time results
+	/**
+	 * ListView which is used for displaying time results to test.
+	 */
 	private static ListView listOfLapsToTest;
 
+	/**
+	 * TextView which is displaying "Empty..." text when list of time results is
+	 * empty.
+	 */
 	private static TextView tvEmptyStr;
 
-	TableLayout tLayoutTimeOfStopWatch;
-
+	/**
+	 * <p>
+	 * Overridden <code>setup()</code> method. Invoked before each test run.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;All instances of objects are initialized with the
+	 * references of {@link StopWatchActivity} class members inside this method.
+	 * </p>
+	 * 
+	 * @see android.test.ActivityInstrumentationTestCase2#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 
@@ -97,20 +187,66 @@ public class StopWatchActivityBehaviorTest extends
 		tvEmptyStr = (TextView) StopWatchActivityToTest
 				.findViewById(R.id.tv_empty_str);
 
-		tLayoutTimeOfStopWatch = (TableLayout) StopWatchActivityToTest
-				.findViewById(R.id.time_view_table_layout);
+		// tLayoutTimeOfStopWatch = (TableLayout) StopWatchActivityToTest
+		// .findViewById(R.id.time_view_table_layout);
 
 		// TODO
 	}
 
+	/**
+	 * <p>
+	 * Overridden <code>tearDown()</code> method. Invoked after each test run.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Should be invoked to make a cleanup after each
+	 * test. So usually should contain only call of superclass
+	 * <code>tearDown();</code> method within following code:
+	 * <code>super.tearDown();</code>.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Sometimes it is necessary to perform a specific
+	 * cleanup, so any code intended for cleaning should be placed before
+	 * <code>super.tearDown();</code> method, like:
+	 * 
+	 * <pre>
+	 *  <code>
+	 *  protected void tearDown() throws Exception {
+	 *  
+	 *    //Your code
+	 *    
+	 *  super.tearDown();
+	 * }
+	 * </code>
+	 * </pre>
+	 * 
+	 * </p>
+	 * 
+	 * @see android.test.ActivityInstrumentationTestCase2#tearDown()
+	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
 
 		Log.v(LOGGER, "Tearing down...");
 
-//		solo.finishOpenedActivities();
+		// solo.finishOpenedActivities();
 	}
 
+	/**
+	 * Asserts that all views are initialized and present on
+	 * {@link StopWatchActivity}.
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;testAllViewsArePresentOnActivity() is
+	 * non-necessary method and usually it is used to verify that all views are
+	 * initialized correctly and references to those objects are not equal to
+	 * <code>null</code>. <br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Actually this method is redundant, but in
+	 * real-life project it is a good practice to add it to tests, thus all
+	 * problems caused by abnormal initialization can be easily found.
+	 * </p>
+	 */
 	public final void testInitialStateOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testInitialStateOfStopWatchActivity()");
@@ -134,6 +270,33 @@ public class StopWatchActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of "Start" button.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Activity is launched;</li>
+	 * <li>Assertion of initial state of <code>StopWatchActivity</code> is
+	 * performed;</li>
+	 * <li>Start button is clicked;</li>
+	 * <li>Following assertions are performed:</li>
+	 * <ul>
+	 * <li>Assertion of <code>tvEmptyStr</code> and
+	 * <code>listOfLapsToTest</code> views visibility changes is performed;</li>
+	 * <li>Assertion that the time-counting is started;</li>
+	 * <li>Assertion that "Start" button is disabled;</li>
+	 * </ul>
+	 * <li>Stop button is clicked;</li>
+	 * <li>Following assertions are performed:</li>
+	 * <ol>
+	 * <ul>
+	 * <li>Assertion that all buttons are returned to their initial states;</li>
+	 * <li>Assertion that timer's value is non-zero.</li>
+	 * </ol>
+	 * </ol>
+	 * </p>
+	 */
 	public final void testStartButtonBehaviorOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testStartButtonBehaviorOfStopWatchActivity()");
@@ -197,6 +360,28 @@ public class StopWatchActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of "Stop" button.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Activity is launched;</li>
+	 * <li>Start button is clicked;</li>
+	 * <li>Following assertions are performed:</li>
+	 * <ul>
+	 * <li>Asserting that buttons changed their accessibility states;</li>
+	 * </ul>
+	 * <li>Stop button is clicked;</li>
+	 * <li>Following assertions are performed:</li>
+	 * <ol>
+	 * <ul>
+	 * <li>Asserting that accessibility states is returned to initial states;</li>
+	 * <li>Assertion that timer's value is non-zero.</li>
+	 * </ol>
+	 * </ol>
+	 * </p>
+	 */
 	public final void testStopButtonBehaviorOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testStopButtonBehaviorOfStopWatchActivity()");
@@ -233,6 +418,25 @@ public class StopWatchActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of "Reset" button.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Activity is launched;</li>
+	 * <li>Assertion of initial state of buttons accessibility is performed;</li>
+	 * <li>Start button is clicked;</li>
+	 * <li>Stop button is clicked;</li>
+	 * <li>Reset button is clicked;</li>
+	 * <li>Following assertions are performed:</li>
+	 * <ul>
+	 * <li>Asserting that buttons changed their accessibility states;</li>
+	 * <li>Assertion that timer's value is returned to zero value.</li>
+	 * </ul>
+	 * </ol>
+	 * </p>
+	 */
 	public final void testResetButtonBehaviorOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testResetButtonBehaviorOfStopWatchActivity()");
@@ -242,7 +446,6 @@ public class StopWatchActivityBehaviorTest extends
 		solo.clickOnButton(StartButton.getText().toString());
 
 		assertEquals(false, StartButton.isEnabled());
-
 		assertEquals(true, StopButton.isEnabled());
 		assertEquals(true, CatchButton.isEnabled());
 		assertEquals(false, ResetButton.isEnabled());
@@ -253,7 +456,6 @@ public class StopWatchActivityBehaviorTest extends
 		solo.clickOnButton(ResetButton.getText().toString());
 
 		assertEquals(true, StartButton.isEnabled());
-
 		assertEquals(false, StopButton.isEnabled());
 		assertEquals(false, CatchButton.isEnabled());
 		assertEquals(false, ResetButton.isEnabled());
@@ -271,6 +473,27 @@ public class StopWatchActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of "Catch" button.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Activity is launched;</li>
+	 * <li>Start button is clicked;</li>
+	 * <li>Following loop is running 10 times:</li>
+	 * <ol>
+	 * <li>Catch button is clicked;</li>
+	 * <li>String with last time-check is extracted from ListView's ArrayAdapter
+	 * </li>
+	 * <li>String is truncated to store only time-check in format
+	 * "HH:MM:SS:msms";</li>
+	 * <li>Assertion that last time-check extracted from ListView's ArrayAdapter
+	 * is equal to {@link #tvCurrentTimeCheck}.</li>
+	 * </ol>
+	 * </ol>
+	 * </p>
+	 */
 	public final void testCatchButtonBehaviorOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testCatchButtonBehaviorOfStopWatchActivity()");
@@ -298,6 +521,28 @@ public class StopWatchActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of "Clear" button.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Activity is launched;</li>
+	 * <li>Start button is clicked;</li>
+	 * <li>Catch button is clicked 3 times;</li>
+	 * <li>Stop button is clicked;</li>
+	 * <li>Clear button is clicked;</li>
+	 * <li>Following Assertions are performed:</li>
+	 * <ul>
+	 * <li>Catch button is clicked;</li>
+	 * <li>Asserting that buttons changed their accessibility states;</li>
+	 * <li>Assertion that timer's value is returned to zero value.</li>
+	 * <li>Assertion that {@link #listOfLapsToTest} is disappeared and
+	 * {@link #tvEmptyStr} is appeared .</li>
+	 * </ul>
+	 * </ol>
+	 * </p>
+	 */
 	public final void testClearButtonBehaviorOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testClearButtonBehaviorOfStopWatchActivity()");
@@ -306,7 +551,7 @@ public class StopWatchActivityBehaviorTest extends
 
 		solo.clickOnButton(StartButton.getText().toString());
 
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 3; i++) {
 
 			solo.clickOnButton(CatchButton.getText().toString());
 
@@ -317,7 +562,6 @@ public class StopWatchActivityBehaviorTest extends
 		solo.clickOnButton(ClearButton.getText().toString());
 
 		assertEquals(true, StartButton.isEnabled());
-
 		assertEquals(false, StopButton.isEnabled());
 		assertEquals(false, CatchButton.isEnabled());
 		assertEquals(false, ResetButton.isEnabled());
@@ -333,8 +577,24 @@ public class StopWatchActivityBehaviorTest extends
 
 		assertEquals("00:00:00:000", current_time_of_chronometer);
 
+		assertEquals(View.VISIBLE, tvEmptyStr.getVisibility());
+		assertEquals(View.GONE, listOfLapsToTest.getVisibility());
+
 	}
 
+	/**
+	 * Verifies the initial state of {@link #listOfLapsToTest}.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Assertion of visibility of {@link #tvEmptyStr};</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest};</li>
+	 * <li>Assertion that {@link #tvEmptyStr} is equal to "Empty..." text;</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest} is empty.</li>
+	 * </ol>
+	 * </p>
+	 */
 	public final void testListViewInitialStateOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testListViewInitialStateOfStopWatchActivity()");
@@ -348,6 +608,47 @@ public class StopWatchActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of {@link #listOfLapsToTest}.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Following assertions performed:</li>
+	 * <ul>
+	 * <li>Assertion of visibility of {@link #tvEmptyStr};</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest};</li>
+	 * <li>Assertion that {@link #tvEmptyStr} is equal to "Empty..." text;</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest} is empty.</li>
+	 * </ul>
+	 * <li>Start button is clicked;</li>
+	 * <li>Following assertions performed:</li>
+	 * <ul>
+	 * <li>Assertion of visibility of {@link #tvEmptyStr};</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest};</li>
+	 * <li>Assertion that {@link #tvEmptyStr} is equal to "Empty..." text;</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest} is empty.</li>
+	 * </ul>
+	 * <li>Catch button is clicked 3 times;</li>
+	 * <li>Following assertions performed:</li>
+	 * <ul>
+	 * <li>Assertion of visibility of {@link #tvEmptyStr};</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest};</li>
+	 * <li>Assertion that {@link #tvEmptyStr} is equal to "Empty..." text;</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest} is not empty.</li>
+	 * </ul>
+	 * <li>Stop button is clicked;</li>
+	 * <li>Clear button is clicked;</li>
+	 * <li>Following assertions performed:</li>
+	 * <ul>
+	 * <li>Assertion of visibility of {@link #tvEmptyStr};</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest};</li>
+	 * <li>Assertion that {@link #tvEmptyStr} is equal to "Empty..." text;</li>
+	 * <li>Assertion of visibility of {@link #listOfLapsToTest} has 3 entries.</li>
+	 * </ul>
+	 * </ol>
+	 * </p>
+	 */
 	public final void testListViewBehaviorOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testListViewBehaviorOfStopWatchActivity()");
@@ -385,9 +686,33 @@ public class StopWatchActivityBehaviorTest extends
 		assertEquals(View.GONE, listOfLapsToTest.getVisibility());
 
 		assertEquals("Empty…", tvEmptyStr.getText().toString());
+		assertEquals(0, listOfLapsToTest.getAdapter().getCount());
 
 	}
 
+	/**
+	 * Verifies ordering of list counter and lap counter of
+	 * {@link #listOfLapsToTest}.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Start button is clicked;</li>
+	 * <li>Following actions are performed inside double-loop:</li>
+	 * <ul>
+	 * <li>Catch button is clicked;</li>
+	 * <li>Current time-check is extracted from {@link #listOfLapsToTest}</li>
+	 * <li>List counter and Lap counter are extracted from current time-check</li>
+	 * <Assertion is performed that List counter continues to increment while
+	 * Lap counter is set to one, each time when {@link #ResetButton} is
+	 * tapped.</li>
+	 * <li>If List counter's value or Lap counter's value are not equal to
+	 * expected then <code>fail();</code> method is called which result test
+	 * failure.</li>
+	 * </ul>
+	 * </ol>
+	 * </p>
+	 */
 	public final void testListViewCountersOfStopWatchActivity() {
 
 		Log.i(LOGGER, "Running testListViewCountersOfStopWatchActivity()");
@@ -473,10 +798,32 @@ public class StopWatchActivityBehaviorTest extends
 		}
 	}
 
-	public final void testListViewCurrentPositionVisibilityOfStopWatchActivity() {
+	/**
+	 * Verifies that last time-check {@link #listOfLapsToTest} is always stay
+	 * visible.
+	 * 
+	 * <p>
+	 * Scenario:<br>
+	 * <ol>
+	 * <li>Start button is clicked;</li>
+	 * <li>Following actions are performed 25 times inside loop:</li>
+	 * <ul>
+	 * <li>Catch button is clicked;</li>
+	 * <li>Assertion is performed, that last child of {@link #listOfLapsToTest}
+	 * is visible.</li>
+	 * </ul>
+	 * </ol>
+	 * </p>
+	 * 
+	 * @throws InterruptedException
+	 */
+	public final void testListViewCurrentPositionVisibilityOfStopWatchActivity()
+			throws InterruptedException {
 
 		Log.i(LOGGER,
 				"Running testListViewCurrentPositionVisibilityOfStopWatchActivity()");
+
+		fail("Does not work as expected!..");
 
 		solo.clickOnButton(StartButton.getText().toString());
 
@@ -484,11 +831,9 @@ public class StopWatchActivityBehaviorTest extends
 
 			solo.clickOnButton(CatchButton.getText().toString());
 
-			listOfLapsToTest.getChildAt(listOfLapsToTest.getChildCount() - 1)
-					.isSelected();
+			assertTrue(listOfLapsToTest.getChildAt(i).isSelected());
 
 		}
-
 	}
 
 	public void testMenuOfStopWatchActivity() throws InterruptedException {
@@ -500,20 +845,47 @@ public class StopWatchActivityBehaviorTest extends
 
 	}
 
-	public void testInvocationOfAboutMenuOfStopWatchActivity()  	throws InterruptedException {
+	/**
+	 * Verifies that "About" menu item is invoked.
+	 * 
+	 * <p>
+	 * Menu invoking scenario:
+	 * <ol>
+	 * <li>"About" menu is invoked;</li>
+	 * <li>Back button is pressed.</li>
+	 * </ol>
+	 * 
+	 * @throws InterruptedException
+	 *             </p>
+	 */
+	public void testInvocationOfAboutMenuOfStopWatchActivity()
+			throws InterruptedException {
 		Log.i(LOGGER, "Running testInvocationOfAboutMenuOfStopWatchActivity()");
 
-//		fail("Not implemented yet...");
-	
+		// fail("Not implemented yet...");
+
 		assertTrue(getInstrumentation().invokeMenuActionSync(
 				StopWatchActivityToTest, R.id.hardwareMenuToastAbout, 0));
 
 		Thread.sleep(1500);
 
 		sendKeys(KeyEvent.KEYCODE_BACK);
-	
+
 	}
 
+	/**
+	 * Verifies that "Quick Start" menu item is invoked.
+	 * 
+	 * <p>
+	 * Menu invoking scenario:
+	 * <ol>
+	 * <li>"Quick Start" menu is invoked;</li>
+	 * <li>Back button is pressed.</li>
+	 * </ol>
+	 * 
+	 * @throws InterruptedException
+	 *             </p>
+	 */
 	public void testInvocationOfQuickStartMenuOfStopWatchActivity()
 			throws InterruptedException {
 		Log.i(LOGGER, "Running testInvocationOfHelpMenuOfMainActivity()");
