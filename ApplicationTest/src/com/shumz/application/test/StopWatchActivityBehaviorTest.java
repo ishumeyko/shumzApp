@@ -37,7 +37,7 @@ public class StopWatchActivityBehaviorTest extends
 	}
 
 	/**
-	 * An instance of Solo class, which will be used in tests presented below to
+	 * An instance of <code>Solo</code> class, which will be used in tests presented below to
 	 * perform button clicks since standard <code>TouchUtils</code> methods does
 	 * not work as expected in particular cases.
 	 */

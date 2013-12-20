@@ -72,7 +72,9 @@ public class StopWatchActivityLayoutsTest extends
 	private static TextView tvStopWatchHeader;
 
 	/**
-	 * TableRow which contains time-counter's digits
+	 * TableRow which contains {@link #tvHHs}, {@link #tvTDelimiter1},
+	 * {@link #tvMMs}, {@link #tvTDelimiter2}, {@link #tvSSs},
+	 * {@link #tvTDelimiter3}, {@link #tvMSMSs} TextViews, which are time-counter's digits.
 	 */
 	private static TableRow tRowCronometer;
 
