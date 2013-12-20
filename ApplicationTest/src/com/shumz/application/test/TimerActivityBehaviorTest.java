@@ -1,8 +1,8 @@
 package com.shumz.application.test;
 
 import android.annotation.SuppressLint;
-import android.app.Instrumentation.ActivityMonitor;
 import android.app.Activity;
+import android.app.Instrumentation.ActivityMonitor;
 import android.app.KeyguardManager;
 import android.app.KeyguardManager.KeyguardLock;
 import android.content.Context;
@@ -21,6 +21,29 @@ import com.shumz.application.R;
 import com.shumz.application.TimerActivity;
 import com.shumz.application.TimerEndOfTimeDialogActivity;
 
+/**
+ * <h6>TimerActivityBehaviorTest is a class intended to perform several behavior
+ * tests on {@link TimerActivity} activity.</h6>
+ * 
+ * <p>
+ * &nbsp;&nbsp;&nbsp;&nbsp;This class contains several test methods intended to
+ * verify behavior of <code>TimerActivity</code>, behavior of buttons which are
+ * present in <code>TimerActivity</code>, behavior of activity during device's
+ * orientation changes.
+ * </p>
+ * 
+ * @author Igor Shumeyko
+ * @version 4.0.0
+ * 
+ * @see TimerActivity
+ * @see TimerEndOfTimeDialogActivity
+ * 
+ * @see TimerActivityLayoutParametersOfLandscapeOrientationTest
+ * @see TimerActivityLayoutParametersOfPortraitOrientationTest
+ * @see TimerEndOfTimeDialogActivityTest
+ * 
+ * @since Dec 15th, 2013
+ */
 @SuppressLint("NewApi")
 @SuppressWarnings("deprecation")
 public class TimerActivityBehaviorTest extends
@@ -33,49 +56,133 @@ public class TimerActivityBehaviorTest extends
 	private static final String LOGGER = "TimerActivityBehaviorTest:";
 	private static final int SLEEP_TIME = 500;
 
+	/**
+	 * An instance of <code>Solo</code> class, which will be used in tests
+	 * presented below to perform button clicks since standard
+	 * <code>TouchUtils</code> methods does not work as expected in particular
+	 * cases.
+	 */
 	private static Solo solo;
 
-	// private static TimerEndOfTimeDialogActivity
-	// TimerEndOfTimeDialogActivityToTest;
-
-	//
-	// Views that are visible in all orientations
+	/**
+	 * Instance of a {@link TimerActivity} class under test.
+	 */
 	private static TimerActivity TimerActivityToTest;
 
+	/**
+	 * TimePicker which is used to set timer's time to test.
+	 */
 	private static TimePicker tPicker;
 
+	/**
+	 * LinearLayout, which contains {@link #tvHHs}, {@link #tvDelimeterHM},
+	 * {@link #tvMMs}, {@link #tvDelimeterMS}, {@link #tvSSs} TextViews, which
+	 * represent time-countdown.
+	 */
 	private static LinearLayout lLayoutCountdown;
 
+	/**
+	 * TextView which represents hours of time-counter to test.
+	 */
 	private static TextView tvHHs;
+
+	/**
+	 * TextView which represents delimiter between hours and minutes of
+	 * time-counter to test.
+	 */
 	private static TextView tvDelimeterHM;
+
+	/**
+	 * TextView which represents minutes of time-counter to test.
+	 */
 	private static TextView tvMMs;
+
+	/**
+	 * TextView which represents delimiter between minutes and seconds of
+	 * time-counter to test.
+	 */
 	private static TextView tvDelimeterMS;
+
+	/**
+	 * TextView which represents seconds of time-counter to test.
+	 */
 	private static TextView tvSSs;
 
-	// private static DigitalClock dClock;
-
+	/**
+	 * Button which is used to begin or end time count-down.
+	 * 
+	 * <p>
+	 * Button's text can be equal to "Start" or "Stop" depending on activity
+	 * state.
+	 * </p>
+	 */
 	private static Button startStopButton;
+
+	/**
+	 * Button which is used to pause or return time count-down.
+	 * 
+	 * <p>
+	 * Button's text can be equal to "Pause" or "Resume" depending on activity
+	 * state.
+	 * </p>
+	 */
 	private static Button pauseResumeButton;
 
-	//
-	// Views that are visible only in PORTRAIT orientation
-	// private static RelativeLayout rLayoutTimerTopView;
-
-	//
-	// Views that are visible only in LANDSCAPE orientation
-	// private static LinearLayout lLayoutTimerLandTopView;
-
-	// private static RelativeLayout rLayoutTimerLandCounter;
-
-	// private static RelativeLayout rLayoutTimerLandButtons;
-
+	/**
+	 * An instance of <code>KeyguardManager</code> class. Is used to unlock
+	 * emulator before text execution.
+	 */
 	KeyguardManager keyguardManager;
 
+	/**
+	 * An instance of <code>KeyguardLock</code> class. Is used to unlock
+	 * emulator before text execution within the {@link #keyguardManager}.
+	 */
 	KeyguardLock lock;
 
+	/**
+	 * Activity monitor intended to look for the creation of an
+	 * {@link TimerActivity}
+	 */
 	ActivityMonitor TimerActivityMonytor;
+
+	/**
+	 * Activity monitor intended to look for the creation of an
+	 * {@link TimerEndOfTimeDialogActivity}
+	 */
 	ActivityMonitor TimerEndOfTimeDialogActivityMonytor;
 
+	/**
+	 * <p>
+	 * Overridden <code>setup()</code> method. Invoked before each test run.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;All instances of objects are initialized with the
+	 * references of {@link TimerActivity} class members inside this method.
+	 * </p>
+	 * 
+	 * <p>
+	 * Following code: <br>
+	 * 
+	 * <pre>
+	 * <code>keyguardManager = (KeyguardManager) TimerActivityToTest
+	 * 				.getSystemService(Context.KEYGUARD_SERVICE);
+	 * 		lock = keyguardManager.newKeyguardLock(Context.KEYGUARD_SERVICE);
+	 * 
+	 * 		
+	 * 		//Unlocks the emulator if it locked before test execution.
+	 * 		if (keyguardManager.isKeyguardLocked()) {
+	 * 			lock.disableKeyguard();
+	 * 		}
+	 * </code>
+	 * </pre>
+	 * 
+	 * checks if the emulator is locked, if <code>true</code> then
+	 * <code>lock.disableKeyguard()</code> method unlocks it.
+	 * 
+	 * @see android.test.ActivityInstrumentationTestCase2#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 
@@ -107,29 +214,14 @@ public class TimerActivityBehaviorTest extends
 		pauseResumeButton = (Button) TimerActivityToTest
 				.findViewById(R.id.timer_button_pause_resume);
 
-		// dClock = (DigitalClock) TimerActivityToTest
-		// .findViewById(R.id.timer_digital_clock);
-
-		//
-		// Views that are visible only in PORTRAIT orientation
-		// rLayoutTimerTopView = (RelativeLayout) TimerActivityToTest
-		// .findViewById(R.id.rlayout_timer_top_view);
-
-		//
-		// Views that are visible only in LANDSCAPE orientation
-		// lLayoutTimerLandTopView = (LinearLayout) TimerActivityToTest
-		// .findViewById(R.id.llayout_timer_land_top_view);
-
-		// rLayoutTimerLandCounter = (RelativeLayout) TimerActivityToTest
-		// .findViewById(R.id.rlayout_timer_land_time_counter);
-
-		// rLayoutTimerLandButtons = (RelativeLayout) TimerActivityToTest
-		// .findViewById(R.id.rlayout_timer_land_buttons);
-
 		keyguardManager = (KeyguardManager) TimerActivityToTest
 				.getSystemService(Context.KEYGUARD_SERVICE);
 		lock = keyguardManager.newKeyguardLock(Context.KEYGUARD_SERVICE);
-		lock.disableKeyguard();
+
+		// Unlocks the emulator if it locked before test execution.
+		if (keyguardManager.isKeyguardLocked()) {
+			lock.disableKeyguard();
+		}
 
 		TimerActivityMonytor = new ActivityMonitor(
 				TimerActivity.class.getName(), null, false);
@@ -141,24 +233,59 @@ public class TimerActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * <p>
+	 * Overridden <code>tearDown()</code> method. Invoked after each test run.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Should be invoked to make a cleanup after each
+	 * test. So usually should contain only call of superclass
+	 * <code>tearDown();</code> method within following code:
+	 * <code>super.tearDown();</code>.
+	 * </p>
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Sometimes it is necessary to perform a specific
+	 * cleanup, so any code intended for cleaning should be placed before
+	 * <code>super.tearDown();</code> method, like:
+	 * 
+	 * <pre>
+	 *  <code>
+	 *  protected void tearDown() throws Exception {
+	 *  
+	 *    //Your code
+	 *    
+	 *  super.tearDown();
+	 * }
+	 * </code>
+	 * </pre>
+	 * 
+	 * </p>
+	 * 
+	 * @see android.test.ActivityInstrumentationTestCase2#tearDown()
+	 */
 	protected void tearDown() throws Exception {
-
-		// TimerActivityToTest = null;
-
-		// TimerActivityToTest.finish();
-		// try {
-		// solo.finalize();
-		// } catch (Throwable e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
 
 		super.tearDown();
 
 		Log.v(LOGGER, "Tearing down...");
-		// lock.reenableKeyguard();
 	}
 
+	/**
+	 * Asserts that all views are initialized and present on
+	 * {@link TimerActivity}.
+	 * 
+	 * <p>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;testAllViewsArePresentOnActivity() is
+	 * non-necessary method and usually it is used to verify that all views are
+	 * initialized correctly and references to those objects are not equal to
+	 * <code>null</code>. <br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;Actually this method is redundant, but in
+	 * real-life project it is a good practice to add it to tests, thus all
+	 * problems caused by abnormal initialization can be easily found.
+	 * </p>
+	 */
 	public void testAllViewsArePresentOnTimerActivity() {
 		Log.i(LOGGER, "Running testAllViewsArePresentOnTimerActivity()");
 
@@ -179,6 +306,22 @@ public class TimerActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the initial state of {@link TimerActivity}.
+	 * 
+	 * <p>
+	 * Scenario:
+	 * <ol>
+	 * <li>Verifies the visibility of {@link #tPicker};</li>
+	 * <li>Verifies that {@link #tPicker} default values are equal to expected;</li>
+	 * <li>Verifies the visibility of {@link #lLayoutCountdown};</li>
+	 * <li>Verifies that TextViews, which represent time-countdown are equal to
+	 * zero;</li>
+	 * <li>Verifies the text of {@link #pauseResumeButton} and
+	 * {@link #startStopButton};</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ol>
+	 */
 	public void testInitialStateOfTimerActivity() {
 		Log.i(LOGGER,
 				"Running testInitialStateOfTimerActivityInLandscapeMode()");
@@ -203,6 +346,29 @@ public class TimerActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the initial state of {@link TimerActivity} in different
+	 * orientations.
+	 * 
+	 * <p>
+	 * Scenario:
+	 * 
+	 * <ol>
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies the visibility of {@link #tPicker};</li>
+	 * <li>Verifies that {@link #tPicker} default values are equal to expected;</li>
+	 * <li>Verifies the visibility of {@link #lLayoutCountdown};</li>
+	 * <li>Verifies that TextViews, which represent time-countdown are equal to
+	 * zero;</li>
+	 * <li>Verifies the text of {@link #pauseResumeButton} and
+	 * {@link #startStopButton};</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ul>
+	 * <li>Device's orientation is changed to Landscape then back to Portrait
+	 * within performing same assertions.</li></li>
+	 * </ol>
+	 */
 	public void testInitialStateIfChangeOrientationOfTimerActivity() {
 		Log.i(LOGGER,
 				"Running testInitialStateOfTimerActivityInLandscapeMode()");
@@ -349,6 +515,48 @@ public class TimerActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of {@link #startStopButton}.
+	 * 
+	 * <p>
+	 * Scenario:
+	 * 
+	 * <ol>
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is visible;</li>
+	 * <li>Verifies that {@link #tPicker} default values are equal to expected;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is invisible;</li>
+	 * <li>Verifies that TextViews, which represent time-countdown are equal to
+	 * zero;</li>
+	 * <li>Verifies the text of {@link #pauseResumeButton} and
+	 * {@link #startStopButton};</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ul>
+	 * 
+	 * <li>"Start" button is tapped;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is gone;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is visible;</li>
+	 * <li>Verifies that text of {@link #startStopButton} has changed from
+	 * "Start to Stop";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is enabled.</li>
+	 * </ul>
+	 * 
+	 * <li>"Stop" button is tapped;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is visible;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is gone;</li>
+	 * <li>Verifies that text of {@link #startStopButton} has changed from
+	 * "Stop to Start";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ul>
+	 * </ol>
+	 */
 	public void testStartStopButtonBehaviorOfTimerActivity() {
 
 		Log.i(LOGGER, "Running testStartStopButtonBehaviorOfTimerActivity()");
@@ -398,6 +606,75 @@ public class TimerActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of {@link #startStopButton} during orientation
+	 * changes.
+	 * 
+	 * <p>
+	 * Scenario:
+	 * 
+	 * <ol>
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is visible;</li>
+	 * <li>Verifies that {@link #tPicker} default values are equal to expected;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is invisible;</li>
+	 * <li>Verifies that TextViews, which represent time-countdown are equal to
+	 * zero;</li>
+	 * <li>Verifies the text of {@link #pauseResumeButton} and
+	 * {@link #startStopButton};</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ul>
+	 * 
+	 * <li>"Start" button is tapped;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is gone;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is visible;</li>
+	 * <li>Verifies that text of {@link #startStopButton} has changed from
+	 * "Start to Stop";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is enabled.</li>
+	 * </ul>
+	 * 
+	 * <li>"Stop" button is tapped;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is visible;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is gone;</li>
+	 * <li>Verifies that text of {@link #startStopButton} has changed from
+	 * "Stop to Start";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ul>
+	 * 
+	 * <li>Device orientation is changed to Portrait mode;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is visible;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is gone;</li>
+	 * <li>Verifies that text of {@link #startStopButton} has changed from
+	 * "Stop to Start";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ul>
+	 * 
+	 * <li>Device orientation is changed to Landscape mode;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is visible;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is gone;</li>
+	 * <li>Verifies that text of {@link #startStopButton} has changed from
+	 * "Stop to Start";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ul>
+	 * 
+	 * <li>Same assertions are performed within orientation changes several
+	 * times.</li>
+	 * 
+	 * </ol>
+	 */
 	public void testStartStopButtonBehaviorIfChangeOrientationOfTimerActivity() {
 
 		Log.i(LOGGER,
@@ -479,6 +756,67 @@ public class TimerActivityBehaviorTest extends
 
 	}
 
+	/**
+	 * Verifies the behavior of {@link #pauseResumeButton}.
+	 * 
+	 * <p>
+	 * Scenario:
+	 * 
+	 * <ol>
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is visible;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is invisible;</li>
+	 * <li>Verifies the text of {@link #pauseResumeButton} and
+	 * {@link #startStopButton};</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is disabled.</li>
+	 * </ul>
+	 * 
+	 * <li>"Start" button is tapped;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is gone;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is visible;</li>
+	 * <li>Verifies that text of {@link #startStopButton} has changed from
+	 * "Start" to "Stop";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is enabled.</li>
+	 * </ul>
+	 * 
+	 * <li>"Pause" button is tapped;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is gone;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is visible;</li>
+	 * <li>Verifies that text of {@link #pauseResumeButton} has changed from
+	 * "Pause" to "Resume";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is enabled.</li>
+	 * </ul>
+	 * 
+	 * <li>"Resume" button is tapped;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is gone;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is visible;</li>
+	 * <li>Verifies that text of {@link #pauseResumeButton} has changed from
+	 * "Resume" to "Pause";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is enabled.</li>
+	 * </ul>
+	 * 
+	 * <li>"Pause" button is tapped;</li>
+	 * 
+	 * <li>Following assertions are performed:
+	 * <ul>
+	 * <li>Verifies that {@link #tPicker} is gone;</li>
+	 * <li>Verifies that {@link #lLayoutCountdown} is visible;</li>
+	 * <li>Verifies that text of {@link #pauseResumeButton} has changed from
+	 * "Pause" to "Resume";</li>
+	 * <li>Verifies that {@link #pauseResumeButton} is enabled.</li>
+	 * </ul>
+	 * </ol>
+	 */
 	public void testPauseResumeButtonBehaviorOfTimerActivity() {
 
 		Log.i(LOGGER, "Running testPauseResumeButtonBehaviorOfTimerActivity()");
